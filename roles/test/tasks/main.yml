@@ -1,0 +1,4 @@
+---
+# tasks file for test
+  - name : Mytest
+    debug: msg="My operating System Version is {{ OS_VERSION }}"

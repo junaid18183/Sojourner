@@ -1,0 +1,23 @@
+== Space for our ansible plugins
+
+If we need callback_plugins - they can live here and be picked up
+
+mail.py   - Ansible deployment error email to distribution list or any address.
+  Variables needs to add into your ansible.cfg
+  (which should be one of the ~/.ansible.cfg, /etc/ansible.cfg or /etc/ansible/ansible.cfg)
+  
+      [glam_admin]
+      ansible_admin=junedm@glam.com
+      ansible_cclist=''
+
+
+report.py - Ansible Deployment Status Report email to distribution list or any address.
+  Variables needs to add into your ansible.cfg
+  (which should be one of the ~/.ansible.cfg, /etc/ansible.cfg or /etc/ansible/ansible.cfg)
+  
+      [glam_admin]
+      ansible_admin=junedm@glam.com
+      ansible_cclist=''
+
+
+timestamp.py - Pretty formated ansible-playbook log output.

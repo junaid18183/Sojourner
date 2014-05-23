@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sqlite3 inventory.db <<JUNED
+.headers on
+SELECT ans_facts.Hostname,Last_Update,Arch,Distribution,Version,System,Kernel,Eth0_ip,Role,Owner FROM ans_facts LEFT OUTER JOIN  inventory ON ans_facts.Hostname=inventory.Hostname;
+JUNED

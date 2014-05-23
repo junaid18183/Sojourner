@@ -1,0 +1,164 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# (c) 2013, Juned Memon <junedm@tipsntraps.com>
+#
+# This file is part of Ansible
+#
+# Ansible is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Ansible is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
+
+DOCUMENTATION = '''
+---
+module: jira_xml_rpc
+author: Juned Memon
+version_added: "1.0"
+short_description: Create/Search/Modify Jira issue's
+description:
+    - Create/Search/Modify Jira issue's
+      Currently Jira Server address User name and password are hardcoded in the script
+options:
+    projectname:
+        required: true
+        description:
+        - projectname of the Jira under which the issue needs to be created
+          TBD
+          TBD
+    type:
+        required: true
+        default: 1
+        description:
+        - Type of the issue
+		
+	summary:
+        required: true
+        description:
+        - summary of the issue
+		
+	description:
+        required: true
+        description:
+        - description of the issue
+         
+examples:
+    - description: Create a Jira issue under project TESTING
+      code: "jira_xml_rpc: projectname='TESTING' type='1' summary="Issue Created via XML-RPC" description="Created with Python client"  
+
+   - name :Find the details about the issue 
+     jira_xml_rpc: action=getissue issue_id=TESTING-10
+
+  '''
+
+import sys
+from xmlrpclib import Server
+USER="admin"
+PASSWORD="admin"
+URL="http://jira.example.com/rpc/xmlrpc"
+
+def create_issue(serverurl,user,passwd,projectname,type,summary,description):
+        s = Server(serverurl)
+        auth = s.jira1.login(user, passwd)
+
+        newissue = s.jira1.createIssue(auth,{'project': projectname, 'type': type ,'summary' : summary,'description': description ,})
+        issue = 'Created Issue '+s.jira1.getServerInfo(auth)['baseUrl']+'/browse/'+newissue['key']
+        return issue
+
+def modify_issue(serverurl,user,passwd,issue_id,summary,description):
+	 s = Server(serverurl)
+         auth = s.jira1.login(user, passwd)
+         change= {'summary': [summary] , 'description': [description],}
+         s.jira1.updateIssue(auth,issue_id,change)
+         issue = 'Created Issue '+s.jira1.getServerInfo(auth)['baseUrl']+'/browse/'+issue_id
+         return issue
+
+def get_issue_by_id(serverurl,user,passwd,issue_id):
+#Get a specific issue by ID
+	s = Server(serverurl)
+	auth = s.jira1.login(user, passwd)
+        issue = s.jira1.getIssue(auth,issue_id)
+        return issue
+
+
+def main(): 
+    ACTION_CHOICES = [
+        'create',
+        'modify',
+	'getissue'
+        ]
+
+    # load ansible module object
+    module = AnsibleModule(
+        argument_spec = dict(
+            action = dict(required=True, default=None, choices=ACTION_CHOICES),
+            projectname = dict(required=False),
+            type = dict(required=False),
+	    summary = dict(required=False),
+	    description = dict(required=False),
+            user = dict(required=False, default=USER),
+            passwd = dict(required=False, default=PASSWORD),
+	    serverurl = dict(required=False, default=URL),
+	    issue_id = dict(required=False)
+        ),
+    supports_check_mode=True,
+    required_one_of=[['projectname', 'issue_id']]
+        
+    )
+    action = module.params['action']
+    serverurl = module.params['serverurl']
+    user = module.params['user']
+    passwd = module.params['passwd']
+    projectname = module.params['projectname']
+    type = module.params['type']
+    summary = module.params['summary']
+    description = module.params['description']
+    issue_id = module.params['issue_id']
+
+
+    # return json dict
+    result = {}
+	
+    if action == 'create' :
+    	    if not ( projectname or type or summary or description ) : 
+	            module.fail_json(msg='You Have to provide the summary , description , projectname and type')
+	    issue = create_issue(serverurl,user,passwd,projectname,type,summary,description)
+	    result['issue'] = issue
+	    result['changed'] = True
+	    fail = False
+
+
+    if action == 'modify' :
+    	    if not (summary or description or issue_id ) : 
+	            module.fail_json(msg='You Have to provide the summary,description and issue_id')
+
+            issue = modify_issue(serverurl,user,passwd,issue_id,summary,description)
+            result['issue'] = issue
+            result['changed'] = True
+            fail = False
+
+    if action == 'getissue' :
+	issue = get_issue_by_id ( serverurl,user,passwd,issue_id )
+	result['issue'] = issue
+        result['changed'] = False
+        fail = False
+
+
+    if fail:
+        module.fail_json(**result)
+    else:
+        module.exit_json(**result)
+
+# this is magic, see lib/ansible/module_common.py
+#<<INCLUDE_ANSIBLE_MODULE_COMMON>>
+
+main()
+

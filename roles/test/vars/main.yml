@@ -1,0 +1,3 @@
+---
+# vars file for test
+OS_VERSION: '{{ ansible_distribution_version }}'

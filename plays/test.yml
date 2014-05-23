@@ -1,0 +1,11 @@
+---
+#This Play installs the Jenkins
+
+- name: Test
+  hosts: Ganglia
+
+  user: junedm
+
+  roles:
+    -  test
+
