@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+
+INVENTORY_HOME='/home/junedm/Sojourner/'
+
 import sqlite3
 import sys
 try:
@@ -7,7 +10,7 @@ try:
 except ImportError:
     import simplejson as json
 
-dbname = '/home/junedm/ansible_home/inventory.db'
+dbname = INVENTORY_HOME+'/inventory.db'
 
 def grouplist(conn):
 
@@ -18,7 +21,7 @@ def grouplist(conn):
     #inventory['local'] = [ '127.0.0.1' ]
 
     cur = conn.cursor()
-    cur.execute("SELECT Hostname,Role FROM inventory ORDER BY 1, 2")
+    cur.execute("SELECT Hostname,Role from ans_facts ORDER BY 1, 2")
 
     for row in cur.fetchall():
         group = row['Role']

@@ -1,0 +1,120 @@
+#!/usr/bin/env python
+# +----------------------------------------------------------------------+
+# |                                                                      |
+# |       _                      _   __  __                              |
+# |      | |                    | | |  \/  |                             |
+# |      | |_   _ _ __   ___  __| | | \  / | ___ _ __ ___   ___  _ __    |
+# |  _   | | | | | '_ \ / _ \/ _` | | |\/| |/ _ \ '_ ` _ \ / _ \| '_ \   |
+# | | |__| | |_| | | | |  __/ (_| | | |  | |  __/ | | | | | (_) | | | |  |
+# |  \____/ \__,_|_| |_|\___|\__,_| |_|  |_|\___|_| |_| |_|\___/|_| |_|  |
+# |                                                                      |
+# | Author : Juned Memon            Email : junedm@tipsntraps.com        |
+# +----------------------------------------------------------------------+
+
+
+# +----------------------------------------------------------------------+
+# | Version :                                             
+# | Script  : 
+# | Notes   : 
+# |           
+# |                                                                      
+# +----------------------------------------------------------------------+
+import re,argparse,commands,os,sys,sqlite3
+
+from prettytable import PrettyTable #https://code.google.com/p/prettytable/wiki/Tutorial
+from prettytable import from_db_cursor
+
+try:
+    import json
+except ImportError:
+    import simplejson as json
+
+
+# +----------------------------------------------------------------------+
+#http://code.activestate.com/recipes/578801-pretty-print-table-in-tabular-format/
+# Pretty Print table in tabular format
+def PrettyPrint(table, justify = "R", columnWidth = 0):
+    # Not enforced but
+    # if provided columnWidth must be greater than max column width in table!
+    if columnWidth == 0:
+        # find max column width
+        for row in table:
+            for col in row:
+                width = len(str(col))
+                if width > columnWidth:
+                    columnWidth = width
+
+    outputStr = ""
+    for row in table:
+        rowList = []
+        for col in row:
+            if justify == "R": # justify right
+                rowList.append(str(col).rjust(columnWidth))
+            elif justify == "L": # justify left
+                rowList.append(str(col).ljust(columnWidth))
+            elif justify == "C": # justify center
+                rowList.append(str(col).center(columnWidth))
+        outputStr += ' '.join(rowList) + "\n"
+    return outputStr
+# +----------------------------------------------------------------------+
+def show (args) :
+        machine=args.machine
+        role=args.role
+
+	query='SELECT * FROM ans_facts'
+	
+	if machine:
+		query1 = query + " where Hostname='" + machine + "'"
+
+	elif role:
+		query1 = query + " where Role like '%" + role + "%'"
+	else :
+		query1 = query
+	data=execute_sql(query1)[0]
+	print data
+        return 0
+# +----------------------------------------------------------------------+
+def reap (args) :
+        machine=args.machine
+        query='DELETE FROM ans_facts'
+        query1 = query + " where Hostname='" + machine + "'"
+	data=execute_sql(query1)[1]
+        if (data==1):
+		print ("Successfully Removed %s from Inventory" %(machine))
+        return 0
+# +----------------------------------------------------------------------+
+def execute_sql(sql) :
+	#print sql
+        INVENTORY_HOME='/home/junedm/Sojourner/'
+        dbname = INVENTORY_HOME+'inventory.db'
+        conn = sqlite3.connect(dbname)
+        conn.row_factory=sqlite3.Row
+        cur = conn.cursor()
+        cur.execute(sql)
+	affected_records=cur.rowcount
+        pt = from_db_cursor(cur,print_empty=True)
+	conn.commit()
+        conn.close()
+        return pt,affected_records
+# +----------------------------------------------------------------------+
+def main ():
+
+        parser = argparse.ArgumentParser(description="Sojourner")
+        subparsers = parser.add_subparsers()
+
+        parser_show = subparsers.add_parser('show',help="show's all the host")
+        parser_show.add_argument("-m", "--machine", help="host name to search for")
+        parser_show.add_argument("-r", "--role", help="Role of the machine to search for.This will be regex.")
+        parser_show.set_defaults(func=show)
+
+        parser_reap  = subparsers.add_parser('reap', help="Delete the host from Inventory")
+        parser_reap.add_argument("-m", "--machine", help="host name to reap",required=True)
+        parser_reap.set_defaults(func=reap)
+
+        args = parser.parse_args()
+
+        args.func(args)
+        return 0
+# +----------------------------------------------------------------------+
+if __name__ == "__main__":
+         sys.exit(main())

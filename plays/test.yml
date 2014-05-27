@@ -2,7 +2,7 @@
 #This Play installs the Jenkins
 
 - name: Test
-  hosts: Ganglia
+  hosts: all
 
   user: junedm
 
