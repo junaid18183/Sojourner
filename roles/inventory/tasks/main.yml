@@ -1,0 +1,5 @@
+---
+# tasks file for inventory
+  - name : Just a Test
+    debug: msg="My Role is  {{Role}} and Owner is {{Owner}}"
+

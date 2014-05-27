@@ -1,7 +1,7 @@
 Role Name
 ========
 
-A brief description of the role goes here.
+Sample Role for inserting host in Inventory
 
 Requirements
 ------------
@@ -26,4 +26,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Juned Memon
