@@ -981,3 +981,302 @@ OSError: [Errno 13] Permission denied: '/etc/ansible/facts.d'
 2014-05-28 09:48:37,232 p=19025 u=junedm |  changed: [m10028f]
 2014-05-28 09:48:37,232 p=19025 u=junedm |  PLAY RECAP ******************************************************************** 
 2014-05-28 09:48:37,233 p=19025 u=junedm |  m10028f                    : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-28 13:33:59,604 p=23266 u=junedm |  
+2014-05-28 13:33:59,604 p=23266 u=junedm |  /usr/bin/ansible all --list-hosts
+2014-05-28 13:33:59,604 p=23266 u=junedm |  
+2014-05-28 13:33:59,640 p=23266 u=junedm |  ERROR: failed to parse executable inventory script results: {'msg': 'Usage: /home/junedm/Sojourner/inventory/inventory.py --list or --host <hostname>\n', 'failed': True, 'parsed': False}
+2014-05-28 13:34:40,345 p=23271 u=junedm |  
+2014-05-28 13:34:40,345 p=23271 u=junedm |  /usr/bin/ansible all --list-hosts
+2014-05-28 13:34:40,345 p=23271 u=junedm |  
+2014-05-28 13:34:40,384 p=23271 u=junedm |      m10028f
+2014-05-28 15:45:04,081 p=25665 u=junedm |   
+2014-05-28 15:45:04,081 p=25665 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 15:45:04,081 p=25665 u=junedm |   
+2014-05-28 15:45:04,113 p=25665 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 15:45:04,113 p=25665 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 15:45:04,716 p=25665 u=junedm |  ok: [m10028f]
+2014-05-28 15:45:06,411 p=25665 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 15:45:06,679 p=25665 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 15:45:06,679 p=25665 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 15:45:07,097 p=25665 u=junedm |  changed: [m10028f]
+2014-05-28 15:45:07,098 p=25665 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 15:45:07,616 p=25665 u=junedm |  changed: [m10028f]
+2014-05-28 15:45:07,617 p=25665 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 15:45:07,617 p=25665 u=junedm |  m10028f                    : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-28 15:47:24,879 p=25898 u=junedm |  
+2014-05-28 15:47:24,879 p=25898 u=junedm |  /usr/bin/ansible all -m setup
+2014-05-28 15:47:24,879 p=25898 u=junedm |  
+2014-05-28 15:47:25,666 p=25898 u=junedm |  m10028f | success >> {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "10.16.46.47"
+        ], 
+        "ansible_all_ipv6_addresses": [
+            "fe80::21b:24ff:fe5b:a54a"
+        ], 
+        "ansible_architecture": "x86_64", 
+        "ansible_bios_date": "07/04/2007", 
+        "ansible_bios_version": "S39_3B17", 
+        "ansible_cmdline": {
+            "KEYBOARDTYPE": "pc", 
+            "KEYTABLE": "us", 
+            "LANG": "en_US.UTF-8", 
+            "SYSFONT": "latarcyrheb-sun16", 
+            "biosdevname": "0", 
+            "console": "ttyS1,9600", 
+            "crashkernel": "130M@0M", 
+            "quiet": true, 
+            "rd_LVM_LV": "pool0/root_lv", 
+            "rd_NO_DM": true, 
+            "rd_NO_LUKS": true, 
+            "rd_NO_MD": true, 
+            "rhgb": true, 
+            "ro": true, 
+            "root": "/dev/mapper/pool0-root_lv"
+        }, 
+        "ansible_date_time": {
+            "date": "2014-05-28", 
+            "day": "28", 
+            "epoch": "1401292045", 
+            "hour": "15", 
+            "iso8601": "2014-05-28T15:47:25Z", 
+            "iso8601_micro": "2014-05-28T15:47:25.633248Z", 
+            "minute": "47", 
+            "month": "05", 
+            "second": "25", 
+            "time": "15:47:25", 
+            "tz": "GMT", 
+            "tz_offset": "+0000", 
+            "year": "2014"
+        }, 
+        "ansible_default_ipv4": {
+            "address": "10.16.46.47", 
+            "alias": "eth0", 
+            "gateway": "10.16.46.254", 
+            "interface": "eth0", 
+            "macaddress": "00:1b:24:5b:a5:4a", 
+            "mtu": 1500, 
+            "netmask": "255.255.255.0", 
+            "network": "10.16.46.0", 
+            "type": "ether"
+        }, 
+        "ansible_default_ipv6": {}, 
+        "ansible_devices": {
+            "sda": {
+                "holders": [], 
+                "host": "IDE interface: NVIDIA Corporation MCP55 SATA Controller (rev a3)", 
+                "model": "SEAGATE ST32500N", 
+                "partitions": {
+                    "sda1": {
+                        "sectors": "1024000", 
+                        "sectorsize": 512, 
+                        "size": "500.00 MB", 
+                        "start": "2048"
+                    }, 
+                    "sda2": {
+                        "sectors": "487362560", 
+                        "sectorsize": 512, 
+                        "size": "232.39 GB", 
+                        "start": "1026048"
+                    }
+                }, 
+                "removable": "0", 
+                "rotational": "1", 
+                "scheduler_mode": "cfq", 
+                "sectors": "488390625", 
+                "sectorsize": "512", 
+                "size": "232.88 GB", 
+                "support_discard": "0", 
+                "vendor": "ATA"
+            }
+        }, 
+        "ansible_distribution": "CentOS", 
+        "ansible_distribution_release": "Final", 
+        "ansible_distribution_version": "6.3", 
+        "ansible_domain": "ningops.com", 
+        "ansible_env": {
+            "G_BROKEN_FILENAMES": "1", 
+            "HOME": "/home/junedm", 
+            "LANG": "C", 
+            "LESSOPEN": "|/usr/bin/lesspipe.sh %s", 
+            "LOGNAME": "junedm", 
+            "MAIL": "/var/mail/junedm", 
+            "PATH": "/usr/local/bin:/bin:/usr/bin", 
+            "PWD": "/home/junedm", 
+            "SHELL": "/bin/bash", 
+            "SHLVL": "2", 
+            "SSH_CLIENT": "10.16.46.47 47744 22", 
+            "SSH_CONNECTION": "10.16.46.47 47744 10.16.46.47 22", 
+            "USER": "junedm", 
+            "_": "/usr/bin/python"
+        }, 
+        "ansible_eth0": {
+            "active": true, 
+            "device": "eth0", 
+            "ipv4": {
+                "address": "10.16.46.47", 
+                "netmask": "255.255.255.0", 
+                "network": "10.16.46.0"
+            }, 
+            "ipv4_secondaries": [], 
+            "ipv6": [
+                {
+                    "address": "fe80::21b:24ff:fe5b:a54a", 
+                    "prefix": "64", 
+                    "scope": "link"
+                }
+            ], 
+            "macaddress": "00:1b:24:5b:a5:4a", 
+            "module": "tg3", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_eth1": {
+            "active": false, 
+            "device": "eth1", 
+            "macaddress": "00:1b:24:5b:a5:4d", 
+            "module": "forcedeth", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_eth2": {
+            "active": false, 
+            "device": "eth2", 
+            "macaddress": "00:1b:24:5b:a5:4c", 
+            "module": "forcedeth", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_eth3": {
+            "active": false, 
+            "device": "eth3", 
+            "macaddress": "00:1b:24:5b:a5:4b", 
+            "module": "tg3", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_form_factor": "Rack Mount Chassis", 
+        "ansible_fqdn": "juned.ningops.com", 
+        "ansible_hostname": "m10028f", 
+        "ansible_interfaces": [
+            "lo", 
+            "eth3", 
+            "eth2", 
+            "eth1", 
+            "eth0"
+        ], 
+        "ansible_kernel": "2.6.32-279.el6.x86_64", 
+        "ansible_lo": {
+            "active": true, 
+            "device": "lo", 
+            "ipv4": {
+                "address": "127.0.0.1", 
+                "netmask": "255.0.0.0", 
+                "network": "127.0.0.0"
+            }, 
+            "ipv4_secondaries": [], 
+            "ipv6": [
+                {
+                    "address": "::1", 
+                    "prefix": "128", 
+                    "scope": "host"
+                }
+            ], 
+            "mtu": 16436, 
+            "promisc": false, 
+            "type": "loopback"
+        }, 
+        "ansible_local": {
+            "sojourner": {
+                "Owner": "Junedm", 
+                "Role": "Base"
+            }
+        }, 
+        "ansible_machine": "x86_64", 
+        "ansible_memfree_mb": 3112, 
+        "ansible_memtotal_mb": 15949, 
+        "ansible_mounts": [
+            {
+                "device": "/dev/mapper/pool0-root_lv", 
+                "fstype": "ext4", 
+                "mount": "/", 
+                "options": "rw", 
+                "size_available": 12815597568, 
+                "size_total": 16910295040
+            }, 
+            {
+                "device": "/dev/sda1", 
+                "fstype": "ext4", 
+                "mount": "/boot", 
+                "options": "rw", 
+                "size_available": 443489280, 
+                "size_total": 507744256
+            }, 
+            {
+                "device": "/dev/mapper/pool0-local_lv", 
+                "fstype": "ext4", 
+                "mount": "/local", 
+                "options": "rw", 
+                "size_available": 152183885824, 
+                "size_total": 220402372608
+            }
+        ], 
+        "ansible_os_family": "RedHat", 
+        "ansible_pkg_mgr": "yum", 
+        "ansible_processor": [
+            "Dual-Core AMD Opteron(tm) Processor 2218 HE", 
+            "Dual-Core AMD Opteron(tm) Processor 2218 HE", 
+            "Dual-Core AMD Opteron(tm) Processor 2218 HE", 
+            "Dual-Core AMD Opteron(tm) Processor 2218 HE"
+        ], 
+        "ansible_processor_cores": 2, 
+        "ansible_processor_count": 2, 
+        "ansible_processor_threads_per_core": 1, 
+        "ansible_processor_vcpus": 4, 
+        "ansible_product_name": "Sun Fire X2200 M2", 
+        "ansible_product_serial": "NA", 
+        "ansible_product_uuid": "NA", 
+        "ansible_product_version": "Rev 50", 
+        "ansible_python_version": "2.6.6", 
+        "ansible_selinux": false, 
+        "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAL1mPD5aejrSwu//hJ+wc9f8S83+Z34C0b1xrKrSC+yDq+3DpD6xhnf5xFt5WqSlEtXGAuwapFy74EluElFz2DXJHSP4YS9UxzRIHutOY9gzEScK2hNK51a3G9p8ROfuPnmsXwSO/+B57JLVCN1kNIUY4POWwibtgtZyRdL7ciTjAAAAFQCk0jjeMpvvMMXVJQ7TVAnXvnZadQAAAIBinqRO7ilyEvWL2GqDjPFYq8FlmqRWcutxCpvd8KfJuLtm+2FVmlt62fGFLFiAAvYL8SygUj0gslu6G08Z6m7Q5LADCvaq0x2rvzCliWQ4T1qRuLG1ftcEaGAQVAXRtZNGJHZcdIdYEVoTxx57QF4IeuRBP0FYaGTskeuFb+wr5QAAAIB0YpUx0z8vutasW6FNn4mQIoos9wA/CJQ1MAHVW/9R3Y0rMVdalay4XNKv+WTgD8PFAN0XVqYK8BaTiaNuLbuDKEgcBBvd02shhORIfz3RZl7gKLdKl60bhpsCjb1ICrML4gDOmdU/uHrfzwdINnKp12GsJvssV+TZROCmtoejcA==", 
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAABIwAAAQEArLK4S1iFZgiYuwB/w1E51sUgVz9XSW3ML6iiBeF3uxQ61YEIp8A09lfNAS9uM1ljAi96ca/Qe4LEpehut7MGA7BlbZ6W1azoq0/WwNY1kGVR3lJHBJxraqXvyXZT7D6LeSo8A74khySgzXobuvUaqBdp35HPzqCZO1xxgfgsLyO9valiKKBPN5IWm4spSTdfiGZas8MueXVdzPELT3PtLUmv+1XYB+tzMAOuSLDuC5L+/J4TcQAYjfqsmTbikJ/EahkDEcH5zfyiHrWeOj72S2fNdpOrwUiQfypR6aOZVciH/AWqsbAjD/9nl7tfVpknS5/PNQeHlK0kBSJbyjSZpw==", 
+        "ansible_swapfree_mb": 8039, 
+        "ansible_swaptotal_mb": 8039, 
+        "ansible_system": "Linux", 
+        "ansible_system_vendor": "Sun Microsystems", 
+        "ansible_user_id": "junedm", 
+        "ansible_userspace_architecture": "x86_64", 
+        "ansible_userspace_bits": "64"
+    }, 
+    "changed": false
+}
+
+2014-05-28 15:47:33,944 p=25957 u=junedm |  
+2014-05-28 15:47:33,944 p=25957 u=junedm |  /usr/bin/ansible all --list-host
+2014-05-28 15:47:33,944 p=25957 u=junedm |  
+2014-05-28 15:47:34,037 p=25957 u=junedm |      m10028f
+2014-05-28 15:49:45,786 p=25972 u=junedm |   
+2014-05-28 15:49:45,786 p=25972 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 15:49:45,786 p=25972 u=junedm |   
+2014-05-28 15:49:45,818 p=25972 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 15:49:45,818 p=25972 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 15:49:46,417 p=25972 u=junedm |  ok: [m10028f]
+2014-05-28 15:49:46,511 p=25972 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 15:49:46,780 p=25972 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 15:49:46,781 p=25972 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 15:49:47,198 p=25972 u=junedm |  changed: [m10028f]
+2014-05-28 15:49:47,198 p=25972 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 15:49:47,717 p=25972 u=junedm |  changed: [m10028f]
+2014-05-28 15:49:47,717 p=25972 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 15:49:47,718 p=25972 u=junedm |  m10028f                    : ok=4    changed=2    unreachable=0    failed=0   

@@ -28,8 +28,11 @@ try:
     import json
 except ImportError:
     import simplejson as json
+# +----------------------------------------------------------------------+
+#Variables
 
-
+INVENTORY_HOME='/home/junedm/Sojourner/'
+dbname = INVENTORY_HOME+'inventory.db'
 # +----------------------------------------------------------------------+
 #http://code.activestate.com/recipes/578801-pretty-print-table-in-tabular-format/
 # Pretty Print table in tabular format
@@ -57,6 +60,63 @@ def PrettyPrint(table, justify = "R", columnWidth = 0):
         outputStr += ' '.join(rowList) + "\n"
     return outputStr
 # +----------------------------------------------------------------------+
+# This is for ansible inventory
+def grouplist(conn):
+
+	inventory ={}
+   	# Add group for [local] (e.g. local_action). If needed,
+    	# set ansible_python_interpreter in host_vars/127.0.0.1
+    	#inventory['local'] = [ '127.0.0.1' ]
+
+	cur = conn.cursor()
+    	cur.execute("SELECT Hostname,Role from ans_facts ORDER BY 1, 2")
+
+	for row in cur.fetchall():
+        	group = row['Role']
+        	if group is None:
+            		group = 'ungrouped'
+
+        	# Add group with empty host list to inventory{} if necessary
+        	if not group in inventory:
+        		inventory[group] = {
+                		'hosts' : []
+            			}
+        		inventory[group]['hosts'].append(row['Hostname'])
+
+	cur.close()
+	print json.dumps(inventory, indent=4)
+	sys.exit(0)
+# +----------------------------------------------------------------------+
+def hostinfo(conn,name):
+
+    vars = {}
+
+    cur = conn.cursor()
+    cur.execute("SELECT COUNT(*) FROM ans_facts WHERE Hostname=?", (name, ))
+
+    row = cur.fetchone()
+    if row[0] == 0:
+        print json.dumps({})
+        sys.exit(0)
+
+    # Inject some variables for all hosts
+    vars = {
+        'admin'         : 'Juned Memon',
+        'datacenter'    : 'colo'
+    }
+
+    # Assuming you *know* that certain hosts need special vars
+    # and you can't or don't want to use host_vars/ group_vars,
+    # you could specify them here. For example, I *know* that
+    # hosts with the word 'ldap' in them need a base DN
+
+    if 'ldap' in name.lower():
+        vars['baseDN'] = 'dc=mens,dc=de'
+
+
+    print json.dumps(vars, indent=4)
+
+# +----------------------------------------------------------------------+
 def show (args) :
         machine=args.machine
         role=args.role
@@ -64,7 +124,8 @@ def show (args) :
 	query='SELECT * FROM ans_facts'
 	
 	if machine:
-		query1 = query + " where Hostname='" + machine + "'"
+		query1 = query + (" WHERE  Hostname=%s" %machine)
+		#query1 = query + " where Hostname='" + machine + "'"
 
 	elif role:
 		query1 = query + " where Role like '%" + role + "%'"
@@ -85,8 +146,8 @@ def reap (args) :
 # +----------------------------------------------------------------------+
 def execute_sql(sql) :
 	#print sql
-        INVENTORY_HOME='/home/junedm/Sojourner/'
-        dbname = INVENTORY_HOME+'inventory.db'
+        #INVENTORY_HOME='/home/junedm/Sojourner/'
+        #dbname = INVENTORY_HOME+'inventory.db'
         conn = sqlite3.connect(dbname)
         conn.row_factory=sqlite3.Row
         cur = conn.cursor()
@@ -97,9 +158,10 @@ def execute_sql(sql) :
         conn.close()
         return pt,affected_records
 # +----------------------------------------------------------------------+
-def main ():
+def menu ():
 
         parser = argparse.ArgumentParser(description="Sojourner")
+
         subparsers = parser.add_subparsers()
 
         parser_show = subparsers.add_parser('show',help="show's all the host")
@@ -111,10 +173,26 @@ def main ():
         parser_reap.add_argument("-m", "--machine", help="host name to reap",required=True)
         parser_reap.set_defaults(func=reap)
 
+
         args = parser.parse_args()
 
         args.func(args)
         return 0
+# +----------------------------------------------------------------------+
+def main():
+
+	conn = sqlite3.connect(dbname)
+	conn.row_factory=sqlite3.Row
+
+	if len(sys.argv) == 2 and (sys.argv[1] == '--list'):
+        	grouplist(conn)
+	elif len(sys.argv) == 3 and (sys.argv[1] == '--host'):
+        	hostinfo(conn,sys.argv[2])
+	else :
+        	menu()
+
+	conn.close()
+# +----------------------------------------------------------------------+
 # +----------------------------------------------------------------------+
 if __name__ == "__main__":
          sys.exit(main())
