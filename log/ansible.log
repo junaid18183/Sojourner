@@ -1,0 +1,983 @@
+2014-05-28 09:06:30,446 p=14592 u=junedm |   
+2014-05-28 09:06:30,446 p=14592 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:06:30,446 p=14592 u=junedm |   
+2014-05-28 09:06:36,509 p=14592 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:06:36,509 p=14592 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:06:37,146 p=14592 u=junedm |  ok: [m10028f]
+2014-05-28 09:06:37,149 p=14592 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:06:37,417 p=14592 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:06:37,418 p=14592 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:06:37,834 p=14592 u=junedm |  changed: [m10028f]
+2014-05-28 09:06:37,835 p=14592 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 09:06:38,387 p=14592 u=junedm |  changed: [m10028f]
+2014-05-28 09:06:38,388 p=14592 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:06:38,388 p=14592 u=junedm |  m10028f                    : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-28 09:08:00,412 p=14866 u=junedm |   
+2014-05-28 09:08:00,412 p=14866 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:08:00,413 p=14866 u=junedm |   
+2014-05-28 09:08:08,098 p=14866 u=junedm |  ERROR: Syntax Error while loading YAML script, /home/junedm/Sojourner/roles/inventory/tasks/main.yml
+Note: The error may actually appear before this position: line 13, column 2
+
+
+ - name: re-read facts after adding custom fact
+ ^
+2014-05-28 09:08:30,375 p=14869 u=junedm |   
+2014-05-28 09:08:30,376 p=14869 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:08:30,376 p=14869 u=junedm |   
+2014-05-28 09:08:40,489 p=14869 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:08:40,489 p=14869 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:08:41,085 p=14869 u=junedm |  ok: [m10028f]
+2014-05-28 09:08:41,087 p=14869 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:08:41,355 p=14869 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is JunedM"
+}
+2014-05-28 09:08:41,355 p=14869 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:08:41,770 p=14869 u=junedm |  changed: [m10028f]
+2014-05-28 09:08:41,771 p=14869 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 09:08:42,321 p=14869 u=junedm |  changed: [m10028f]
+2014-05-28 09:08:42,321 p=14869 u=junedm |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-05-28 09:08:42,874 p=14869 u=junedm |  ok: [m10028f]
+2014-05-28 09:08:42,875 p=14869 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:08:42,875 p=14869 u=junedm |  m10028f                    : ok=5    changed=2    unreachable=0    failed=0   
+2014-05-28 09:09:29,677 p=15094 u=junedm |   
+2014-05-28 09:09:29,677 p=15094 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:09:29,677 p=15094 u=junedm |   
+2014-05-28 09:09:29,709 p=15094 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:09:29,709 p=15094 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:09:30,349 p=15094 u=junedm |  ok: [m10028f]
+2014-05-28 09:09:30,351 p=15094 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:09:30,538 p=15094 u=junedm |  fatal: [m10028f] => One or more undefined variables: 'Role' is undefined
+2014-05-28 09:09:30,539 p=15094 u=junedm |  FATAL: all hosts have already failed -- aborting
+2014-05-28 09:09:30,539 p=15094 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:09:30,540 p=15094 u=junedm |             to retry, use: --limit @/home/junedm/inventory.retry
+
+2014-05-28 09:09:30,540 p=15094 u=junedm |  m10028f                    : ok=1    changed=0    unreachable=1    failed=0   
+2014-05-28 09:11:39,355 p=15168 u=junedm |   
+2014-05-28 09:11:39,355 p=15168 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:11:39,355 p=15168 u=junedm |   
+2014-05-28 09:11:39,388 p=15168 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:11:39,389 p=15168 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:11:39,990 p=15168 u=junedm |  ok: [m10028f]
+2014-05-28 09:11:39,992 p=15168 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:11:40,261 p=15168 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:11:40,261 p=15168 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:11:40,717 p=15168 u=junedm |  changed: [m10028f]
+2014-05-28 09:11:40,718 p=15168 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 09:11:41,269 p=15168 u=junedm |  changed: [m10028f]
+2014-05-28 09:11:41,270 p=15168 u=junedm |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-05-28 09:11:41,827 p=15168 u=junedm |  ok: [m10028f]
+2014-05-28 09:11:41,827 p=15168 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:11:41,827 p=15168 u=junedm |  m10028f                    : ok=5    changed=2    unreachable=0    failed=0   
+2014-05-28 09:14:15,110 p=15470 u=junedm |   
+2014-05-28 09:14:15,111 p=15470 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:14:15,111 p=15470 u=junedm |   
+2014-05-28 09:14:15,144 p=15470 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:14:15,145 p=15470 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:14:15,745 p=15470 u=junedm |  ok: [m10028f]
+2014-05-28 09:14:15,747 p=15470 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:14:16,016 p=15470 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:14:16,017 p=15470 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:14:16,434 p=15470 u=junedm |  changed: [m10028f]
+2014-05-28 09:14:16,435 p=15470 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 09:14:16,953 p=15470 u=junedm |  changed: [m10028f]
+2014-05-28 09:14:16,954 p=15470 u=junedm |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-05-28 09:14:17,512 p=15470 u=junedm |  ok: [m10028f]
+2014-05-28 09:14:17,512 p=15470 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:14:17,512 p=15470 u=junedm |  m10028f                    : ok=5    changed=2    unreachable=0    failed=0   
+2014-05-28 09:17:35,201 p=15766 u=junedm |   
+2014-05-28 09:17:35,202 p=15766 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:17:35,202 p=15766 u=junedm |   
+2014-05-28 09:19:39,263 p=15777 u=junedm |   
+2014-05-28 09:19:39,263 p=15777 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:19:39,263 p=15777 u=junedm |   
+2014-05-28 09:19:45,160 p=15781 u=junedm |   
+2014-05-28 09:19:45,160 p=15781 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:19:45,160 p=15781 u=junedm |   
+2014-05-28 09:23:27,754 p=15881 u=junedm |   
+2014-05-28 09:23:27,755 p=15881 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:23:27,755 p=15881 u=junedm |   
+2014-05-28 09:23:27,800 p=15881 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:25:17,486 p=15893 u=junedm |   
+2014-05-28 09:25:17,487 p=15893 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:25:17,487 p=15893 u=junedm |   
+2014-05-28 09:25:17,518 p=15893 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:25:17,518 p=15893 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:25:18,152 p=15893 u=junedm |  ok: [m10028f]
+2014-05-28 09:25:18,155 p=15893 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:25:18,423 p=15893 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:25:18,424 p=15893 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:25:18,840 p=15893 u=junedm |  changed: [m10028f]
+2014-05-28 09:25:18,840 p=15893 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 09:25:19,360 p=15893 u=junedm |  changed: [m10028f]
+2014-05-28 09:25:19,360 p=15893 u=junedm |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-05-28 09:25:19,917 p=15893 u=junedm |  ok: [m10028f]
+2014-05-28 09:25:19,917 p=15893 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:25:19,918 p=15893 u=junedm |  m10028f                    : ok=5    changed=2    unreachable=0    failed=0   
+2014-05-28 09:27:13,623 p=16111 u=junedm |   
+2014-05-28 09:27:13,624 p=16111 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:27:13,624 p=16111 u=junedm |   
+2014-05-28 09:27:13,657 p=16111 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:27:13,658 p=16111 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:27:14,264 p=16111 u=junedm |  ok: [m10028f]
+2014-05-28 09:27:14,267 p=16111 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:27:14,535 p=16111 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:27:14,535 p=16111 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:27:14,955 p=16111 u=junedm |  changed: [m10028f]
+2014-05-28 09:27:14,956 p=16111 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 09:27:15,474 p=16111 u=junedm |  changed: [m10028f]
+2014-05-28 09:27:15,475 p=16111 u=junedm |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-05-28 09:27:16,031 p=16111 u=junedm |  ok: [m10028f]
+2014-05-28 09:27:16,031 p=16111 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:27:16,031 p=16111 u=junedm |  m10028f                    : ok=5    changed=2    unreachable=0    failed=0   
+2014-05-28 09:28:12,413 p=16394 u=junedm |   
+2014-05-28 09:28:12,413 p=16394 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:28:12,413 p=16394 u=junedm |   
+2014-05-28 09:28:12,447 p=16394 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:28:12,447 p=16394 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:28:13,046 p=16394 u=junedm |  ok: [m10028f]
+2014-05-28 09:28:13,049 p=16394 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:28:13,318 p=16394 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:28:13,319 p=16394 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:28:13,734 p=16394 u=junedm |  changed: [m10028f]
+2014-05-28 09:28:13,735 p=16394 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 09:28:14,251 p=16394 u=junedm |  changed: [m10028f]
+2014-05-28 09:28:14,251 p=16394 u=junedm |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-05-28 09:28:14,807 p=16394 u=junedm |  ok: [m10028f]
+2014-05-28 09:28:14,808 p=16394 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:28:14,808 p=16394 u=junedm |  m10028f                    : ok=5    changed=2    unreachable=0    failed=0   
+2014-05-28 09:28:48,350 p=16593 u=junedm |  
+2014-05-28 09:28:48,350 p=16593 u=junedm |  /usr/bin/ansible -i NOPS-786 all -m setup
+2014-05-28 09:28:48,350 p=16593 u=junedm |  
+2014-05-28 09:28:48,975 p=16593 u=junedm |  m10028f | success >> {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "10.16.46.47"
+        ], 
+        "ansible_all_ipv6_addresses": [
+            "fe80::21b:24ff:fe5b:a54a"
+        ], 
+        "ansible_architecture": "x86_64", 
+        "ansible_bios_date": "07/04/2007", 
+        "ansible_bios_version": "S39_3B17", 
+        "ansible_cmdline": {
+            "KEYBOARDTYPE": "pc", 
+            "KEYTABLE": "us", 
+            "LANG": "en_US.UTF-8", 
+            "SYSFONT": "latarcyrheb-sun16", 
+            "biosdevname": "0", 
+            "console": "ttyS1,9600", 
+            "crashkernel": "130M@0M", 
+            "quiet": true, 
+            "rd_LVM_LV": "pool0/root_lv", 
+            "rd_NO_DM": true, 
+            "rd_NO_LUKS": true, 
+            "rd_NO_MD": true, 
+            "rhgb": true, 
+            "ro": true, 
+            "root": "/dev/mapper/pool0-root_lv"
+        }, 
+        "ansible_date_time": {
+            "date": "2014-05-28", 
+            "day": "28", 
+            "epoch": "1401269328", 
+            "hour": "09", 
+            "iso8601": "2014-05-28T09:28:48Z", 
+            "iso8601_micro": "2014-05-28T09:28:48.906935Z", 
+            "minute": "28", 
+            "month": "05", 
+            "second": "48", 
+            "time": "09:28:48", 
+            "tz": "GMT", 
+            "tz_offset": "+0000", 
+            "year": "2014"
+        }, 
+        "ansible_default_ipv4": {
+            "address": "10.16.46.47", 
+            "alias": "eth0", 
+            "gateway": "10.16.46.254", 
+            "interface": "eth0", 
+            "macaddress": "00:1b:24:5b:a5:4a", 
+            "mtu": 1500, 
+            "netmask": "255.255.255.0", 
+            "network": "10.16.46.0", 
+            "type": "ether"
+        }, 
+        "ansible_default_ipv6": {}, 
+        "ansible_devices": {
+            "sda": {
+                "holders": [], 
+                "host": "IDE interface: NVIDIA Corporation MCP55 SATA Controller (rev a3)", 
+                "model": "SEAGATE ST32500N", 
+                "partitions": {
+                    "sda1": {
+                        "sectors": "1024000", 
+                        "sectorsize": 512, 
+                        "size": "500.00 MB", 
+                        "start": "2048"
+                    }, 
+                    "sda2": {
+                        "sectors": "487362560", 
+                        "sectorsize": 512, 
+                        "size": "232.39 GB", 
+                        "start": "1026048"
+                    }
+                }, 
+                "removable": "0", 
+                "rotational": "1", 
+                "scheduler_mode": "cfq", 
+                "sectors": "488390625", 
+                "sectorsize": "512", 
+                "size": "232.88 GB", 
+                "support_discard": "0", 
+                "vendor": "ATA"
+            }
+        }, 
+        "ansible_distribution": "CentOS", 
+        "ansible_distribution_release": "Final", 
+        "ansible_distribution_version": "6.3", 
+        "ansible_domain": "ningops.com", 
+        "ansible_env": {
+            "G_BROKEN_FILENAMES": "1", 
+            "HOME": "/home/junedm", 
+            "LANG": "C", 
+            "LESSOPEN": "|/usr/bin/lesspipe.sh %s", 
+            "LOGNAME": "junedm", 
+            "MAIL": "/var/mail/junedm", 
+            "PATH": "/usr/local/bin:/bin:/usr/bin", 
+            "PWD": "/home/junedm", 
+            "SHELL": "/bin/bash", 
+            "SHLVL": "2", 
+            "SSH_CLIENT": "10.16.46.47 46175 22", 
+            "SSH_CONNECTION": "10.16.46.47 46175 10.16.46.47 22", 
+            "USER": "junedm", 
+            "_": "/usr/bin/python"
+        }, 
+        "ansible_eth0": {
+            "active": true, 
+            "device": "eth0", 
+            "ipv4": {
+                "address": "10.16.46.47", 
+                "netmask": "255.255.255.0", 
+                "network": "10.16.46.0"
+            }, 
+            "ipv4_secondaries": [], 
+            "ipv6": [
+                {
+                    "address": "fe80::21b:24ff:fe5b:a54a", 
+                    "prefix": "64", 
+                    "scope": "link"
+                }
+            ], 
+            "macaddress": "00:1b:24:5b:a5:4a", 
+            "module": "tg3", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_eth1": {
+            "active": false, 
+            "device": "eth1", 
+            "macaddress": "00:1b:24:5b:a5:4d", 
+            "module": "forcedeth", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_eth2": {
+            "active": false, 
+            "device": "eth2", 
+            "macaddress": "00:1b:24:5b:a5:4c", 
+            "module": "forcedeth", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_eth3": {
+            "active": false, 
+            "device": "eth3", 
+            "macaddress": "00:1b:24:5b:a5:4b", 
+            "module": "tg3", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_form_factor": "Rack Mount Chassis", 
+        "ansible_fqdn": "juned.ningops.com", 
+        "ansible_hostname": "m10028f", 
+        "ansible_interfaces": [
+            "lo", 
+            "eth3", 
+            "eth2", 
+            "eth1", 
+            "eth0"
+        ], 
+        "ansible_kernel": "2.6.32-279.el6.x86_64", 
+        "ansible_lo": {
+            "active": true, 
+            "device": "lo", 
+            "ipv4": {
+                "address": "127.0.0.1", 
+                "netmask": "255.0.0.0", 
+                "network": "127.0.0.0"
+            }, 
+            "ipv4_secondaries": [], 
+            "ipv6": [
+                {
+                    "address": "::1", 
+                    "prefix": "128", 
+                    "scope": "host"
+                }
+            ], 
+            "mtu": 16436, 
+            "promisc": false, 
+            "type": "loopback"
+        }, 
+        "ansible_local": {
+            "sojourner": "error loading fact - please check content"
+        }, 
+        "ansible_machine": "x86_64", 
+        "ansible_memfree_mb": 3114, 
+        "ansible_memtotal_mb": 15949, 
+        "ansible_mounts": [
+            {
+                "device": "/dev/mapper/pool0-root_lv", 
+                "fstype": "ext4", 
+                "mount": "/", 
+                "options": "rw", 
+                "size_available": 12816855040, 
+                "size_total": 16910295040
+            }, 
+            {
+                "device": "/dev/sda1", 
+                "fstype": "ext4", 
+                "mount": "/boot", 
+                "options": "rw", 
+                "size_available": 443489280, 
+                "size_total": 507744256
+            }, 
+            {
+                "device": "/dev/mapper/pool0-local_lv", 
+                "fstype": "ext4", 
+                "mount": "/local", 
+                "options": "rw", 
+                "size_available": 152183885824, 
+                "size_total": 220402372608
+            }
+        ], 
+        "ansible_os_family": "RedHat", 
+        "ansible_pkg_mgr": "yum", 
+        "ansible_processor": [
+            "Dual-Core AMD Opteron(tm) Processor 2218 HE", 
+            "Dual-Core AMD Opteron(tm) Processor 2218 HE", 
+            "Dual-Core AMD Opteron(tm) Processor 2218 HE", 
+            "Dual-Core AMD Opteron(tm) Processor 2218 HE"
+        ], 
+        "ansible_processor_cores": 2, 
+        "ansible_processor_count": 2, 
+        "ansible_processor_threads_per_core": 1, 
+        "ansible_processor_vcpus": 4, 
+        "ansible_product_name": "Sun Fire X2200 M2", 
+        "ansible_product_serial": "NA", 
+        "ansible_product_uuid": "NA", 
+        "ansible_product_version": "Rev 50", 
+        "ansible_python_version": "2.6.6", 
+        "ansible_selinux": false, 
+        "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAL1mPD5aejrSwu//hJ+wc9f8S83+Z34C0b1xrKrSC+yDq+3DpD6xhnf5xFt5WqSlEtXGAuwapFy74EluElFz2DXJHSP4YS9UxzRIHutOY9gzEScK2hNK51a3G9p8ROfuPnmsXwSO/+B57JLVCN1kNIUY4POWwibtgtZyRdL7ciTjAAAAFQCk0jjeMpvvMMXVJQ7TVAnXvnZadQAAAIBinqRO7ilyEvWL2GqDjPFYq8FlmqRWcutxCpvd8KfJuLtm+2FVmlt62fGFLFiAAvYL8SygUj0gslu6G08Z6m7Q5LADCvaq0x2rvzCliWQ4T1qRuLG1ftcEaGAQVAXRtZNGJHZcdIdYEVoTxx57QF4IeuRBP0FYaGTskeuFb+wr5QAAAIB0YpUx0z8vutasW6FNn4mQIoos9wA/CJQ1MAHVW/9R3Y0rMVdalay4XNKv+WTgD8PFAN0XVqYK8BaTiaNuLbuDKEgcBBvd02shhORIfz3RZl7gKLdKl60bhpsCjb1ICrML4gDOmdU/uHrfzwdINnKp12GsJvssV+TZROCmtoejcA==", 
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAABIwAAAQEArLK4S1iFZgiYuwB/w1E51sUgVz9XSW3ML6iiBeF3uxQ61YEIp8A09lfNAS9uM1ljAi96ca/Qe4LEpehut7MGA7BlbZ6W1azoq0/WwNY1kGVR3lJHBJxraqXvyXZT7D6LeSo8A74khySgzXobuvUaqBdp35HPzqCZO1xxgfgsLyO9valiKKBPN5IWm4spSTdfiGZas8MueXVdzPELT3PtLUmv+1XYB+tzMAOuSLDuC5L+/J4TcQAYjfqsmTbikJ/EahkDEcH5zfyiHrWeOj72S2fNdpOrwUiQfypR6aOZVciH/AWqsbAjD/9nl7tfVpknS5/PNQeHlK0kBSJbyjSZpw==", 
+        "ansible_swapfree_mb": 8039, 
+        "ansible_swaptotal_mb": 8039, 
+        "ansible_system": "Linux", 
+        "ansible_system_vendor": "Sun Microsystems", 
+        "ansible_user_id": "junedm", 
+        "ansible_userspace_architecture": "x86_64", 
+        "ansible_userspace_bits": "64"
+    }, 
+    "changed": false
+}
+
+2014-05-28 09:30:36,577 p=16658 u=junedm |  
+2014-05-28 09:30:36,577 p=16658 u=junedm |  /usr/bin/ansible -i NOPS-786 all -m setup
+2014-05-28 09:30:36,577 p=16658 u=junedm |  
+2014-05-28 09:30:37,206 p=16658 u=junedm |  m10028f | success >> {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "10.16.46.47"
+        ], 
+        "ansible_all_ipv6_addresses": [
+            "fe80::21b:24ff:fe5b:a54a"
+        ], 
+        "ansible_architecture": "x86_64", 
+        "ansible_bios_date": "07/04/2007", 
+        "ansible_bios_version": "S39_3B17", 
+        "ansible_cmdline": {
+            "KEYBOARDTYPE": "pc", 
+            "KEYTABLE": "us", 
+            "LANG": "en_US.UTF-8", 
+            "SYSFONT": "latarcyrheb-sun16", 
+            "biosdevname": "0", 
+            "console": "ttyS1,9600", 
+            "crashkernel": "130M@0M", 
+            "quiet": true, 
+            "rd_LVM_LV": "pool0/root_lv", 
+            "rd_NO_DM": true, 
+            "rd_NO_LUKS": true, 
+            "rd_NO_MD": true, 
+            "rhgb": true, 
+            "ro": true, 
+            "root": "/dev/mapper/pool0-root_lv"
+        }, 
+        "ansible_date_time": {
+            "date": "2014-05-28", 
+            "day": "28", 
+            "epoch": "1401269437", 
+            "hour": "09", 
+            "iso8601": "2014-05-28T09:30:37Z", 
+            "iso8601_micro": "2014-05-28T09:30:37.136622Z", 
+            "minute": "30", 
+            "month": "05", 
+            "second": "37", 
+            "time": "09:30:37", 
+            "tz": "GMT", 
+            "tz_offset": "+0000", 
+            "year": "2014"
+        }, 
+        "ansible_default_ipv4": {
+            "address": "10.16.46.47", 
+            "alias": "eth0", 
+            "gateway": "10.16.46.254", 
+            "interface": "eth0", 
+            "macaddress": "00:1b:24:5b:a5:4a", 
+            "mtu": 1500, 
+            "netmask": "255.255.255.0", 
+            "network": "10.16.46.0", 
+            "type": "ether"
+        }, 
+        "ansible_default_ipv6": {}, 
+        "ansible_devices": {
+            "sda": {
+                "holders": [], 
+                "host": "IDE interface: NVIDIA Corporation MCP55 SATA Controller (rev a3)", 
+                "model": "SEAGATE ST32500N", 
+                "partitions": {
+                    "sda1": {
+                        "sectors": "1024000", 
+                        "sectorsize": 512, 
+                        "size": "500.00 MB", 
+                        "start": "2048"
+                    }, 
+                    "sda2": {
+                        "sectors": "487362560", 
+                        "sectorsize": 512, 
+                        "size": "232.39 GB", 
+                        "start": "1026048"
+                    }
+                }, 
+                "removable": "0", 
+                "rotational": "1", 
+                "scheduler_mode": "cfq", 
+                "sectors": "488390625", 
+                "sectorsize": "512", 
+                "size": "232.88 GB", 
+                "support_discard": "0", 
+                "vendor": "ATA"
+            }
+        }, 
+        "ansible_distribution": "CentOS", 
+        "ansible_distribution_release": "Final", 
+        "ansible_distribution_version": "6.3", 
+        "ansible_domain": "ningops.com", 
+        "ansible_env": {
+            "G_BROKEN_FILENAMES": "1", 
+            "HOME": "/home/junedm", 
+            "LANG": "C", 
+            "LESSOPEN": "|/usr/bin/lesspipe.sh %s", 
+            "LOGNAME": "junedm", 
+            "MAIL": "/var/mail/junedm", 
+            "PATH": "/usr/local/bin:/bin:/usr/bin", 
+            "PWD": "/home/junedm", 
+            "SHELL": "/bin/bash", 
+            "SHLVL": "2", 
+            "SSH_CLIENT": "10.16.46.47 46184 22", 
+            "SSH_CONNECTION": "10.16.46.47 46184 10.16.46.47 22", 
+            "USER": "junedm", 
+            "_": "/usr/bin/python"
+        }, 
+        "ansible_eth0": {
+            "active": true, 
+            "device": "eth0", 
+            "ipv4": {
+                "address": "10.16.46.47", 
+                "netmask": "255.255.255.0", 
+                "network": "10.16.46.0"
+            }, 
+            "ipv4_secondaries": [], 
+            "ipv6": [
+                {
+                    "address": "fe80::21b:24ff:fe5b:a54a", 
+                    "prefix": "64", 
+                    "scope": "link"
+                }
+            ], 
+            "macaddress": "00:1b:24:5b:a5:4a", 
+            "module": "tg3", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_eth1": {
+            "active": false, 
+            "device": "eth1", 
+            "macaddress": "00:1b:24:5b:a5:4d", 
+            "module": "forcedeth", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_eth2": {
+            "active": false, 
+            "device": "eth2", 
+            "macaddress": "00:1b:24:5b:a5:4c", 
+            "module": "forcedeth", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_eth3": {
+            "active": false, 
+            "device": "eth3", 
+            "macaddress": "00:1b:24:5b:a5:4b", 
+            "module": "tg3", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_form_factor": "Rack Mount Chassis", 
+        "ansible_fqdn": "juned.ningops.com", 
+        "ansible_hostname": "m10028f", 
+        "ansible_interfaces": [
+            "lo", 
+            "eth3", 
+            "eth2", 
+            "eth1", 
+            "eth0"
+        ], 
+        "ansible_kernel": "2.6.32-279.el6.x86_64", 
+        "ansible_lo": {
+            "active": true, 
+            "device": "lo", 
+            "ipv4": {
+                "address": "127.0.0.1", 
+                "netmask": "255.0.0.0", 
+                "network": "127.0.0.0"
+            }, 
+            "ipv4_secondaries": [], 
+            "ipv6": [
+                {
+                    "address": "::1", 
+                    "prefix": "128", 
+                    "scope": "host"
+                }
+            ], 
+            "mtu": 16436, 
+            "promisc": false, 
+            "type": "loopback"
+        }, 
+        "ansible_local": {
+            "sojourner": "error loading fact - please check content"
+        }, 
+        "ansible_machine": "x86_64", 
+        "ansible_memfree_mb": 3114, 
+        "ansible_memtotal_mb": 15949, 
+        "ansible_mounts": [
+            {
+                "device": "/dev/mapper/pool0-root_lv", 
+                "fstype": "ext4", 
+                "mount": "/", 
+                "options": "rw", 
+                "size_available": 12816834560, 
+                "size_total": 16910295040
+            }, 
+            {
+                "device": "/dev/sda1", 
+                "fstype": "ext4", 
+                "mount": "/boot", 
+                "options": "rw", 
+                "size_available": 443489280, 
+                "size_total": 507744256
+            }, 
+            {
+                "device": "/dev/mapper/pool0-local_lv", 
+                "fstype": "ext4", 
+                "mount": "/local", 
+                "options": "rw", 
+                "size_available": 152183885824, 
+                "size_total": 220402372608
+            }
+        ], 
+        "ansible_os_family": "RedHat", 
+        "ansible_pkg_mgr": "yum", 
+        "ansible_processor": [
+            "Dual-Core AMD Opteron(tm) Processor 2218 HE", 
+            "Dual-Core AMD Opteron(tm) Processor 2218 HE", 
+            "Dual-Core AMD Opteron(tm) Processor 2218 HE", 
+            "Dual-Core AMD Opteron(tm) Processor 2218 HE"
+        ], 
+        "ansible_processor_cores": 2, 
+        "ansible_processor_count": 2, 
+        "ansible_processor_threads_per_core": 1, 
+        "ansible_processor_vcpus": 4, 
+        "ansible_product_name": "Sun Fire X2200 M2", 
+        "ansible_product_serial": "NA", 
+        "ansible_product_uuid": "NA", 
+        "ansible_product_version": "Rev 50", 
+        "ansible_python_version": "2.6.6", 
+        "ansible_selinux": false, 
+        "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAL1mPD5aejrSwu//hJ+wc9f8S83+Z34C0b1xrKrSC+yDq+3DpD6xhnf5xFt5WqSlEtXGAuwapFy74EluElFz2DXJHSP4YS9UxzRIHutOY9gzEScK2hNK51a3G9p8ROfuPnmsXwSO/+B57JLVCN1kNIUY4POWwibtgtZyRdL7ciTjAAAAFQCk0jjeMpvvMMXVJQ7TVAnXvnZadQAAAIBinqRO7ilyEvWL2GqDjPFYq8FlmqRWcutxCpvd8KfJuLtm+2FVmlt62fGFLFiAAvYL8SygUj0gslu6G08Z6m7Q5LADCvaq0x2rvzCliWQ4T1qRuLG1ftcEaGAQVAXRtZNGJHZcdIdYEVoTxx57QF4IeuRBP0FYaGTskeuFb+wr5QAAAIB0YpUx0z8vutasW6FNn4mQIoos9wA/CJQ1MAHVW/9R3Y0rMVdalay4XNKv+WTgD8PFAN0XVqYK8BaTiaNuLbuDKEgcBBvd02shhORIfz3RZl7gKLdKl60bhpsCjb1ICrML4gDOmdU/uHrfzwdINnKp12GsJvssV+TZROCmtoejcA==", 
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAABIwAAAQEArLK4S1iFZgiYuwB/w1E51sUgVz9XSW3ML6iiBeF3uxQ61YEIp8A09lfNAS9uM1ljAi96ca/Qe4LEpehut7MGA7BlbZ6W1azoq0/WwNY1kGVR3lJHBJxraqXvyXZT7D6LeSo8A74khySgzXobuvUaqBdp35HPzqCZO1xxgfgsLyO9valiKKBPN5IWm4spSTdfiGZas8MueXVdzPELT3PtLUmv+1XYB+tzMAOuSLDuC5L+/J4TcQAYjfqsmTbikJ/EahkDEcH5zfyiHrWeOj72S2fNdpOrwUiQfypR6aOZVciH/AWqsbAjD/9nl7tfVpknS5/PNQeHlK0kBSJbyjSZpw==", 
+        "ansible_swapfree_mb": 8039, 
+        "ansible_swaptotal_mb": 8039, 
+        "ansible_system": "Linux", 
+        "ansible_system_vendor": "Sun Microsystems", 
+        "ansible_user_id": "junedm", 
+        "ansible_userspace_architecture": "x86_64", 
+        "ansible_userspace_bits": "64"
+    }, 
+    "changed": false
+}
+
+2014-05-28 09:32:08,328 p=16719 u=junedm |  
+2014-05-28 09:32:08,328 p=16719 u=junedm |  /usr/bin/ansible -i NOPS-786 all -m setup -a "ansible_local"
+2014-05-28 09:32:08,328 p=16719 u=junedm |  
+2014-05-28 09:32:08,806 p=16719 u=junedm |  m10028f | FAILED >> {
+    "failed": true, 
+    "msg": "this module requires key=value arguments (['ansible_local'])"
+}
+
+2014-05-28 09:32:16,647 p=16752 u=junedm |  
+2014-05-28 09:32:16,648 p=16752 u=junedm |  /usr/bin/ansible -i NOPS-786 all -m setup -a ansible_local
+2014-05-28 09:32:16,648 p=16752 u=junedm |  
+2014-05-28 09:32:17,168 p=16752 u=junedm |  m10028f | FAILED >> {
+    "failed": true, 
+    "msg": "this module requires key=value arguments (['ansible_local'])"
+}
+
+2014-05-28 09:32:23,491 p=16786 u=junedm |  
+2014-05-28 09:32:23,491 p=16786 u=junedm |  /usr/bin/ansible -i NOPS-786 all -m setup -a filter=ansible_local
+2014-05-28 09:32:23,491 p=16786 u=junedm |  
+2014-05-28 09:32:24,074 p=16786 u=junedm |  m10028f | success >> {
+    "ansible_facts": {
+        "ansible_local": {
+            "sojourner": {
+                "Owner": "Operations Team", 
+                "Role": "Ganglia"
+            }
+        }
+    }, 
+    "changed": false
+}
+
+2014-05-28 09:33:34,446 p=16847 u=junedm |   
+2014-05-28 09:33:34,446 p=16847 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:33:34,446 p=16847 u=junedm |   
+2014-05-28 09:33:34,479 p=16847 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:33:34,479 p=16847 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:33:35,119 p=16847 u=junedm |  ok: [m10028f]
+2014-05-28 09:33:35,229 p=16847 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:33:35,497 p=16847 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:33:35,498 p=16847 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:33:35,915 p=16847 u=junedm |  changed: [m10028f]
+2014-05-28 09:33:35,916 p=16847 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 09:33:36,432 p=16847 u=junedm |  changed: [m10028f]
+2014-05-28 09:33:36,432 p=16847 u=junedm |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-05-28 09:33:36,993 p=16847 u=junedm |  ok: [m10028f]
+2014-05-28 09:33:36,993 p=16847 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:33:36,993 p=16847 u=junedm |  m10028f                    : ok=5    changed=2    unreachable=0    failed=0   
+2014-05-28 09:35:05,367 p=17133 u=junedm |   
+2014-05-28 09:35:05,367 p=17133 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:35:05,367 p=17133 u=junedm |   
+2014-05-28 09:35:05,400 p=17133 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:35:05,400 p=17133 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:35:06,002 p=17133 u=junedm |  ok: [m10028f]
+2014-05-28 09:35:06,133 p=17133 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:35:06,402 p=17133 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:35:06,403 p=17133 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:35:06,859 p=17133 u=junedm |  changed: [m10028f]
+2014-05-28 09:35:06,860 p=17133 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 09:35:07,379 p=17133 u=junedm |  changed: [m10028f]
+2014-05-28 09:35:07,380 p=17133 u=junedm |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-05-28 09:35:07,959 p=17133 u=junedm |  ok: [m10028f]
+2014-05-28 09:35:07,960 p=17133 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:35:07,960 p=17133 u=junedm |  m10028f                    : ok=5    changed=2    unreachable=0    failed=0   
+2014-05-28 09:35:26,564 p=17343 u=junedm |  
+2014-05-28 09:35:26,564 p=17343 u=junedm |  /usr/bin/ansible -i NOPS-786 all -m setup -a filter=ansible_local
+2014-05-28 09:35:26,565 p=17343 u=junedm |  
+2014-05-28 09:35:27,169 p=17343 u=junedm |  m10028f | success >> {
+    "ansible_facts": {
+        "ansible_local": {
+            "sojourner": {}
+        }
+    }, 
+    "changed": false
+}
+
+2014-05-28 09:36:28,009 p=17416 u=junedm |  
+2014-05-28 09:36:28,009 p=17416 u=junedm |  /usr/bin/ansible -i NOPS-786 all -m setup -a filter=ansible_local
+2014-05-28 09:36:28,009 p=17416 u=junedm |  
+2014-05-28 09:36:28,616 p=17416 u=junedm |  m10028f | success >> {
+    "ansible_facts": {
+        "ansible_local": {
+            "sojourner": {}
+        }
+    }, 
+    "changed": false
+}
+
+2014-05-28 09:39:21,204 p=17507 u=root |  
+2014-05-28 09:39:21,204 p=17507 u=root |  /usr/bin/ansible -i NOPS-786 all -m setup -a filter=ansible_local
+2014-05-28 09:39:21,205 p=17507 u=root |  
+2014-05-28 09:39:21,778 p=17507 u=root |  m10028f | success >> {
+    "ansible_facts": {
+        "ansible_local": {
+            "sojourner": {
+                "Owner": "Operations Team", 
+                "Role": "Ganglia"
+            }
+        }
+    }, 
+    "changed": false
+}
+
+2014-05-28 09:41:59,807 p=17653 u=junedm |   
+2014-05-28 09:41:59,807 p=17653 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:41:59,808 p=17653 u=junedm |   
+2014-05-28 09:41:59,840 p=17653 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:41:59,841 p=17653 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:42:00,542 p=17653 u=junedm |  ok: [m10028f]
+2014-05-28 09:42:00,641 p=17653 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:42:00,909 p=17653 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:42:00,910 p=17653 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:42:01,428 p=17653 u=junedm |  changed: [m10028f]
+2014-05-28 09:42:01,429 p=17653 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 09:42:01,945 p=17653 u=junedm |  ok: [m10028f]
+2014-05-28 09:42:01,946 p=17653 u=junedm |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-05-28 09:42:02,526 p=17653 u=junedm |  ok: [m10028f]
+2014-05-28 09:42:02,526 p=17653 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:42:02,527 p=17653 u=junedm |  m10028f                    : ok=5    changed=1    unreachable=0    failed=0   
+2014-05-28 09:43:20,067 p=17867 u=junedm |   
+2014-05-28 09:43:20,068 p=17867 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:43:20,068 p=17867 u=junedm |   
+2014-05-28 09:43:20,100 p=17867 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:43:20,101 p=17867 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:43:20,754 p=17867 u=junedm |  ok: [m10028f]
+2014-05-28 09:43:20,865 p=17867 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:43:21,133 p=17867 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:43:21,133 p=17867 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:43:21,547 p=17867 u=junedm |  ok: [m10028f]
+2014-05-28 09:43:21,547 p=17867 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 09:43:22,063 p=17867 u=junedm |  changed: [m10028f]
+2014-05-28 09:43:22,064 p=17867 u=junedm |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-05-28 09:43:22,621 p=17867 u=junedm |  ok: [m10028f]
+2014-05-28 09:43:22,621 p=17867 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:43:22,622 p=17867 u=junedm |  m10028f                    : ok=5    changed=1    unreachable=0    failed=0   
+2014-05-28 09:43:29,482 p=18077 u=junedm |  
+2014-05-28 09:43:29,482 p=18077 u=junedm |  /usr/bin/ansible -i NOPS-786 all -m setup -a filter=ansible_local
+2014-05-28 09:43:29,483 p=18077 u=junedm |  
+2014-05-28 09:43:30,065 p=18077 u=junedm |  m10028f | success >> {
+    "ansible_facts": {
+        "ansible_local": {
+            "sojourner": {
+                "Owner": "Operations Team", 
+                "Role": "Ganglia"
+            }
+        }
+    }, 
+    "changed": false
+}
+
+2014-05-28 09:44:42,453 p=18136 u=junedm |  
+2014-05-28 09:44:42,453 p=18136 u=junedm |  /usr/bin/ansible -i NOPS-786 all -m setup -a filter=ansible_local
+2014-05-28 09:44:42,453 p=18136 u=junedm |  
+2014-05-28 09:44:43,036 p=18136 u=junedm |  m10028f | success >> {
+    "ansible_facts": {
+        "ansible_local": {
+            "sojourner": {
+                "Owner": "Operations Team", 
+                "Role": "Ganglia"
+            }
+        }
+    }, 
+    "changed": false
+}
+
+2014-05-28 09:44:47,869 p=18192 u=junedm |   
+2014-05-28 09:44:47,869 p=18192 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:44:47,869 p=18192 u=junedm |   
+2014-05-28 09:44:47,902 p=18192 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:44:47,903 p=18192 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:44:48,542 p=18192 u=junedm |  ok: [m10028f]
+2014-05-28 09:44:48,662 p=18192 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:44:48,930 p=18192 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:44:48,930 p=18192 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:44:49,348 p=18192 u=junedm |  changed: [m10028f]
+2014-05-28 09:44:49,348 p=18192 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 09:44:49,903 p=18192 u=junedm |  changed: [m10028f]
+2014-05-28 09:44:49,904 p=18192 u=junedm |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-05-28 09:44:50,468 p=18192 u=junedm |  ok: [m10028f]
+2014-05-28 09:44:50,469 p=18192 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:44:50,469 p=18192 u=junedm |  m10028f                    : ok=5    changed=2    unreachable=0    failed=0   
+2014-05-28 09:45:05,325 p=18399 u=junedm |  
+2014-05-28 09:45:05,325 p=18399 u=junedm |  /usr/bin/ansible -i NOPS-786 all -m setup -a filter=ansible_local
+2014-05-28 09:45:05,325 p=18399 u=junedm |  
+2014-05-28 09:45:05,908 p=18399 u=junedm |  m10028f | success >> {
+    "ansible_facts": {
+        "ansible_local": {
+            "sojourner": {
+                "Owner": "Junedm", 
+                "Role": "Base"
+            }
+        }
+    }, 
+    "changed": false
+}
+
+2014-05-28 09:45:41,554 p=18457 u=junedm |   
+2014-05-28 09:45:41,554 p=18457 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:45:41,554 p=18457 u=junedm |   
+2014-05-28 09:45:41,585 p=18457 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:45:41,586 p=18457 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:45:42,183 p=18457 u=junedm |  ok: [m10028f]
+2014-05-28 09:45:42,272 p=18457 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:45:42,540 p=18457 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:45:42,541 p=18457 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:45:42,996 p=18457 u=junedm |  changed: [m10028f]
+2014-05-28 09:45:42,997 p=18457 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 09:45:43,517 p=18457 u=junedm |  changed: [m10028f]
+2014-05-28 09:45:43,517 p=18457 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:45:43,517 p=18457 u=junedm |  m10028f                    : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-28 09:46:12,455 p=18684 u=junedm |   
+2014-05-28 09:46:12,456 p=18684 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:46:12,456 p=18684 u=junedm |   
+2014-05-28 09:46:12,487 p=18684 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:46:12,488 p=18684 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:46:13,087 p=18684 u=junedm |  ok: [m10028f]
+2014-05-28 09:46:13,167 p=18684 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:46:13,435 p=18684 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:46:13,435 p=18684 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:46:13,852 p=18684 u=junedm |  changed: [m10028f]
+2014-05-28 09:46:13,852 p=18684 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 09:46:14,372 p=18684 u=junedm |  changed: [m10028f]
+2014-05-28 09:46:14,373 p=18684 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:46:14,373 p=18684 u=junedm |  m10028f                    : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-28 09:47:21,055 p=18830 u=junedm |   
+2014-05-28 09:47:21,056 p=18830 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:47:21,056 p=18830 u=junedm |   
+2014-05-28 09:47:21,087 p=18830 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:47:21,088 p=18830 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:47:21,710 p=18830 u=junedm |  ok: [m10028f]
+2014-05-28 09:47:21,813 p=18830 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:47:22,082 p=18830 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:47:22,082 p=18830 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:47:22,489 p=18830 u=junedm |  failed: [m10028f] => {"failed": true, "item": "", "parsed": false}
+2014-05-28 09:47:22,490 p=18830 u=junedm |  invalid output was: Traceback (most recent call last):
+  File "/home/junedm/.ansible/tmp/ansible-1401270442.27-262395670728134/file", line 1378, in <module>
+    main()
+  File "/home/junedm/.ansible/tmp/ansible-1401270442.27-262395670728134/file", line 281, in main
+    changed = module.set_file_attributes_if_different(tmp_file_args, changed)
+  File "/home/junedm/.ansible/tmp/ansible-1401270442.27-262395670728134/file", line 819, in set_file_attributes_if_different
+    file_args['path'], file_args['mode'], changed
+  File "/home/junedm/.ansible/tmp/ansible-1401270442.27-262395670728134/file", line 796, in set_mode_if_different
+    raise e
+OSError: [Errno 1] Operation not permitted: '/etc/ansible/facts.d/sojourner.fact'
+
+2014-05-28 09:47:22,490 p=18830 u=junedm |  FATAL: all hosts have already failed -- aborting
+2014-05-28 09:47:22,490 p=18830 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:47:22,491 p=18830 u=junedm |             to retry, use: --limit @/home/junedm/inventory.retry
+
+2014-05-28 09:47:22,491 p=18830 u=junedm |  m10028f                    : ok=2    changed=0    unreachable=0    failed=1   
+2014-05-28 09:47:44,057 p=18927 u=junedm |   
+2014-05-28 09:47:44,057 p=18927 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:47:44,057 p=18927 u=junedm |   
+2014-05-28 09:47:44,089 p=18927 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:47:44,089 p=18927 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:47:44,668 p=18927 u=junedm |  ok: [m10028f]
+2014-05-28 09:47:44,671 p=18927 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:47:44,939 p=18927 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:47:44,939 p=18927 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:47:45,350 p=18927 u=junedm |  failed: [m10028f] => {"failed": true, "item": "", "parsed": false}
+2014-05-28 09:47:45,350 p=18927 u=junedm |  invalid output was: Traceback (most recent call last):
+  File "/home/junedm/.ansible/tmp/ansible-1401270465.12-268439182939776/file", line 1378, in <module>
+    main()
+  File "/home/junedm/.ansible/tmp/ansible-1401270465.12-268439182939776/file", line 266, in main
+    os.makedirs(path)
+  File "/usr/lib64/python2.6/os.py", line 157, in makedirs
+    mkdir(name, mode)
+OSError: [Errno 13] Permission denied: '/etc/ansible/facts.d'
+
+2014-05-28 09:47:45,351 p=18927 u=junedm |  FATAL: all hosts have already failed -- aborting
+2014-05-28 09:47:45,351 p=18927 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:47:45,352 p=18927 u=junedm |             to retry, use: --limit @/home/junedm/inventory.retry
+
+2014-05-28 09:47:45,353 p=18927 u=junedm |  m10028f                    : ok=2    changed=0    unreachable=0    failed=1   
+2014-05-28 09:48:35,353 p=19025 u=junedm |   
+2014-05-28 09:48:35,354 p=19025 u=junedm |  /usr/bin/ansible-playbook plays/inventory.yml -i NOPS-786
+2014-05-28 09:48:35,354 p=19025 u=junedm |   
+2014-05-28 09:48:35,385 p=19025 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-28 09:48:35,385 p=19025 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-28 09:48:35,983 p=19025 u=junedm |  ok: [m10028f]
+2014-05-28 09:48:35,986 p=19025 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-28 09:48:36,254 p=19025 u=junedm |  ok: [m10028f] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-28 09:48:36,255 p=19025 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-28 09:48:36,672 p=19025 u=junedm |  changed: [m10028f]
+2014-05-28 09:48:36,672 p=19025 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-28 09:48:37,232 p=19025 u=junedm |  changed: [m10028f]
+2014-05-28 09:48:37,232 p=19025 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-28 09:48:37,233 p=19025 u=junedm |  m10028f                    : ok=4    changed=2    unreachable=0    failed=0   
