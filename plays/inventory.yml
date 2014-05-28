@@ -5,10 +5,11 @@
   hosts: all
 
   user: junedm
+  sudo: yes
 
   roles:
     -  inventory
 
-  vars_prompt:
-    Role: "what is the Role of this server?"
-    Owner: "Who is the Owner of this Server?"
+#  vars_prompt:
+#    Role: "what is the Role of this server?"
+#    Owner: "Who is the Owner of this Server?"

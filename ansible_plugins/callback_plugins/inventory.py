@@ -41,7 +41,8 @@ def log(host, data):
         ))
         con.commit()
     except:
-        pass
+        #pass
+ 	print "My name is Khan"
 
 class CallbackModule(object):
     def runner_on_ok(self, host, res):
