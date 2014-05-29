@@ -1,7 +1,7 @@
 ---
 # tasks file for inventory
   - name : Just a Test
-    debug: msg="My Role is  {{Role}} and Owner is {{Owner}}"
+    debug: msg="My Role is  {{Role}} and Owner is {{Product}}"
 
   - name: -> Creating ansible facts dir
     file: path="/etc/ansible/facts.d" state=directory recurse=yes mode=0755

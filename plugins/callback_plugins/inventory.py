@@ -26,7 +26,7 @@ def log(host, data):
 
     try:
         # `host` is a unique index
-        cur.execute("REPLACE INTO ans_facts (Last_Update,Hostname,Arch,Distribution,Version,System,Kernel,Eth0_ip,Role,Owner) VALUES(?,?,?,?,?,?,?,?,?,?);",
+        cur.execute("REPLACE INTO ans_facts (Last_Update,Hostname,Arch,Distribution,Version,System,Kernel,Eth0_ip,Product,Role) VALUES(?,?,?,?,?,?,?,?,?,?);",
         (
             now,
             facts.get('ansible_hostname', None),
@@ -36,8 +36,8 @@ def log(host, data):
             facts.get('ansible_system', None),
             facts.get('ansible_kernel', None),
 	    facts.get('ansible_eth0', None).get('ipv4', None).get('address', None),
+	    facts.get('ansible_local', None).get('sojourner', None).get('Product', None),
 	    facts.get('ansible_local', None).get('sojourner', None).get('Role', None),
-	    facts.get('ansible_local', None).get('sojourner', None).get('Owner', None),
         ))
         con.commit()
     except:

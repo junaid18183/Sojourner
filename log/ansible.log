@@ -2623,3 +2623,349 @@ It should be written as:
 2014-05-29 05:18:16,745 p=28246 u=root |  changed: [ggvaapp07vm4.glam.colo]
 2014-05-29 05:18:16,746 p=28246 u=root |  PLAY RECAP ******************************************************************** 
 2014-05-29 05:18:16,746 p=28246 u=root |  ggvaapp07vm4.glam.colo     : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-29 05:33:57,300 p=10871 u=root |   
+2014-05-29 05:33:57,300 p=10871 u=root |  /usr/bin/ansible-playbook
+2014-05-29 05:33:57,300 p=10871 u=root |   
+2014-05-29 05:48:11,546 p=24397 u=root |  
+2014-05-29 05:48:11,547 p=24397 u=root |  /usr/bin/ansible -i /tmp/ggvaapp07vm1 -m ping
+2014-05-29 05:48:11,547 p=24397 u=root |  
+2014-05-29 05:48:19,661 p=24407 u=root |  
+2014-05-29 05:48:19,661 p=24407 u=root |  /usr/bin/ansible -i NOPS-786 -m ping
+2014-05-29 05:48:19,661 p=24407 u=root |  
+2014-05-29 05:48:23,430 p=24415 u=root |  
+2014-05-29 05:48:23,430 p=24415 u=root |  /usr/bin/ansible -i NOPS-786 all -m ping
+2014-05-29 05:48:23,430 p=24415 u=root |  
+2014-05-29 05:48:23,975 p=24415 u=root |  ggvaapp07vm4.glam.colo | success >> {
+    "changed": false, 
+    "ping": "pong"
+}
+
+2014-05-29 05:53:47,006 p=29884 u=root |   
+2014-05-29 05:53:47,006 p=29884 u=root |  /usr/bin/ansible-playbook -i NOPS-786 plays/Techops/GlamBase.yml
+2014-05-29 05:53:47,006 p=29884 u=root |   
+2014-05-29 06:01:07,373 p=4348 u=root |   
+2014-05-29 06:01:07,373 p=4348 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1 plays/Techops/GlamBase.yml
+2014-05-29 06:01:07,373 p=4348 u=root |   
+2014-05-29 06:01:07,374 p=4348 u=root |  ERROR: Unable to find an inventory file, specify one with -i ?
+2014-05-29 06:02:22,542 p=5306 u=root |   
+2014-05-29 06:02:22,542 p=5306 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1 plays/Techops/GlamBase.yml
+2014-05-29 06:02:22,542 p=5306 u=root |   
+2014-05-29 06:04:21,974 p=7182 u=root |   
+2014-05-29 06:04:21,974 p=7182 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1 plays/Techops/GlamBase.yml
+2014-05-29 06:04:21,974 p=7182 u=root |   
+2014-05-29 06:04:22,000 p=7182 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:04:22,000 p=7182 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:04:22,628 p=7182 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:04:22,768 p=7182 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:04:23,031 p=7182 u=root |  fatal: [ggvaapp07vm1] => One or more undefined variables: 'Role' is undefined
+2014-05-29 06:04:23,031 p=7182 u=root |  FATAL: all hosts have already failed -- aborting
+2014-05-29 06:04:23,032 p=7182 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:04:23,032 p=7182 u=root |             to retry, use: --limit @/root/GlamBase.retry
+
+2014-05-29 06:04:23,033 p=7182 u=root |  ggvaapp07vm1               : ok=1    changed=0    unreachable=1    failed=0   
+2014-05-29 06:04:51,560 p=7972 u=root |   
+2014-05-29 06:04:51,560 p=7972 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1 plays/Techops/GlamBase.yml
+2014-05-29 06:04:51,560 p=7972 u=root |   
+2014-05-29 06:04:51,587 p=7972 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:04:51,587 p=7972 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:04:52,214 p=7972 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:04:52,382 p=7972 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:04:52,769 p=7972 u=root |  fatal: [ggvaapp07vm1] => recursive loop detected in template string: {{Owner}}
+2014-05-29 06:04:52,770 p=7972 u=root |  FATAL: all hosts have already failed -- aborting
+2014-05-29 06:04:52,770 p=7972 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:04:52,770 p=7972 u=root |             to retry, use: --limit @/root/GlamBase.retry
+
+2014-05-29 06:04:52,771 p=7972 u=root |  ggvaapp07vm1               : ok=1    changed=0    unreachable=1    failed=0   
+2014-05-29 06:09:23,502 p=12227 u=root |   
+2014-05-29 06:09:23,502 p=12227 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1 plays/Techops/GlamBase.yml
+2014-05-29 06:09:23,502 p=12227 u=root |   
+2014-05-29 06:09:23,565 p=12227 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:09:23,565 p=12227 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:09:24,235 p=12227 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:09:24,437 p=12227 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:09:24,782 p=12227 u=root |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  GlamBase and Owner is Techops"
+}
+2014-05-29 06:09:24,783 p=12227 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 06:09:25,233 p=12227 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:09:25,233 p=12227 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 06:09:25,611 p=12227 u=root |  fatal: [ggvaapp07vm1] => {'msg': "One or more undefined variables: 'Owner' is undefined", 'failed': True}
+2014-05-29 06:09:25,611 p=12227 u=root |  fatal: [ggvaapp07vm1] => {'msg': "One or more undefined variables: 'Owner' is undefined", 'failed': True}
+2014-05-29 06:09:25,611 p=12227 u=root |  FATAL: all hosts have already failed -- aborting
+2014-05-29 06:09:25,611 p=12227 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:09:25,612 p=12227 u=root |             to retry, use: --limit @/root/GlamBase.retry
+
+2014-05-29 06:09:25,612 p=12227 u=root |  ggvaapp07vm1               : ok=3    changed=1    unreachable=1    failed=0   
+2014-05-29 06:10:17,090 p=13276 u=root |   
+2014-05-29 06:10:17,091 p=13276 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1 plays/Techops/GlamBase.yml
+2014-05-29 06:10:17,091 p=13276 u=root |   
+2014-05-29 06:10:17,118 p=13276 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:10:17,118 p=13276 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:10:17,801 p=13276 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:10:17,999 p=13276 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:10:18,350 p=13276 u=root |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  GlamBase and Owner is Techops"
+}
+2014-05-29 06:10:18,350 p=13276 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 06:10:18,846 p=13276 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:10:18,847 p=13276 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 06:10:19,443 p=13276 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:10:19,444 p=13276 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:10:19,444 p=13276 u=root |  ggvaapp07vm1               : ok=4    changed=1    unreachable=0    failed=0   
+2014-05-29 06:10:34,074 p=13675 u=root |   
+2014-05-29 06:10:34,074 p=13675 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1 plays/Techops/GlamBase.yml
+2014-05-29 06:10:34,074 p=13675 u=root |   
+2014-05-29 06:10:34,101 p=13675 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:10:34,101 p=13675 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:10:34,780 p=13675 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:10:34,939 p=13675 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:10:35,288 p=13675 u=root |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  GlamBase and Owner is Techops"
+}
+2014-05-29 06:10:35,289 p=13675 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 06:10:35,785 p=13675 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:10:35,785 p=13675 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 06:10:36,359 p=13675 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:10:36,360 p=13675 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:10:36,360 p=13675 u=root |  ggvaapp07vm1               : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-29 06:12:47,471 p=16207 u=root |   
+2014-05-29 06:12:47,471 p=16207 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1 plays/Techops/GlamBase.yml
+2014-05-29 06:12:47,471 p=16207 u=root |   
+2014-05-29 06:12:47,497 p=16207 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:12:47,497 p=16207 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:12:48,162 p=16207 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:12:48,373 p=16207 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:12:48,641 p=16207 u=root |  fatal: [ggvaapp07vm1] => One or more undefined variables: 'Role' is undefined
+2014-05-29 06:12:48,641 p=16207 u=root |  FATAL: all hosts have already failed -- aborting
+2014-05-29 06:12:48,642 p=16207 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:12:48,642 p=16207 u=root |             to retry, use: --limit @/root/GlamBase.retry
+
+2014-05-29 06:12:48,643 p=16207 u=root |  ggvaapp07vm1               : ok=1    changed=0    unreachable=1    failed=0   
+2014-05-29 06:13:43,816 p=17253 u=root |   
+2014-05-29 06:13:43,816 p=17253 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1 plays/Techops/GlamBase.yml
+2014-05-29 06:13:43,816 p=17253 u=root |   
+2014-05-29 06:13:43,845 p=17253 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:13:43,845 p=17253 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:13:44,484 p=17253 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:13:44,665 p=17253 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:13:44,930 p=17253 u=root |  fatal: [ggvaapp07vm1] => One or more undefined variables: 'Role' is undefined
+2014-05-29 06:13:44,931 p=17253 u=root |  FATAL: all hosts have already failed -- aborting
+2014-05-29 06:13:44,931 p=17253 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:13:44,932 p=17253 u=root |             to retry, use: --limit @/root/GlamBase.retry
+
+2014-05-29 06:13:44,932 p=17253 u=root |  ggvaapp07vm1               : ok=1    changed=0    unreachable=1    failed=0   
+2014-05-29 06:17:41,677 p=21122 u=root |   
+2014-05-29 06:17:41,677 p=21122 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1.yml plays/Techops/GlamBase.yml
+2014-05-29 06:17:41,677 p=21122 u=root |   
+2014-05-29 06:17:41,703 p=21122 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:17:41,703 p=21122 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:17:42,333 p=21122 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:17:42,501 p=21122 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:17:42,853 p=21122 u=root |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  GlamBase and Owner is Techops"
+}
+2014-05-29 06:17:42,854 p=21122 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 06:17:43,307 p=21122 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:17:43,307 p=21122 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 06:17:43,878 p=21122 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:17:43,879 p=21122 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:17:43,879 p=21122 u=root |  ggvaapp07vm1               : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-29 06:17:59,448 p=21534 u=root |   
+2014-05-29 06:17:59,448 p=21534 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1.yml plays/Techops/GlamBase.yml
+2014-05-29 06:17:59,448 p=21534 u=root |   
+2014-05-29 06:17:59,475 p=21534 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:17:59,475 p=21534 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:18:00,146 p=21534 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:18:00,342 p=21534 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:18:00,694 p=21534 u=root |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  GlamBase and Owner is Techops"
+}
+2014-05-29 06:18:00,695 p=21534 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 06:18:01,196 p=21534 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:18:01,197 p=21534 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 06:18:01,776 p=21534 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:18:01,776 p=21534 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:18:01,776 p=21534 u=root |  ggvaapp07vm1               : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-29 06:22:04,093 p=25503 u=root |   
+2014-05-29 06:22:04,093 p=25503 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1.yml plays/Techops/GlamBase.yml
+2014-05-29 06:22:04,093 p=25503 u=root |   
+2014-05-29 06:22:04,119 p=25503 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:22:04,119 p=25503 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:22:04,754 p=25503 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:22:05,099 p=25503 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:22:05,450 p=25503 u=root |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  GlamBase and Owner is Techops"
+}
+2014-05-29 06:22:05,450 p=25503 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 06:22:05,942 p=25503 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:22:05,942 p=25503 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 06:22:06,473 p=25503 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:22:06,474 p=25503 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:22:06,474 p=25503 u=root |  ggvaapp07vm1               : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-29 06:25:08,811 p=28496 u=root |   
+2014-05-29 06:25:08,811 p=28496 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1.yml plays/Techops/GlamBase.yml
+2014-05-29 06:25:08,811 p=28496 u=root |   
+2014-05-29 06:25:08,837 p=28496 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:25:08,837 p=28496 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:25:09,493 p=28496 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:25:09,694 p=28496 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:25:10,049 p=28496 u=root |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  GlamBase and Owner is Techops"
+}
+2014-05-29 06:25:10,049 p=28496 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 06:25:10,500 p=28496 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:25:10,501 p=28496 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 06:25:11,032 p=28496 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:25:11,033 p=28496 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:25:11,033 p=28496 u=root |  ggvaapp07vm1               : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-29 06:25:59,805 p=29647 u=root |   
+2014-05-29 06:25:59,805 p=29647 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1.yml plays/Techops/GlamBase.yml
+2014-05-29 06:25:59,805 p=29647 u=root |   
+2014-05-29 06:25:59,810 p=29647 u=root |  ERROR: Syntax Error while loading YAML script, plays/Techops/GlamBase.yml
+Note: The error may actually appear before this position: line 13, column 1
+
+mas'fcsd'gd'gdf
+'bgdb
+^
+2014-05-29 06:31:44,822 p=2640 u=root |   
+2014-05-29 06:31:44,822 p=2640 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1.yml plays/Techops/GlamBase.yml
+2014-05-29 06:31:44,822 p=2640 u=root |   
+2014-05-29 06:31:44,849 p=2640 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:31:44,849 p=2640 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:31:45,479 p=2640 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:31:45,726 p=2640 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:31:46,078 p=2640 u=root |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  GlamBase and Owner is Techops"
+}
+2014-05-29 06:31:46,079 p=2640 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 06:31:46,579 p=2640 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:31:46,580 p=2640 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 06:31:47,176 p=2640 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:31:47,177 p=2640 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:31:47,177 p=2640 u=root |  ggvaapp07vm1               : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-29 06:33:06,540 p=4010 u=root |  
+2014-05-29 06:33:06,541 p=4010 u=root |  /usr/bin/ansible -i NOPS-786 all -m setup -a filter=ansible-local
+2014-05-29 06:33:06,541 p=4010 u=root |  
+2014-05-29 06:33:07,230 p=4010 u=root |  ggvaapp07vm4.glam.colo | success >> {
+    "ansible_facts": {}, 
+    "changed": false
+}
+
+2014-05-29 06:33:26,592 p=4334 u=root |  
+2014-05-29 06:33:26,592 p=4334 u=root |  /usr/bin/ansible ggvaapp07vm1 -m setup -a filter=ansible-local
+2014-05-29 06:33:26,593 p=4334 u=root |  
+2014-05-29 06:33:27,443 p=4334 u=root |  ggvaapp07vm1 | success >> {
+    "ansible_facts": {}, 
+    "changed": false
+}
+
+2014-05-29 06:34:13,640 p=5201 u=root |   
+2014-05-29 06:34:13,640 p=5201 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1.yml plays/Techops/GlamBase.yml
+2014-05-29 06:34:13,640 p=5201 u=root |   
+2014-05-29 06:34:13,666 p=5201 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:34:13,666 p=5201 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:34:14,342 p=5201 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:34:14,344 p=5201 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:34:14,695 p=5201 u=root |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  GlamBase and Owner is Techops"
+}
+2014-05-29 06:34:14,695 p=5201 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 06:34:15,153 p=5201 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:34:15,154 p=5201 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 06:34:15,746 p=5201 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:34:15,747 p=5201 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:34:15,747 p=5201 u=root |  ggvaapp07vm1               : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-29 06:35:27,095 p=6522 u=root |   
+2014-05-29 06:35:27,095 p=6522 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1.yml plays/Techops/GlamBase.yml
+2014-05-29 06:35:27,095 p=6522 u=root |   
+2014-05-29 06:35:27,121 p=6522 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:35:27,121 p=6522 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:35:27,748 p=6522 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:35:27,962 p=6522 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:35:28,312 p=6522 u=root |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  GlamBase and Owner is Techops"
+}
+2014-05-29 06:35:28,313 p=6522 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 06:35:28,764 p=6522 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:35:28,765 p=6522 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 06:35:29,294 p=6522 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:35:29,294 p=6522 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:35:29,294 p=6522 u=root |  ggvaapp07vm1               : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-29 06:35:54,925 p=7188 u=root |   
+2014-05-29 06:35:54,925 p=7188 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1.yml plays/Techops/GlamBase.yml
+2014-05-29 06:35:54,925 p=7188 u=root |   
+2014-05-29 06:35:54,952 p=7188 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:35:54,952 p=7188 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:35:55,583 p=7188 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:35:55,783 p=7188 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:35:56,131 p=7188 u=root |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  GlamBase and Owner is Techops"
+}
+2014-05-29 06:35:56,132 p=7188 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 06:35:56,627 p=7188 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:35:56,627 p=7188 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 06:35:58,099 p=7188 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:35:58,100 p=7188 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:35:58,100 p=7188 u=root |  ggvaapp07vm1               : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-29 06:45:02,119 p=16173 u=root |   
+2014-05-29 06:45:02,119 p=16173 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1.yml /home/junedm/Sojourner//plays/Techops/GlamBase.yml
+2014-05-29 06:45:02,119 p=16173 u=root |   
+2014-05-29 06:45:02,145 p=16173 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:45:02,145 p=16173 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:45:02,820 p=16173 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:45:03,039 p=16173 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:45:03,392 p=16173 u=root |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  GlamBase and Owner is Techops"
+}
+2014-05-29 06:45:03,392 p=16173 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 06:45:03,947 p=16173 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:45:03,948 p=16173 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 06:45:04,522 p=16173 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:45:04,523 p=16173 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:45:04,523 p=16173 u=root |  ggvaapp07vm1               : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-29 06:45:24,101 p=16560 u=root |   
+2014-05-29 06:45:24,101 p=16560 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1.yml /home/junedm/Sojourner//plays/Techops/GlamBase.yml
+2014-05-29 06:45:24,101 p=16560 u=root |   
+2014-05-29 06:45:24,129 p=16560 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:45:24,130 p=16560 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:45:24,840 p=16560 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:45:25,169 p=16560 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:45:25,524 p=16560 u=root |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  GlamBase and Owner is Techops"
+}
+2014-05-29 06:45:25,524 p=16560 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 06:45:26,024 p=16560 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:45:26,025 p=16560 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 06:45:26,563 p=16560 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:45:26,564 p=16560 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:45:26,564 p=16560 u=root |  ggvaapp07vm1               : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-29 06:46:52,146 p=18160 u=root |   
+2014-05-29 06:46:52,146 p=18160 u=root |  /usr/bin/ansible-playbook -i /tmp/ggvaapp07vm1.yml /home/junedm/Sojourner//plays/Techops/GlamBase.yml
+2014-05-29 06:46:52,146 p=18160 u=root |   
+2014-05-29 06:46:52,172 p=18160 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 06:46:52,172 p=18160 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 06:46:52,809 p=18160 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 06:46:52,982 p=18160 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 06:46:53,336 p=18160 u=root |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  GlamBase and Owner is Techops"
+}
+2014-05-29 06:46:53,336 p=18160 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 06:46:53,787 p=18160 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:46:53,787 p=18160 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 06:46:54,420 p=18160 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 06:46:54,421 p=18160 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 06:46:54,421 p=18160 u=root |  ggvaapp07vm1               : ok=4    changed=2    unreachable=0    failed=0   
