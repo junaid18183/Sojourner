@@ -2,5 +2,5 @@
 # vars file for inventory
 OS_VERSION: '{{ ansible_distribution_version }}'
 
-Role : 'Base'
-Owner : 'Junedm'
+#Role : "{{Role}}"
+#Owner : "{{Owner}}"

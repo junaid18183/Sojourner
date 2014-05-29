@@ -1,5 +1,5 @@
 ---
-#This Play installs the Jenkins
+#This is just the TEST
 
 - name: Test
   hosts: all
@@ -10,6 +10,6 @@
   roles:
     -  inventory
 
-#  vars_prompt:
-#    Role: "what is the Role of this server?"
-#    Owner: "Who is the Owner of this Server?"
+  vars_prompt:
+    Role: "what is the Role of this server?"
+    Owner: "Who is the Owner of this Server?"
