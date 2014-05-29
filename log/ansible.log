@@ -1280,3 +1280,396 @@ OSError: [Errno 13] Permission denied: '/etc/ansible/facts.d'
 2014-05-28 15:49:47,717 p=25972 u=junedm |  changed: [m10028f]
 2014-05-28 15:49:47,717 p=25972 u=junedm |  PLAY RECAP ******************************************************************** 
 2014-05-28 15:49:47,718 p=25972 u=junedm |  m10028f                    : ok=4    changed=2    unreachable=0    failed=0   
+2014-05-29 00:51:59,817 p=26504 u=junedm |   
+2014-05-29 00:51:59,817 p=26504 u=junedm |  /usr/bin/ansible-playbook -i NOPS-786 plays/inventory.yml
+2014-05-29 00:51:59,817 p=26504 u=junedm |   
+2014-05-29 00:51:59,911 p=26504 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-29 00:51:59,911 p=26504 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-29 00:52:00,246 p=26504 u=junedm |  fatal: [ggvaapp07vm1] => {'msg': 'FAILED: No authentication methods available', 'failed': True}
+2014-05-29 00:52:00,246 p=26504 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 00:52:00,253 p=26504 u=junedm |  FATAL: no hosts matched or all hosts have already failed -- aborting
+
+2014-05-29 00:52:00,253 p=26504 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-29 00:52:00,254 p=26504 u=junedm |             to retry, use: --limit @/home/junedm/inventory.retry
+
+2014-05-29 00:52:00,254 p=26504 u=junedm |  ggvaapp07vm1               : ok=0    changed=0    unreachable=1    failed=0   
+2014-05-29 00:52:38,574 p=26839 u=junedm |   
+2014-05-29 00:52:38,574 p=26839 u=junedm |  /usr/bin/ansible-playbook -i NOPS-786 plays/inventory.yml -k
+2014-05-29 00:52:38,575 p=26839 u=junedm |   
+2014-05-29 00:52:44,675 p=26839 u=junedm |  PLAY [Test] ******************************************************************* 
+2014-05-29 00:52:44,676 p=26839 u=junedm |  GATHERING FACTS *************************************************************** 
+2014-05-29 00:52:45,464 p=26839 u=junedm |  ok: [ggvaapp07vm1]
+2014-05-29 00:52:45,466 p=26839 u=junedm |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 00:52:45,746 p=26839 u=junedm |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-29 00:52:45,747 p=26839 u=junedm |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 00:52:46,152 p=26839 u=junedm |  ok: [ggvaapp07vm1]
+2014-05-29 00:52:46,152 p=26839 u=junedm |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 00:52:46,686 p=26839 u=junedm |  changed: [ggvaapp07vm1]
+2014-05-29 00:52:46,686 p=26839 u=junedm |  PLAY RECAP ******************************************************************** 
+2014-05-29 00:52:46,687 p=26839 u=junedm |  ggvaapp07vm1               : ok=4    changed=1    unreachable=0    failed=0   
+2014-05-29 00:54:18,399 p=28627 u=root |  
+2014-05-29 00:54:18,399 p=28627 u=root |  /usr/bin/ansible -i NOPS-786 -m setup
+2014-05-29 00:54:18,400 p=28627 u=root |  
+2014-05-29 00:54:24,166 p=28826 u=root |  
+2014-05-29 00:54:24,166 p=28826 u=root |  /usr/bin/ansible -i NOPS-786 all -m setup
+2014-05-29 00:54:24,166 p=28826 u=root |  
+2014-05-29 00:54:24,763 p=28826 u=root |  ggvaapp07vm1 | success >> {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "10.143.1.24", 
+            "10.143.3.24"
+        ], 
+        "ansible_all_ipv6_addresses": [
+            "fe80::225:90ff:feb6:66d8", 
+            "fe80::225:90ff:fe0c:d621"
+        ], 
+        "ansible_architecture": "x86_64", 
+        "ansible_bios_date": "11/16/2012", 
+        "ansible_bios_version": "2.1b", 
+        "ansible_cmdline": {
+            "KEYBOARDTYPE": "pc", 
+            "KEYTABLE": "us", 
+            "LANG": "en_US.UTF-8", 
+            "SYSFONT": "latarcyrheb-sun16", 
+            "crashkernel": "130M@0M", 
+            "quiet": true, 
+            "rd_NO_DM": true, 
+            "rd_NO_LUKS": true, 
+            "rd_NO_LVM": true, 
+            "rd_NO_MD": true, 
+            "rhgb": true, 
+            "ro": true, 
+            "root": "UUID=a5751dbe-4711-4699-b1b1-aca24960d23b"
+        }, 
+        "ansible_date_time": {
+            "date": "2014-05-29", 
+            "day": "29", 
+            "epoch": "1401350064", 
+            "hour": "00", 
+            "iso8601": "2014-05-29T07:54:24Z", 
+            "iso8601_micro": "2014-05-29T07:54:24.734417Z", 
+            "minute": "54", 
+            "month": "05", 
+            "second": "24", 
+            "time": "00:54:24", 
+            "tz": "PDT", 
+            "tz_offset": "-0700", 
+            "year": "2014"
+        }, 
+        "ansible_default_ipv4": {
+            "address": "10.143.3.24", 
+            "alias": "eth1", 
+            "gateway": "10.143.3.1", 
+            "interface": "eth1", 
+            "macaddress": "00:25:90:61:37:6f", 
+            "mtu": 1500, 
+            "netmask": "255.255.255.0", 
+            "network": "10.143.3.0", 
+            "type": "ether"
+        }, 
+        "ansible_default_ipv6": {}, 
+        "ansible_devices": {
+            "sda": {
+                "holders": [], 
+                "host": "RAID bus controller: 3ware Inc 9650SE SATA-II RAID PCIe (rev 01)", 
+                "model": "9650SE-4LP DISK", 
+                "partitions": {
+                    "sda1": {
+                        "sectors": "409600", 
+                        "sectorsize": 512, 
+                        "size": "200.00 MB", 
+                        "start": "2048"
+                    }, 
+                    "sda2": {
+                        "sectors": "959664128", 
+                        "sectorsize": 512, 
+                        "size": "457.60 GB", 
+                        "start": "411648"
+                    }, 
+                    "sda3": {
+                        "sectors": "16465920", 
+                        "sectorsize": 512, 
+                        "size": "7.85 GB", 
+                        "start": "960075776"
+                    }
+                }, 
+                "removable": "0", 
+                "rotational": "1", 
+                "scheduler_mode": "cfq", 
+                "sectors": "976541696", 
+                "sectorsize": "512", 
+                "size": "465.65 GB", 
+                "support_discard": "0", 
+                "vendor": "AMCC"
+            }
+        }, 
+        "ansible_distribution": "CentOS", 
+        "ansible_distribution_release": "Final", 
+        "ansible_distribution_version": "6.4", 
+        "ansible_domain": "glam.colo", 
+        "ansible_env": {
+            "G_BROKEN_FILENAMES": "1", 
+            "HOME": "/root", 
+            "JENKINS_HOME": "http://junedm:junedm@ggvaapp07.glam.colo:8080/", 
+            "LANG": "C", 
+            "LESSOPEN": "|/usr/bin/lesspipe.sh %s", 
+            "LOGNAME": "root", 
+            "MAIL": "/var/mail/root", 
+            "PATH": ".:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin", 
+            "PWD": "/root", 
+            "SHELL": "/bin/bash", 
+            "SHLVL": "2", 
+            "SSH_CLIENT": "10.143.2.27 35565 22", 
+            "SSH_CONNECTION": "10.143.2.27 35565 10.143.3.24 22", 
+            "USER": "root", 
+            "YUM0": "6.4", 
+            "_": "/usr/bin/python"
+        }, 
+        "ansible_eth0": {
+            "active": true, 
+            "device": "eth0", 
+            "ipv4": {
+                "address": "10.143.1.24", 
+                "netmask": "255.255.255.0", 
+                "network": "10.143.1.0"
+            }, 
+            "ipv4_secondaries": [], 
+            "ipv6": [
+                {
+                    "address": "fe80::225:90ff:feb6:66d8", 
+                    "prefix": "64", 
+                    "scope": "link"
+                }
+            ], 
+            "macaddress": "00:25:90:61:37:6e", 
+            "module": "e1000e", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_eth1": {
+            "active": true, 
+            "device": "eth1", 
+            "ipv4": {
+                "address": "10.143.3.24", 
+                "netmask": "255.255.255.0", 
+                "network": "10.143.3.0"
+            }, 
+            "ipv4_secondaries": [], 
+            "ipv6": [
+                {
+                    "address": "fe80::225:90ff:fe0c:d621", 
+                    "prefix": "64", 
+                    "scope": "link"
+                }
+            ], 
+            "macaddress": "00:25:90:61:37:6f", 
+            "module": "e1000e", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_form_factor": "Main Server Chassis", 
+        "ansible_fqdn": "ggvaapp07vm1.glam.colo", 
+        "ansible_ggvaapp07vm1_e0": {
+            "active": true, 
+            "device": "ggvaapp07vm1-e0", 
+            "macaddress": "fe:a5:45:23:64:51", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_ggvaapp07vm1_e1": {
+            "active": true, 
+            "device": "ggvaapp07vm1-e1", 
+            "macaddress": "fe:96:43:e1:d3:53", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_ggvaapp07vm2_e0": {
+            "active": true, 
+            "device": "ggvaapp07vm2-e0", 
+            "macaddress": "fe:d0:4e:06:9c:4c", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_ggvaapp07vm2_e1": {
+            "active": true, 
+            "device": "ggvaapp07vm2-e1", 
+            "macaddress": "fe:c9:f2:9d:f0:45", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_ggvaapp07vm4_e0": {
+            "active": true, 
+            "device": "ggvaapp07vm4-e0", 
+            "macaddress": "fe:35:80:11:76:19", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_ggvaapp07vm4_e1": {
+            "active": true, 
+            "device": "ggvaapp07vm4-e1", 
+            "macaddress": "fe:32:86:51:92:80", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_hostname": "ggvaapp07vm1", 
+        "ansible_interfaces": [
+            "v-ggva07-vm3-e1", 
+            "v-ggva07-vm3-e0", 
+            "lxcbr1", 
+            "lxcbr0", 
+            "ggvaapp07vm1-e0", 
+            "ggvaapp07vm1-e1", 
+            "lo", 
+            "ggvaapp07vm4-e1", 
+            "ggvaapp07vm4-e0", 
+            "ggvaapp07vm2-e1", 
+            "ggvaapp07vm2-e0", 
+            "eth1", 
+            "eth0"
+        ], 
+        "ansible_kernel": "2.6.32-358.18.1.el6.x86_64", 
+        "ansible_lo": {
+            "active": true, 
+            "device": "lo", 
+            "ipv4": {
+                "address": "127.0.0.1", 
+                "netmask": "255.0.0.0", 
+                "network": "127.0.0.0"
+            }, 
+            "ipv4_secondaries": [], 
+            "ipv6": [
+                {
+                    "address": "::1", 
+                    "prefix": "128", 
+                    "scope": "host"
+                }
+            ], 
+            "mtu": 16436, 
+            "promisc": false, 
+            "type": "loopback"
+        }, 
+        "ansible_local": {
+            "sojourner": {
+                "Owner": "Junedm", 
+                "Role": "Base"
+            }
+        }, 
+        "ansible_lxcbr0": {
+            "active": true, 
+            "device": "lxcbr0", 
+            "id": "8000.00259061376e", 
+            "interfaces": [
+                "eth0", 
+                "ggvaapp07vm2-e0", 
+                "ggvaapp07vm1-e0", 
+                "ggvaapp07vm4-e0", 
+                "v-ggva07-vm3-e0"
+            ], 
+            "macaddress": "00:25:90:61:37:6e", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "stp": false, 
+            "type": "bridge"
+        }, 
+        "ansible_lxcbr1": {
+            "active": true, 
+            "device": "lxcbr1", 
+            "id": "8000.00259061376f", 
+            "interfaces": [
+                "eth1", 
+                "ggvaapp07vm2-e1", 
+                "v-ggva07-vm3-e1", 
+                "ggvaapp07vm4-e1", 
+                "ggvaapp07vm1-e1"
+            ], 
+            "macaddress": "00:25:90:61:37:6f", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "stp": false, 
+            "type": "bridge"
+        }, 
+        "ansible_machine": "x86_64", 
+        "ansible_memfree_mb": 11708, 
+        "ansible_memtotal_mb": 15940, 
+        "ansible_mounts": [], 
+        "ansible_os_family": "RedHat", 
+        "ansible_pkg_mgr": "yum", 
+        "ansible_processor": [
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz"
+        ], 
+        "ansible_processor_cores": 4, 
+        "ansible_processor_count": 2, 
+        "ansible_processor_threads_per_core": 1, 
+        "ansible_processor_vcpus": 8, 
+        "ansible_product_name": "X8DTL", 
+        "ansible_product_serial": "1234567890", 
+        "ansible_product_uuid": "534D4349-0002-6190-2500-619025006F37", 
+        "ansible_product_version": "1234567890", 
+        "ansible_python_version": "2.6.6", 
+        "ansible_selinux": {
+            "status": "disabled"
+        }, 
+        "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAILQWY6bxFtktwKZmYeHohE20o/Oxgdbo8XTFrFVTJtnWoBWbFIcb0m/+jK4L7aGEX+nCoIQ0PyfYZ6ssBfCYnKwYSV7MjdNsjMbISnjvHg6z5wTw6Iwmg4kapGCR16dfNWgtESlzcqUtxmzvGve1nDypbLECVpvkqdaHDFsZ+ihAAAAFQCAD+Gzw4bM8fm7l7PnY/5ILy+HgwAAAIAR1q4xcn2RIHJ6yv+9ezs3DMjORVg8OrcvM3bjZY0IcslxcswX/F6JC985w1+8BqNftud+YauQTcUZEOfhVmm7gGRq0QuoTIFDyViC37T9CYmIVQ+oU94s6O3panLmvdCFN45QBjnzmwNx9td3lcHz42TV56irtK1FCVYLxdVEwwAAAIAEfhQid13Q71LiE7nnagOrgUzDmf+hOGZbvxLxfX/r47AQEz6hKlCn7H78RtHpNPwlA4fWAWKm6fK2yoxr20JbaiXCXtK2do1xsir/dq3cqsJJPTeU8mMHHRWSV1LWNRgMzmnA1+v7tTYxsZUt7SgFofm1Y+x2nXQEwo0i/M7Z7A==", 
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAABIwAAAQEAzvxRLBCTJywzbgEOOLfDOoiJA6KbV6nk1J+QtI6vDU4FWLlO2a5WmszThAtcm3Vh+AbO5VlF+rl0jmLYR2ZhS8QmiObWI1wURHIbwJCyxppv+pytazLj7+/WQFzzsFy50d4wIxjsG+qtZloFj2hUyHnW4CacNaE14h3ABg2Gj3jWyQrxIXXIsEMrKfC7JGZyi8Zh39l3UE/Xg94c2yQogqzLguE3YsasiWaToEddXXHjxkk3HX0SusyrBIy9k2Axd6PhZzE1FpsKe8mQ97YWd4WuXPLkrLxu9wCmxHtmN0srzP0HUFs38uGYJhGM4sjkCTFmx3csjyarY4Ddqt3+cQ==", 
+        "ansible_swapfree_mb": 8032, 
+        "ansible_swaptotal_mb": 8039, 
+        "ansible_system": "Linux", 
+        "ansible_system_vendor": "Supermicro", 
+        "ansible_user_id": "root", 
+        "ansible_userspace_architecture": "x86_64", 
+        "ansible_userspace_bits": "64", 
+        "ansible_v_ggva07_vm3_e0": {
+            "active": true, 
+            "device": "v-ggva07-vm3-e0", 
+            "macaddress": "fe:c5:0d:a0:7b:b9", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_v_ggva07_vm3_e1": {
+            "active": true, 
+            "device": "v-ggva07-vm3-e1", 
+            "macaddress": "fe:6c:ff:a1:94:9e", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }
+    }, 
+    "changed": false
+}
+
+2014-05-29 00:58:34,599 p=32763 u=root |   
+2014-05-29 00:58:34,599 p=32763 u=root |  /usr/bin/ansible-playbook -i NOPS-786 plays/inventory.yml
+2014-05-29 00:58:34,599 p=32763 u=root |   
+2014-05-29 00:58:34,626 p=32763 u=root |  PLAY [Test] ******************************************************************* 
+2014-05-29 00:58:34,626 p=32763 u=root |  GATHERING FACTS *************************************************************** 
+2014-05-29 00:58:35,260 p=32763 u=root |  ok: [ggvaapp07vm1]
+2014-05-29 00:58:35,429 p=32763 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-05-29 00:58:35,740 p=32763 u=root |  ok: [ggvaapp07vm1] => {
+    "item": "", 
+    "msg": "My Role is  Base and Owner is Junedm"
+}
+2014-05-29 00:58:35,740 p=32763 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-05-29 00:58:36,194 p=32763 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 00:58:36,194 p=32763 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-05-29 00:58:36,728 p=32763 u=root |  changed: [ggvaapp07vm1]
+2014-05-29 00:58:36,728 p=32763 u=root |  PLAY RECAP ******************************************************************** 
+2014-05-29 00:58:36,728 p=32763 u=root |  ggvaapp07vm1               : ok=4    changed=2    unreachable=0    failed=0   

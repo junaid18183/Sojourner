@@ -4,8 +4,8 @@
 - name: Test
   hosts: all
 
-  user: junedm
-  sudo: yes
+  user: root
+  #sudo: yes
 
   roles:
     -  inventory
