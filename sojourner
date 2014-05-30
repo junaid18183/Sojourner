@@ -176,7 +176,7 @@ def assign(args):
 	if not os.path.exists(path):
         	# this means the Playbook does not exist for this Product/Role
             	raise Exception("Sorry.. It seems the Playbook for the Product does not exist.Make sure its available at %s." %path)
-	     	sys.exit(1)
+	     	return 1
 
 	cmd="ansible-playbook -i "+ file + " " + path
 	status,output = commands.getstatusoutput(cmd)
