@@ -1,6 +1,7 @@
 import os
 import time
 import sqlite3
+import MySQLdb
 
 
 MYHOME='/home/junedm/Sojourner/'
@@ -8,8 +9,10 @@ dbname = MYHOME+'inventory.db'
 TIME_FORMAT='%Y-%m-%d %H:%M:%S'
 
 try:
-    con = sqlite3.connect(dbname)
-    cur = con.cursor()
+    #con = sqlite3.connect(dbname)
+    #cur = con.cursor()
+    db=MySQLdb.connect("localhost","root","junedm","sojourner")
+    cur=db.cursor()
 except:
     pass
 
@@ -21,12 +24,13 @@ def log(host, data):
             return
 
     facts = data.get('ansible_facts', None)
+    print type(facts)
 
     now = time.strftime(TIME_FORMAT, time.localtime())
 
     try:
         # `host` is a unique index
-        cur.execute("REPLACE INTO ans_facts (Last_Update,Hostname,Arch,Distribution,Version,System,Kernel,Eth0_ip,Product,Role) VALUES(?,?,?,?,?,?,?,?,?,?);",
+        cur.execute("""REPLACE INTO facts (Last_Update,Hostname,Arch,Distribution,Version,System,Kernel,Eth0_ip) VALUES('%s','%s','%s','%s','%s','%s','%s','%s');""" %
         (
             now,
             facts.get('ansible_hostname', None),
@@ -36,8 +40,6 @@ def log(host, data):
             facts.get('ansible_system', None),
             facts.get('ansible_kernel', None),
 	    facts.get('ansible_eth0', None).get('ipv4', None).get('address', None),
-	    facts.get('ansible_local', None).get('sojourner', None).get('Product', None),
-	    facts.get('ansible_local', None).get('sojourner', None).get('Role', None),
         ))
         con.commit()
     except:

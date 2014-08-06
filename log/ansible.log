@@ -3259,3 +3259,847 @@ mas'fcsd'gd'gdf
 2014-05-29 23:12:28,270 p=13590 u=root |  ok: [ggvaapp07vm1.glam.colo]
 2014-05-29 23:12:28,410 p=13590 u=root |  PLAY RECAP ******************************************************************** 
 2014-05-29 23:12:28,410 p=13590 u=root |  ggvaapp07vm1.glam.colo     : ok=5    changed=2    unreachable=0    failed=0   
+2014-08-05 12:46:25,164 p=406 u=root |  
+2014-08-05 12:46:25,165 p=406 u=root |  /usr/bin/ansible -i NOPS-786 -m setup
+2014-08-05 12:46:25,165 p=406 u=root |  
+2014-08-05 12:46:31,925 p=407 u=root |  
+2014-08-05 12:46:31,925 p=407 u=root |  /usr/bin/ansible -i NOPS-786 all -m setup
+2014-08-05 12:46:31,925 p=407 u=root |  
+2014-08-05 12:46:34,649 p=407 u=root |  localhost | FAILED => FAILED: No authentication methods available
+2014-08-05 12:46:52,896 p=417 u=root |  
+2014-08-05 12:46:52,896 p=417 u=root |  /usr/bin/ansible -i NOPS-786 all -m setup -k
+2014-08-05 12:46:52,897 p=417 u=root |  
+2014-08-05 12:46:57,226 p=417 u=root |  localhost | success >> {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "172.17.0.2"
+        ], 
+        "ansible_all_ipv6_addresses": [
+            "fe80::ac3e:76ff:fe81:6145"
+        ], 
+        "ansible_architecture": "x86_64", 
+        "ansible_bios_date": "11/16/2012", 
+        "ansible_bios_version": "2.1b", 
+        "ansible_cmdline": {
+            "KEYBOARDTYPE": "pc", 
+            "KEYTABLE": "us", 
+            "LANG": "en_US.UTF-8", 
+            "SYSFONT": "latarcyrheb-sun16", 
+            "crashkernel": "130M@0M", 
+            "quiet": true, 
+            "rd_NO_DM": true, 
+            "rd_NO_LUKS": true, 
+            "rd_NO_LVM": true, 
+            "rd_NO_MD": true, 
+            "rhgb": true, 
+            "ro": true, 
+            "root": "UUID=a5751dbe-4711-4699-b1b1-aca24960d23b"
+        }, 
+        "ansible_date_time": {
+            "date": "2014-08-05", 
+            "day": "05", 
+            "epoch": "1407239217", 
+            "hour": "12", 
+            "iso8601": "2014-08-05T11:46:57Z", 
+            "iso8601_micro": "2014-08-05T11:46:57.155700Z", 
+            "minute": "46", 
+            "month": "08", 
+            "second": "57", 
+            "time": "12:46:57", 
+            "tz": "BST", 
+            "tz_offset": "+0100", 
+            "weekday": "Tuesday", 
+            "year": "2014"
+        }, 
+        "ansible_default_ipv4": {
+            "address": "172.17.0.2", 
+            "alias": "eth0", 
+            "gateway": "172.17.42.1", 
+            "interface": "eth0", 
+            "macaddress": "00:25:90:61:37:6e", 
+            "mtu": 1500, 
+            "netmask": "255.255.0.0", 
+            "network": "172.17.0.0", 
+            "type": "ether"
+        }, 
+        "ansible_default_ipv6": {}, 
+        "ansible_devices": {
+            "sda": {
+                "holders": [], 
+                "host": "", 
+                "model": "9650SE-4LP DISK", 
+                "partitions": {
+                    "sda1": {
+                        "sectors": "409600", 
+                        "sectorsize": 512, 
+                        "size": "200.00 MB", 
+                        "start": "2048"
+                    }, 
+                    "sda2": {
+                        "sectors": "959664128", 
+                        "sectorsize": 512, 
+                        "size": "457.60 GB", 
+                        "start": "411648"
+                    }, 
+                    "sda3": {
+                        "sectors": "16465920", 
+                        "sectorsize": 512, 
+                        "size": "7.85 GB", 
+                        "start": "960075776"
+                    }
+                }, 
+                "removable": "0", 
+                "rotational": "1", 
+                "scheduler_mode": "cfq", 
+                "sectors": "976541696", 
+                "sectorsize": "512", 
+                "size": "465.65 GB", 
+                "support_discard": "0", 
+                "vendor": "AMCC"
+            }
+        }, 
+        "ansible_distribution": "CentOS", 
+        "ansible_distribution_major_version": "6", 
+        "ansible_distribution_release": "Final", 
+        "ansible_distribution_version": "6.5", 
+        "ansible_docker0": {
+            "active": true, 
+            "device": "docker0", 
+            "id": "8000.fe7109ff19d8", 
+            "interfaces": [
+                "vethXOVMOT"
+            ], 
+            "macaddress": "fe:71:09:ff:19:d8", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "stp": false, 
+            "type": "bridge"
+        }, 
+        "ansible_domain": "", 
+        "ansible_env": {
+            "G_BROKEN_FILENAMES": "1", 
+            "HOME": "/root", 
+            "LANG": "en_US.UTF-8", 
+            "LC_CTYPE": "en_US.UTF-8", 
+            "LESSOPEN": "|/usr/bin/lesspipe.sh %s", 
+            "LOGNAME": "root", 
+            "MAIL": "/var/mail/root", 
+            "PATH": "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin", 
+            "PWD": "/root", 
+            "SHELL": "/bin/bash", 
+            "SHLVL": "2", 
+            "SSH_CLIENT": "::1 7429 22", 
+            "SSH_CONNECTION": "::1 7429 ::1 22", 
+            "USER": "root", 
+            "YUM0": "6.5", 
+            "_": "/usr/bin/python"
+        }, 
+        "ansible_eth0": {
+            "active": true, 
+            "device": "eth0", 
+            "ipv4": {
+                "address": "172.17.0.2", 
+                "netmask": "255.255.0.0", 
+                "network": "172.17.0.0"
+            }, 
+            "ipv6": [
+                {
+                    "address": "fe80::ac3e:76ff:fe81:6145", 
+                    "prefix": "64", 
+                    "scope": "link"
+                }
+            ], 
+            "macaddress": "00:25:90:61:37:6e", 
+            "module": "e1000e", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_eth1": {
+            "active": true, 
+            "device": "eth1", 
+            "macaddress": "00:25:90:61:37:6f", 
+            "module": "e1000e", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_form_factor": "Main Server Chassis", 
+        "ansible_fqdn": "tiber", 
+        "ansible_ggvaapp07vm1_e0": {
+            "active": true, 
+            "device": "ggvaapp07vm1-e0", 
+            "macaddress": "fe:53:dc:03:ff:4a", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_ggvaapp07vm1_e1": {
+            "active": true, 
+            "device": "ggvaapp07vm1-e1", 
+            "macaddress": "fe:5f:6d:c7:80:4d", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_ggvaapp07vm2_e0": {
+            "active": true, 
+            "device": "ggvaapp07vm2-e0", 
+            "macaddress": "fe:8f:12:3c:52:ed", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_ggvaapp07vm2_e1": {
+            "active": true, 
+            "device": "ggvaapp07vm2-e1", 
+            "macaddress": "fe:56:45:c7:77:e3", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_ggvaapp07vm4_e1": {
+            "active": true, 
+            "device": "ggvaapp07vm4-e1", 
+            "macaddress": "fe:92:4b:f8:44:2f", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_hostname": "tiber", 
+        "ansible_interfaces": [
+            "v-ggva07-vm3-e1", 
+            "v-ggva07-vm3-e0", 
+            "lxcbr1", 
+            "lxcbr0", 
+            "ggvaapp07vm1-e0", 
+            "ggvaapp07vm1-e1", 
+            "lo", 
+            "vethXOVMOT", 
+            "docker0", 
+            "ggvaapp07vm4-e1", 
+            "ggvaapp07vm2-e1", 
+            "ggvaapp07vm2-e0", 
+            "eth1", 
+            "eth0"
+        ], 
+        "ansible_kernel": "2.6.32-358.18.1.el6.x86_64", 
+        "ansible_lo": {
+            "active": true, 
+            "device": "lo", 
+            "ipv4": {
+                "address": "127.0.0.1", 
+                "netmask": "255.0.0.0", 
+                "network": "127.0.0.0"
+            }, 
+            "ipv6": [
+                {
+                    "address": "::1", 
+                    "prefix": "128", 
+                    "scope": "host"
+                }
+            ], 
+            "mtu": 16436, 
+            "promisc": false, 
+            "type": "loopback"
+        }, 
+        "ansible_lxcbr0": {
+            "active": true, 
+            "device": "lxcbr0", 
+            "id": "8000.00259061376e", 
+            "interfaces": [
+                "eth0", 
+                "ggvaapp07vm1-e0", 
+                "ggvaapp07vm2-e0", 
+                "v-ggva07-vm3-e0"
+            ], 
+            "macaddress": "00:25:90:61:37:6e", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "stp": false, 
+            "type": "bridge"
+        }, 
+        "ansible_lxcbr1": {
+            "active": true, 
+            "device": "lxcbr1", 
+            "id": "8000.00259061376f", 
+            "interfaces": [
+                "eth1", 
+                "ggvaapp07vm1-e1", 
+                "ggvaapp07vm2-e1", 
+                "v-ggva07-vm3-e1", 
+                "ggvaapp07vm4-e1"
+            ], 
+            "macaddress": "00:25:90:61:37:6f", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "stp": false, 
+            "type": "bridge"
+        }, 
+        "ansible_machine": "x86_64", 
+        "ansible_memfree_mb": 7030, 
+        "ansible_memtotal_mb": 15940, 
+        "ansible_mounts": [
+            {
+                "device": "/dev/mapper/docker-8:2-21170071-c8e49f14eeb252ef384c0840e91afe95fec4b9a9f69238499a7905921fbde179", 
+                "fstype": "ext4", 
+                "mount": "/", 
+                "options": "rw,relatime,barrier=1,stripe=16,data=ordered,discard", 
+                "size_available": 8882880512, 
+                "size_total": 10568916992
+            }, 
+            {
+                "device": "/dev/sda2", 
+                "fstype": "ext3", 
+                "mount": "/.dockerinit", 
+                "options": "ro,relatime,errors=continue,user_xattr,acl,barrier=1,data=ordered", 
+                "size_available": 370779807744, 
+                "size_total": 483638157312
+            }, 
+            {
+                "device": "/dev/sda2", 
+                "fstype": "ext3", 
+                "mount": "/etc/resolv.conf", 
+                "options": "ro,relatime,errors=continue,user_xattr,acl,barrier=1,data=ordered", 
+                "size_available": 370779807744, 
+                "size_total": 483638157312
+            }, 
+            {
+                "device": "/dev/sda2", 
+                "fstype": "ext3", 
+                "mount": "/etc/hostname", 
+                "options": "ro,relatime,errors=continue,user_xattr,acl,barrier=1,data=ordered", 
+                "size_available": 370779807744, 
+                "size_total": 483638157312
+            }, 
+            {
+                "device": "/dev/sda2", 
+                "fstype": "ext3", 
+                "mount": "/etc/hosts", 
+                "options": "ro,relatime,errors=continue,user_xattr,acl,barrier=1,data=ordered", 
+                "size_available": 370779807744, 
+                "size_total": 483638157312
+            }, 
+            {
+                "device": "/dev/sda2", 
+                "fstype": "ext3", 
+                "mount": "/.dockerenv", 
+                "options": "ro,relatime,errors=continue,user_xattr,acl,barrier=1,data=ordered", 
+                "size_available": 370779807744, 
+                "size_total": 483638157312
+            }
+        ], 
+        "ansible_nodename": "tiber", 
+        "ansible_os_family": "RedHat", 
+        "ansible_pkg_mgr": "yum", 
+        "ansible_processor": [
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz"
+        ], 
+        "ansible_processor_cores": 4, 
+        "ansible_processor_count": 2, 
+        "ansible_processor_threads_per_core": 1, 
+        "ansible_processor_vcpus": 8, 
+        "ansible_product_name": "X8DTL", 
+        "ansible_product_serial": "1234567890", 
+        "ansible_product_uuid": "534D4349-0002-6190-2500-619025006F37", 
+        "ansible_product_version": "1234567890", 
+        "ansible_python_version": "2.6.6", 
+        "ansible_selinux": false, 
+        "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBANN2rJRAwsAMK5sabc5FVlPrSTwISockiXcxPpRPBDftRfV7MbUwjO6sjyRd5xDIm3hpKv/rTTO0CSTYINAnBptVlE/V0VYSDnj3Xa5GNgra6gZNDr5JcEAG/SfkUrDgzY2ZRhK7AcQDR2XvtwoTHWN2Qfsb83vL8f48Vd+OTq25AAAAFQC2jGJDtWcZWMverzIR93Z6azrNRQAAAIAqZagaoFKgJK28fgNKB23FlB1cpfQqWcrUfj9YX25Aj7vv0ZHjtJorwfp847StddkgUtZtFH/+VIH2lbXg4ItEK+cE99Qh/CxdkKDhO4Zr98x0bKi5FIhUEFEl8YXTKelSEV4OtfQrtpI5GQQabhgt9Zi62Ezf9E44PbH/sUNzrgAAAIBsi20eNNcIPc+mGK4p8aTIhYzYey1DivGnaqFr+SenXm8mg7ERcsjMF+SX0wScGix5T2YIDgH1r1j6Oh6NC7dck/XlhRuKmf4n2DKqenorLIAu8qNWfut58/KP0srLJV13Q1anJA92aIYPCTQ/KdSsKqcS76ugOF5c3ujHimdrdA==", 
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAABIwAAAQEAsKtx2MpxRN99TETQQQiGcEDfzrfLkl9u24Ug6Yd6/DJb/asX7zThJKgGojUpoB9m4G7GqTlv+ufcZcpVfAtgqpsd+cdXfgOQi+ZXrZDQm1W+pr3Y2lcIe5Fdk6OLYqhzzbKWodPYC2AvPRhT7VUnSiGRvNy3WkQOVt7wkUsgCknS+dHEIG3Dp0mbZRUoexVKjC292hklkToKnOIHsIzMRTOwy2+FkuoF+nHR1vKbEfzZA9iSxumxuZF4lTTsM17ChsUWnUo45vCuybOkpJtTHCj6MmuiSC+o/eQgFnI0ynMmzXPyiQ/rKfuu2irFYRzMZhAjGK9BcshowJ3TTllJiQ==", 
+        "ansible_swapfree_mb": 7938, 
+        "ansible_swaptotal_mb": 8039, 
+        "ansible_system": "Linux", 
+        "ansible_system_vendor": "Supermicro", 
+        "ansible_user_id": "root", 
+        "ansible_userspace_architecture": "x86_64", 
+        "ansible_userspace_bits": "64", 
+        "ansible_v_ggva07_vm3_e0": {
+            "active": true, 
+            "device": "v-ggva07-vm3-e0", 
+            "macaddress": "fe:e4:d9:c3:94:87", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_v_ggva07_vm3_e1": {
+            "active": true, 
+            "device": "v-ggva07-vm3-e1", 
+            "macaddress": "fe:b2:39:d7:e3:8f", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_vethXOVMOT": {
+            "active": true, 
+            "device": "vethXOVMOT", 
+            "macaddress": "fe:71:09:ff:19:d8", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_virtualization_role": "host", 
+        "ansible_virtualization_type": "virtualbox", 
+        "module_setup": true
+    }, 
+    "changed": false
+}
+
+2014-08-05 12:47:45,489 p=500 u=root |   
+2014-08-05 12:47:45,489 p=500 u=root |  /usr/bin/ansible-playbook -i NOPS-786 plays/Test/Test.yml
+2014-08-05 12:47:45,489 p=500 u=root |   
+2014-08-05 12:47:45,518 p=500 u=root |  PLAY [Test] ******************************************************************* 
+2014-08-05 12:47:45,518 p=500 u=root |  GATHERING FACTS *************************************************************** 
+2014-08-05 12:47:45,762 p=500 u=root |  fatal: [localhost] => {'msg': 'FAILED: No authentication methods available', 'failed': True}
+2014-08-05 12:47:45,763 p=500 u=root |  TASK: [hello_world | Hello World] ********************************************* 
+2014-08-05 12:47:45,769 p=500 u=root |  FATAL: no hosts matched or all hosts have already failed -- aborting
+
+2014-08-05 12:47:45,770 p=500 u=root |  PLAY RECAP ******************************************************************** 
+2014-08-05 12:47:45,771 p=500 u=root |             to retry, use: --limit @/root/Test.retry
+
+2014-08-05 12:47:45,771 p=500 u=root |  localhost                  : ok=0    changed=0    unreachable=1    failed=0   
+2014-08-05 12:47:55,854 p=512 u=root |   
+2014-08-05 12:47:55,854 p=512 u=root |  /usr/bin/ansible-playbook -i NOPS-786 plays/Test/Test.yml -k
+2014-08-05 12:47:55,855 p=512 u=root |   
+2014-08-05 12:47:58,455 p=512 u=root |  PLAY [Test] ******************************************************************* 
+2014-08-05 12:47:58,456 p=512 u=root |  GATHERING FACTS *************************************************************** 
+2014-08-05 12:47:59,055 p=512 u=root |  ok: [localhost]
+2014-08-05 12:47:59,057 p=512 u=root |  TASK: [hello_world | Hello World] ********************************************* 
+2014-08-05 12:47:59,318 p=512 u=root |  ok: [localhost] => {
+    "item": "", 
+    "msg": "Hello World"
+}
+2014-08-05 12:47:59,318 p=512 u=root |  PLAY RECAP ******************************************************************** 
+2014-08-05 12:47:59,318 p=512 u=root |  localhost                  : ok=2    changed=0    unreachable=0    failed=0   
+2014-08-05 12:51:18,474 p=605 u=root |   
+2014-08-05 12:51:18,475 p=605 u=root |  /usr/bin/ansible-playbook -i NOPS-786 plays/Test/Test.yml -k
+2014-08-05 12:51:18,475 p=605 u=root |   
+2014-08-05 12:51:21,669 p=605 u=root |  PLAY [Test] ******************************************************************* 
+2014-08-05 12:51:21,669 p=605 u=root |  GATHERING FACTS *************************************************************** 
+2014-08-05 12:51:22,284 p=605 u=root |  ok: [localhost]
+2014-08-05 12:51:22,286 p=605 u=root |  TASK: [hello_world | Hello World] ********************************************* 
+2014-08-05 12:51:22,552 p=605 u=root |  ok: [localhost] => {
+    "item": "", 
+    "msg": "Hello World"
+}
+2014-08-05 12:51:22,552 p=605 u=root |  PLAY RECAP ******************************************************************** 
+2014-08-05 12:51:22,552 p=605 u=root |  localhost                  : ok=2    changed=0    unreachable=0    failed=0   
+2014-08-05 12:54:10,424 p=698 u=root |   
+2014-08-05 12:54:10,424 p=698 u=root |  /usr/bin/ansible-playbook -i NOPS-786 plays/Test/Test.yml -k
+2014-08-05 12:54:10,424 p=698 u=root |   
+2014-08-05 12:54:12,963 p=698 u=root |  PLAY [Test] ******************************************************************* 
+2014-08-05 12:54:12,964 p=698 u=root |  GATHERING FACTS *************************************************************** 
+2014-08-05 12:54:13,541 p=698 u=root |  ok: [localhost]
+2014-08-05 12:54:13,556 p=698 u=root |  TASK: [hello_world | Hello World] ********************************************* 
+2014-08-05 12:54:13,819 p=698 u=root |  ok: [localhost] => {
+    "item": "", 
+    "msg": "Hello World"
+}
+2014-08-05 12:54:13,819 p=698 u=root |  PLAY RECAP ******************************************************************** 
+2014-08-05 12:54:13,819 p=698 u=root |  localhost                  : ok=2    changed=0    unreachable=0    failed=0   
+2014-08-05 12:55:50,617 p=791 u=root |   
+2014-08-05 12:55:50,617 p=791 u=root |  /usr/bin/ansible-playbook -i NOPS-786 plays/Test/Test.yml -k
+2014-08-05 12:55:50,618 p=791 u=root |   
+2014-08-05 12:55:52,632 p=791 u=root |  PLAY [Test] ******************************************************************* 
+2014-08-05 12:55:52,632 p=791 u=root |  GATHERING FACTS *************************************************************** 
+2014-08-05 12:55:53,260 p=791 u=root |  ok: [localhost]
+2014-08-05 12:55:53,262 p=791 u=root |  TASK: [hello_world | Hello World] ********************************************* 
+2014-08-05 12:55:53,520 p=791 u=root |  ok: [localhost] => {
+    "item": "", 
+    "msg": "Hello World"
+}
+2014-08-05 12:55:53,521 p=791 u=root |  PLAY RECAP ******************************************************************** 
+2014-08-05 12:55:53,521 p=791 u=root |  localhost                  : ok=2    changed=0    unreachable=0    failed=0   
+2014-08-05 13:52:02,007 p=893 u=root |  
+2014-08-05 13:52:02,008 p=893 u=root |  /usr/bin/ansible -i NOPS-786 all -m setup -k --tree /tmp/facts
+2014-08-05 13:52:02,008 p=893 u=root |  
+2014-08-05 13:52:05,057 p=893 u=root |  localhost | success >> {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "172.17.0.2"
+        ], 
+        "ansible_all_ipv6_addresses": [
+            "fe80::ac3e:76ff:fe81:6145"
+        ], 
+        "ansible_architecture": "x86_64", 
+        "ansible_bios_date": "11/16/2012", 
+        "ansible_bios_version": "2.1b", 
+        "ansible_cmdline": {
+            "KEYBOARDTYPE": "pc", 
+            "KEYTABLE": "us", 
+            "LANG": "en_US.UTF-8", 
+            "SYSFONT": "latarcyrheb-sun16", 
+            "crashkernel": "130M@0M", 
+            "quiet": true, 
+            "rd_NO_DM": true, 
+            "rd_NO_LUKS": true, 
+            "rd_NO_LVM": true, 
+            "rd_NO_MD": true, 
+            "rhgb": true, 
+            "ro": true, 
+            "root": "UUID=a5751dbe-4711-4699-b1b1-aca24960d23b"
+        }, 
+        "ansible_date_time": {
+            "date": "2014-08-05", 
+            "day": "05", 
+            "epoch": "1407243124", 
+            "hour": "13", 
+            "iso8601": "2014-08-05T12:52:04Z", 
+            "iso8601_micro": "2014-08-05T12:52:04.990595Z", 
+            "minute": "52", 
+            "month": "08", 
+            "second": "04", 
+            "time": "13:52:04", 
+            "tz": "BST", 
+            "tz_offset": "+0100", 
+            "weekday": "Tuesday", 
+            "year": "2014"
+        }, 
+        "ansible_default_ipv4": {
+            "address": "172.17.0.2", 
+            "alias": "eth0", 
+            "gateway": "172.17.42.1", 
+            "interface": "eth0", 
+            "macaddress": "00:25:90:61:37:6e", 
+            "mtu": 1500, 
+            "netmask": "255.255.0.0", 
+            "network": "172.17.0.0", 
+            "type": "ether"
+        }, 
+        "ansible_default_ipv6": {}, 
+        "ansible_devices": {
+            "sda": {
+                "holders": [], 
+                "host": "", 
+                "model": "9650SE-4LP DISK", 
+                "partitions": {
+                    "sda1": {
+                        "sectors": "409600", 
+                        "sectorsize": 512, 
+                        "size": "200.00 MB", 
+                        "start": "2048"
+                    }, 
+                    "sda2": {
+                        "sectors": "959664128", 
+                        "sectorsize": 512, 
+                        "size": "457.60 GB", 
+                        "start": "411648"
+                    }, 
+                    "sda3": {
+                        "sectors": "16465920", 
+                        "sectorsize": 512, 
+                        "size": "7.85 GB", 
+                        "start": "960075776"
+                    }
+                }, 
+                "removable": "0", 
+                "rotational": "1", 
+                "scheduler_mode": "cfq", 
+                "sectors": "976541696", 
+                "sectorsize": "512", 
+                "size": "465.65 GB", 
+                "support_discard": "0", 
+                "vendor": "AMCC"
+            }
+        }, 
+        "ansible_distribution": "CentOS", 
+        "ansible_distribution_major_version": "6", 
+        "ansible_distribution_release": "Final", 
+        "ansible_distribution_version": "6.5", 
+        "ansible_docker0": {
+            "active": true, 
+            "device": "docker0", 
+            "id": "8000.fe7109ff19d8", 
+            "interfaces": [
+                "vethXOVMOT"
+            ], 
+            "macaddress": "fe:71:09:ff:19:d8", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "stp": false, 
+            "type": "bridge"
+        }, 
+        "ansible_domain": "", 
+        "ansible_env": {
+            "G_BROKEN_FILENAMES": "1", 
+            "HOME": "/root", 
+            "LANG": "en_US.UTF-8", 
+            "LC_CTYPE": "en_US.UTF-8", 
+            "LESSOPEN": "|/usr/bin/lesspipe.sh %s", 
+            "LOGNAME": "root", 
+            "MAIL": "/var/mail/root", 
+            "PATH": "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin", 
+            "PWD": "/root", 
+            "SHELL": "/bin/bash", 
+            "SHLVL": "2", 
+            "SSH_CLIENT": "::1 9175 22", 
+            "SSH_CONNECTION": "::1 9175 ::1 22", 
+            "USER": "root", 
+            "YUM0": "6.5", 
+            "_": "/usr/bin/python"
+        }, 
+        "ansible_eth0": {
+            "active": true, 
+            "device": "eth0", 
+            "ipv4": {
+                "address": "172.17.0.2", 
+                "netmask": "255.255.0.0", 
+                "network": "172.17.0.0"
+            }, 
+            "ipv6": [
+                {
+                    "address": "fe80::ac3e:76ff:fe81:6145", 
+                    "prefix": "64", 
+                    "scope": "link"
+                }
+            ], 
+            "macaddress": "00:25:90:61:37:6e", 
+            "module": "e1000e", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_eth1": {
+            "active": true, 
+            "device": "eth1", 
+            "macaddress": "00:25:90:61:37:6f", 
+            "module": "e1000e", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_form_factor": "Main Server Chassis", 
+        "ansible_fqdn": "tiber", 
+        "ansible_ggvaapp07vm1_e0": {
+            "active": true, 
+            "device": "ggvaapp07vm1-e0", 
+            "macaddress": "fe:53:dc:03:ff:4a", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_ggvaapp07vm1_e1": {
+            "active": true, 
+            "device": "ggvaapp07vm1-e1", 
+            "macaddress": "fe:5f:6d:c7:80:4d", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_ggvaapp07vm2_e0": {
+            "active": true, 
+            "device": "ggvaapp07vm2-e0", 
+            "macaddress": "fe:8f:12:3c:52:ed", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_ggvaapp07vm2_e1": {
+            "active": true, 
+            "device": "ggvaapp07vm2-e1", 
+            "macaddress": "fe:56:45:c7:77:e3", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_ggvaapp07vm4_e1": {
+            "active": true, 
+            "device": "ggvaapp07vm4-e1", 
+            "macaddress": "fe:92:4b:f8:44:2f", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_hostname": "tiber", 
+        "ansible_interfaces": [
+            "v-ggva07-vm3-e1", 
+            "v-ggva07-vm3-e0", 
+            "lxcbr1", 
+            "lxcbr0", 
+            "ggvaapp07vm1-e0", 
+            "ggvaapp07vm1-e1", 
+            "lo", 
+            "vethXOVMOT", 
+            "docker0", 
+            "ggvaapp07vm4-e1", 
+            "ggvaapp07vm2-e1", 
+            "ggvaapp07vm2-e0", 
+            "eth1", 
+            "eth0"
+        ], 
+        "ansible_kernel": "2.6.32-358.18.1.el6.x86_64", 
+        "ansible_lo": {
+            "active": true, 
+            "device": "lo", 
+            "ipv4": {
+                "address": "127.0.0.1", 
+                "netmask": "255.0.0.0", 
+                "network": "127.0.0.0"
+            }, 
+            "ipv6": [
+                {
+                    "address": "::1", 
+                    "prefix": "128", 
+                    "scope": "host"
+                }
+            ], 
+            "mtu": 16436, 
+            "promisc": false, 
+            "type": "loopback"
+        }, 
+        "ansible_lxcbr0": {
+            "active": true, 
+            "device": "lxcbr0", 
+            "id": "8000.00259061376e", 
+            "interfaces": [
+                "eth0", 
+                "ggvaapp07vm1-e0", 
+                "ggvaapp07vm2-e0", 
+                "v-ggva07-vm3-e0"
+            ], 
+            "macaddress": "00:25:90:61:37:6e", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "stp": false, 
+            "type": "bridge"
+        }, 
+        "ansible_lxcbr1": {
+            "active": true, 
+            "device": "lxcbr1", 
+            "id": "8000.00259061376f", 
+            "interfaces": [
+                "eth1", 
+                "ggvaapp07vm1-e1", 
+                "ggvaapp07vm2-e1", 
+                "v-ggva07-vm3-e1", 
+                "ggvaapp07vm4-e1"
+            ], 
+            "macaddress": "00:25:90:61:37:6f", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "stp": false, 
+            "type": "bridge"
+        }, 
+        "ansible_machine": "x86_64", 
+        "ansible_memfree_mb": 7052, 
+        "ansible_memtotal_mb": 15940, 
+        "ansible_mounts": [
+            {
+                "device": "/dev/mapper/docker-8:2-21170071-c8e49f14eeb252ef384c0840e91afe95fec4b9a9f69238499a7905921fbde179", 
+                "fstype": "ext4", 
+                "mount": "/", 
+                "options": "rw,relatime,barrier=1,stripe=16,data=ordered,discard", 
+                "size_available": 8882860032, 
+                "size_total": 10568916992
+            }, 
+            {
+                "device": "/dev/sda2", 
+                "fstype": "ext3", 
+                "mount": "/.dockerinit", 
+                "options": "ro,relatime,errors=continue,user_xattr,acl,barrier=1,data=ordered", 
+                "size_available": 370739765248, 
+                "size_total": 483638157312
+            }, 
+            {
+                "device": "/dev/sda2", 
+                "fstype": "ext3", 
+                "mount": "/etc/resolv.conf", 
+                "options": "ro,relatime,errors=continue,user_xattr,acl,barrier=1,data=ordered", 
+                "size_available": 370739765248, 
+                "size_total": 483638157312
+            }, 
+            {
+                "device": "/dev/sda2", 
+                "fstype": "ext3", 
+                "mount": "/etc/hostname", 
+                "options": "ro,relatime,errors=continue,user_xattr,acl,barrier=1,data=ordered", 
+                "size_available": 370739765248, 
+                "size_total": 483638157312
+            }, 
+            {
+                "device": "/dev/sda2", 
+                "fstype": "ext3", 
+                "mount": "/etc/hosts", 
+                "options": "ro,relatime,errors=continue,user_xattr,acl,barrier=1,data=ordered", 
+                "size_available": 370739765248, 
+                "size_total": 483638157312
+            }, 
+            {
+                "device": "/dev/sda2", 
+                "fstype": "ext3", 
+                "mount": "/.dockerenv", 
+                "options": "ro,relatime,errors=continue,user_xattr,acl,barrier=1,data=ordered", 
+                "size_available": 370739765248, 
+                "size_total": 483638157312
+            }
+        ], 
+        "ansible_nodename": "tiber", 
+        "ansible_os_family": "RedHat", 
+        "ansible_pkg_mgr": "yum", 
+        "ansible_processor": [
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz", 
+            "Intel(R) Xeon(R) CPU           E5606  @ 2.13GHz"
+        ], 
+        "ansible_processor_cores": 4, 
+        "ansible_processor_count": 2, 
+        "ansible_processor_threads_per_core": 1, 
+        "ansible_processor_vcpus": 8, 
+        "ansible_product_name": "X8DTL", 
+        "ansible_product_serial": "1234567890", 
+        "ansible_product_uuid": "534D4349-0002-6190-2500-619025006F37", 
+        "ansible_product_version": "1234567890", 
+        "ansible_python_version": "2.6.6", 
+        "ansible_selinux": false, 
+        "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBANN2rJRAwsAMK5sabc5FVlPrSTwISockiXcxPpRPBDftRfV7MbUwjO6sjyRd5xDIm3hpKv/rTTO0CSTYINAnBptVlE/V0VYSDnj3Xa5GNgra6gZNDr5JcEAG/SfkUrDgzY2ZRhK7AcQDR2XvtwoTHWN2Qfsb83vL8f48Vd+OTq25AAAAFQC2jGJDtWcZWMverzIR93Z6azrNRQAAAIAqZagaoFKgJK28fgNKB23FlB1cpfQqWcrUfj9YX25Aj7vv0ZHjtJorwfp847StddkgUtZtFH/+VIH2lbXg4ItEK+cE99Qh/CxdkKDhO4Zr98x0bKi5FIhUEFEl8YXTKelSEV4OtfQrtpI5GQQabhgt9Zi62Ezf9E44PbH/sUNzrgAAAIBsi20eNNcIPc+mGK4p8aTIhYzYey1DivGnaqFr+SenXm8mg7ERcsjMF+SX0wScGix5T2YIDgH1r1j6Oh6NC7dck/XlhRuKmf4n2DKqenorLIAu8qNWfut58/KP0srLJV13Q1anJA92aIYPCTQ/KdSsKqcS76ugOF5c3ujHimdrdA==", 
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAABIwAAAQEAsKtx2MpxRN99TETQQQiGcEDfzrfLkl9u24Ug6Yd6/DJb/asX7zThJKgGojUpoB9m4G7GqTlv+ufcZcpVfAtgqpsd+cdXfgOQi+ZXrZDQm1W+pr3Y2lcIe5Fdk6OLYqhzzbKWodPYC2AvPRhT7VUnSiGRvNy3WkQOVt7wkUsgCknS+dHEIG3Dp0mbZRUoexVKjC292hklkToKnOIHsIzMRTOwy2+FkuoF+nHR1vKbEfzZA9iSxumxuZF4lTTsM17ChsUWnUo45vCuybOkpJtTHCj6MmuiSC+o/eQgFnI0ynMmzXPyiQ/rKfuu2irFYRzMZhAjGK9BcshowJ3TTllJiQ==", 
+        "ansible_swapfree_mb": 7938, 
+        "ansible_swaptotal_mb": 8039, 
+        "ansible_system": "Linux", 
+        "ansible_system_vendor": "Supermicro", 
+        "ansible_user_id": "root", 
+        "ansible_userspace_architecture": "x86_64", 
+        "ansible_userspace_bits": "64", 
+        "ansible_v_ggva07_vm3_e0": {
+            "active": true, 
+            "device": "v-ggva07-vm3-e0", 
+            "macaddress": "fe:e4:d9:c3:94:87", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_v_ggva07_vm3_e1": {
+            "active": true, 
+            "device": "v-ggva07-vm3-e1", 
+            "macaddress": "fe:b2:39:d7:e3:8f", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_vethXOVMOT": {
+            "active": true, 
+            "device": "vethXOVMOT", 
+            "macaddress": "fe:71:09:ff:19:d8", 
+            "mtu": 1500, 
+            "promisc": true, 
+            "type": "ether"
+        }, 
+        "ansible_virtualization_role": "host", 
+        "ansible_virtualization_type": "virtualbox", 
+        "module_setup": true
+    }, 
+    "changed": false
+}
+

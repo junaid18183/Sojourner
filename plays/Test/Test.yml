@@ -1,0 +1,14 @@
+---
+#This is just the TEST
+
+- name: Test
+  hosts: all
+
+  user: root
+
+  roles:
+    -  hello_world
+
+#  vars_prompt:
+#    Role: "what is the Role of this server?"
+#    Owner: "Who is the Owner of this Server?"
