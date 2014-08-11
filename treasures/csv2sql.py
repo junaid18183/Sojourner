@@ -9,11 +9,11 @@ cursor=db.cursor()
 #print result
 
 
-csv_data = csv.reader(file('invnetory.csv'))
+csv_data = csv.reader(file('colo1.csv'))
 for row in csv_data:
-	query="""insert into inventory values ('%s',%s,'%s','%s','%s','%s','%s');""" %(row[2],row[1],row[3],row[6],row[7],row[8],row[9])
-	#cursor.execute(query)
-	#result=cursor.fetchall()
-	#print result
-	print query
+	query="""insert into inventory values ('%s',%s,'%s','%s','%s','%s','%s');""" %(row[0],row[1],row[2],row[3],row[4],row[5],row[6])
+	cursor.execute(query)
+	result=cursor.fetchall()
+	print result
+	#print query
 

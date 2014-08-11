@@ -20,6 +20,7 @@ def log(host, data):
     if type(data) == dict:
 	pass
 
+    print "starting %s" %(host)
     facts = data.get('ansible_facts', None)
     now = time.strftime(TIME_FORMAT, time.localtime())
     Hostname = facts.get('ansible_hostname', None)
@@ -38,6 +39,7 @@ def log(host, data):
 	
 	cur.execute(query)
         con.commit()
+	print "%s done" %(host)
 #    except:
     except MySQLdb.Error as err:
         print("Something went wrong: {}".format(err))
@@ -48,9 +50,11 @@ def log(host, data):
 path = "/tmp/facts/"
 hostlist=os.listdir( path )
 for file in hostlist:
-	json_data = open(path+"/"+file)
-	data = json.load(json_data)
-	log(file, data)
+	if os.path.isfile(path+file):
+		json_data = open(path+file)
+		data = json.load(json_data)
+		log(file, data)
+		os.rename(path+file,path+"done/"+file)
 
 #--single host
 

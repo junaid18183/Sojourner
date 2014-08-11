@@ -1,0 +1,357 @@
+Hostname,Crid,Asset,Price,Role,Product,Owner
+dbus05,73017,AS-09409,$210.00,DBUS,Database,DBTeam
+dbus04,73014,AS-09408,$210.00,DBUS,Database,DBTeam
+dbus03,69947,AS-09407,$210.00,DBUS,Database,DBTeam
+dbus02,73008,AS-09406,$210.00,DBUS,Database,DBTeam
+dbus01,73005,AS-09344,$210.00,DBUS,Database,DBteam
+dbus00,73002,AS-09343,$210.00,DBUS,Database,DBTeam
+cshdpm6,70007,AS-08917,$210.00,HadoopMngt,Hadoop,HadoopTeam
+cshdpm5,70004,AS-08916,$210.00,HadoopMngt,Hadoop,HadoopTeam
+cshdpm4,72999,AS-09405,$210.00,HadoopMngt,Hadoop,HadoopTeam
+cshdpm3,72996,AS-09401,$210.00,HadoopMngt,Hadoop,HadoopTeam
+cshdpm2,72993,AS-09540,$210.00,HadoopMngt,Hadoop,HadoopTeam
+cshdpm1,72990,AS-09331,$210.00,HadoopMngt,Hadoop,HadoopTeam
+cshdp99,79862,AS-10095,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp98,79858,AS-09341,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp97,79854,AS-07581,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp96,79850,AS-07580,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp95,79846,AS-08077,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp94,79842,AS-08661,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp93,79838,AS-07778,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp92,79834,AS-07752,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp91,79830,AS-08660,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp90,79826,AS-11155,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp9,72733,AS-09532,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp89,79822,AS-10156,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp88,79818,AS-08663,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp87,79814,AS-08584,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp86,79810,AS-08657,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp85,79806,AS-10405,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp84,79802,AS-08078,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp83,79798,AS-08664,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp82,79794,AS-10111,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp81,79790,AS-09529,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp80,79786,AS-07721,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp8,72729,AS-10029,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp79,79782,AS-10404,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp78,79778,AS-08083,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp77,79774,AS-08069,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp76,79770,AS-09412,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp75,79766,AS-07582,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp74,79762,AS-07606,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp73,79758,AS-07578,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp72,79754,AS-11770,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp71,79750,AS-10152,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp70,79746,AS-11209,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp7,72725,AS-09609,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp69,79742,AS-10215,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp68,79738,AS-10037,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp67,79734,AS-11769,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp66,79730,AS-09417,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp65,79726,AS-10093,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp64,79722,AS-10187,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp63,79718,AS-10213,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp62,79714,AS-08825,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp61,79710,AS-10186,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp60,79706,AS-08823,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp6,72721,AS-09534,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp59,79702,AS-08824,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp58,79698,AS-10185,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp57,79694,AS-09416,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp56,79690,AS-08451,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp55,79686,AS-10212,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp54,79682,AS-10153,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp53,79678,AS-10184,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp52,79674,AS-08822,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp51,79670,AS-09418,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp50,76476,AS-10426,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp5,72717,AS-09611,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp49,76472,AS-10412,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp48,76468,AS-10434,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp47,76464,AS-10410,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp46,76460,AS-10420,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp45,76456,AS-10424,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp44,76452,AS-10416,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp43,76448,AS-10423,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp42,76444,AS-10414,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp41,76440,AS-10418,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp40,76436,AS-10432,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp4,72713,AS-10030,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp39,76432,AS-10433,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp38,76428,AS-10428,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp37,76424,AS-10427,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp36,76420,AS-10425,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp35,76416,AS-10411,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp34,76412,AS-10431,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp33,76408,AS-10419,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp32,76404,AS-10421,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp31,76399,AS-10422,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp30,76395,AS-10429,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp3,72709,AS-09527,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp29,76391,AS-10413,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp28,76387,AS-10430,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp27,76383,AS-10415,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp26,76379,AS-10417,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp25,72797,AS-09339,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp24,72793,AS-09537,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp23,72789,AS-09531,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp22,72785,AS-09530,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp21,72781,AS-09525,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp20,72777,AS-09539,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp2,72705,AS-09608,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp19,72773,AS-09533,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp18,72769,AS-10032,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp17,72765,AS-09535,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp16,72761,AS-10028,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp15,72757,AS-09610,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp14,72753,AS-09538,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp13,72749,AS-10195,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp12,72745,AS-09536,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp11,72741,AS-09526,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp100,79866,AS-10097,$315.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp10,72737,AS-09528,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+cshdp1,72701,AS-10031,$280.00,HadoopDataNode,Hadoop,HadoopTeam
+csdb06,78814,AS-10389,$280.06,OracleDB,Database,DBTeam
+csdb05,78810,AS-10378,$280.06,OracleDB,Database,DBTeam
+csdb04,78735,DS-00446,$279.99,OracleDB,Database,DBTeam
+csdb03,78730,DS-00450,$279.99,OracleDB,Database,DBTeam
+csdb02,78725,AS-08592,$279.99,OracleDB,Database,DBTeam
+csdb01,78720,DS-00444,$279.99,OracleDB,Database,DBTeam
+app99,45159,AS-05369,$185.00,Elastic Search,Consumer,Consumer
+app98,45150,AS-04966,$185.00,Stylemob,Video,Video
+app97,45147,AS-04489,$185.00,Rich_Media,Video,Video
+app96,45153,AS-04417,$185.00,Rich_Media,Video,Video
+app95,45162,AS-04289,$185.00,Studio Dev,Studio,Studio
+app94,45130,AS-05641,$384.99,VARNISH,GlamTV,GlamTV
+app93,45124,AS-04537,$384.99,VARNISH,GlamTV,GlamTV
+app92,45127,AS-05164,$384.99,Rich_Media,Video,Video
+app91,45121,AS-05823,$384.99,Rich_Media,Video,Video
+app90,45118,AS-04455,$384.99,Onboarding,NotSure,Notsure
+app89,45112,AS-04521,$384.99,Mysql,NotSure,Notsure
+app88,45115,AS-05436,$384.99,HydraWorker,Hydra,Hydra
+app87,45103,AS-05433,$384.99,HydraWorker,Hydra,Hydra
+app86,45109,AS-05208,$384.99,HydraWorker,Hydra,Hydra
+app85,45106,AS-04984,$384.99,HydraWorker,Hydra,Hydra
+app84,45100,AS-3576,$384.99,FBT,FBT,FBT
+app83,45097,AS-03693,$384.99,FBT,FBT,FBT
+app82,45091,AS-05661,$384.99,AnsibleMaster,Ops,Techops
+app81,45088,AS-04019,$384.99,HydraWorker,Hydra,Hydra
+app80,45094,AS-04936,$384.99,HydraWorker,Hydra,Hydra
+app319,79946,AS-07280,$210.00,ETL,Hadoop,Hadoop
+app318,79943,AS-07460,$210.00,ETL,Hadoop,Hadoop
+app317,79940,AS-07250,$210.00,Search,Studio,Studio
+app316,79937,AS-07407,$210.00,ETL,Hadoop,Hadoop
+app315,79934,AS-07382,$210.00,ETL,Hadoop,Hadoop
+app314,79931,AS-07377,$210.00,ETL,Hadoop,Hadoop
+app313,79928,AS-07374,$210.00,ETL,Hadoop,Hadoop
+app312,79925,AS-07282,$210.00,ETL,Hadoop,Hadoop
+app311,79922,AS-07371,$210.00,ETL,Hadoop,Hadoop
+app310,79919,AS-07999,$210.00,Cron,Hadoop,Hadoop
+app309,79523,AS-07773,$210.00,Reviewboard/Hydra,Hydra,Hydra
+app308,79520,as-07408,$210.00,Hydra-HTTP,Hydra,Hydra
+app307,79517,as-08581,$210.00,Rich_Media,Rich_Media,Rich_Media
+app306,79514,as-07996,$210.00,Rich_Media,Rich_Media,Rich_Media
+app305,79511,as-10193,$210.00,Studio,Studio,Studio
+app304,79508,as-10158,$210.00,Studio,Studio,Studio
+app303,79505,as-10383,$210.00,Studio,Studio,Studio
+app302,79502,as-08583,$210.00,Studio,Studio,Studio
+app301,79499,AS-10114,$210.00,HydraWorker,Hydra,Hydra
+app300,79496,AS-10408,$210.00,Elastic Search,Consumer,Consumer
+app299,79448,as-08092,$210.00,AD_SERVER,AD_SERVER,Techops
+app298,79445,as-08090,$210.00,AD_SERVER,AD_SERVER,Techops
+app297,79442,AS-08080,$210.00,AD_SERVER,AD_SERVER,Techops
+app296,79439,as-08002,$210.00,AD_SERVER,AD_SERVER,Techops
+app295,79436,as-07998,$210.00,AD_SERVER,AD_SERVER,Techops
+app294,79433,AS-07997,$210.00,AD_SERVER,AD_SERVER,Techops
+app293,79430,as-07995,$210.00,AD_SERVER,AD_SERVER,Techops
+app292,79427,as-07992,$210.00,AD_SERVER,AD_SERVER,Techops
+app291,79424,AS-07861,$210.00,AD_SERVER,AD_SERVER,Techops
+app290,79421,as-07751,$210.00,AD_SERVER,AD_SERVER,Techops
+app289,79409,AS-07941,$210.00,AD_SERVER,AD_SERVER,Techops
+app288,79412,AS-07860,$210.00,AD_SERVER,AD_SERVER,Techops
+app287,79415,AS-07750,$210.00,AD_SERVER,AD_SERVER,Techops
+app286,79418,AS-07725,$210.00,AD_SERVER,AD_SERVER,Techops
+app285,79406,AS-07723,$210.00,AD_SERVER,AD_SERVER,Techops
+app284,79046,AS-10384,$210.00,Hydra,Hydra,Hydra
+app283,79049,AS-10379,$210.00,NTS,NTS,NTS
+app282,79052,AS-10386,$210.00,NTS,NTS,NTS
+app281,79055,AS-10376,$210.00,Studio,Studio,Studio
+app280,79043,AS-10387,$210.00,Studio,Studio,Studio
+app279,79040,AS-10385,$210.00,Hydra DB,Hydra,Hydra
+app278,79037,as-10380,$210.00,Hydra DB,Hydra,Hydra
+app277,79034,as-10390,$210.00,Hydra DB,Hydra,Hydra
+app276,79031,as-10388,$210.00,Log Processor,Database,DBteam
+app275,79028,AS-10382,$210.00,Free,Free,Techops
+app274,78332,AS-08690,$359.99,Tableau,Tableau,Tableau
+app273,78329,AS-07977,$359.99,Sortdb,Adserver,Techops
+app272,78326,AS-07037,$359.99,BT Memcached,Adserver,Techops
+app271,78323,DS-00085,$359.99,BT projects files,FIND,Emmanuel 
+app270,78320,AS-07579,$359.99,Studio,Studio,Studio
+app269,78317,AS-07722,$359.99,Studio,Studio,Studio
+app268,78314,AS-08091,$359.99,Studio,Studio,Studio
+app267,78311,AS-07577,$359.99,Studio,Studio,Studio
+app266,78308,AS-08587,$359.99,Studio,Studio,Studio
+app265,78305,DS-00098,$359.99,Studio,Studio,Studio
+app264,70040,AS-09304,$210.00,Hadoop-Dev,Hadoop,Hadoop
+app263,70037,AS-09305,$210.00,zookeeper,Hadoop,Hadoop
+app262,70034,AS-09303,$210.00,zookeeper,Hadoop,Hadoop
+app261,70031,AS-09302,$210.00,zookeeper,Hadoop,Hadoop
+app260,70028,AS-09301,$210.00,Ganglia,Ops,Techops
+app259,70025,AS-09300,$210.00,Jenkins,Ops,Techops
+app258,70022,AS-08923,$210.00,UDS MEMCACHED,Adserver,Techops
+app257,70019,AS-08921,$210.00,LogDownload,AdServer,Techops
+app256,70016,AS-08920,$210.00,GlamMovile,GlamMovile,Mobile
+app255,70013,AS-08919,$210.00,Studio,Studio,Studio
+app254,70010,AS-08918,$210.00,Studio,Studio,Studio
+app251,70001,AS-08915,$210.00,Hadoop-Dev,Hadoop,Hadoop
+app250,69998,AS-08914,$210.00,Hadoop-Dev,Hadoop,Hadoop
+app249,69995,AS-08913,$210.00,AD_SERVER,AD_SERVER,Techops
+app248,69992,AS-08912,$210.00,AD_SERVER,AD_SERVER,Techops
+app247,69989,AS-08911,$210.00,AD_SERVER,AD_SERVER,Techops
+app246,69986,AS-08910,$210.00,AD_SERVER,AD_SERVER,Techops
+app245,69983,AS-08909,$210.00,AD_SERVER,AD_SERVER,Techops
+app244,69980,AS-08908,$210.00,AD_SERVER,AD_SERVER,Techops
+app243,69977,AS-08907,$210.00,NETACUITY,Adserver,Techops
+app242,69974,AS-08906,$210.00,NETACUITY,Adserver,Techops
+app241,69971,AS-08905,$210.00,FQM MEMCACHED,Adserver,Techops
+app240,69968,AS-08904,$210.00,IVM MEMCACHED,Adserver,Techops
+app239,69965,AS-08903,$210.00,AD_SERVER,AD_SERVER,Techops
+app238,69962,AS-08902,$210.00,AD_SERVER,AD_SERVER,Techops
+app237,69959,AS-08901,$210.00,AD_SERVER,AD_SERVER,Techops
+app236,69956,AS-08897,$210.00,AD_SERVER,AD_SERVER,Techops
+app235,69953,AS-08896,$210.00,AD_SERVER,AD_SERVER,Techops
+app234,69950,AS-08895,$210.00,AD_SERVER,AD_SERVER,Techops
+app233,73011,AS-08893,$210.00,AD_SERVER,AD_SERVER,Techops
+app232,69944,AS-08891,$210.00,AD_SERVER,AD_SERVER,Techops
+app231,69941,AS-08585,$210.00,AD_SERVER,AD_SERVER,Techops
+app230,69938,AS-08888,$210.00,AD_SERVER,AD_SERVER,Techops
+app229,69935,AS-08887,$210.00,AD_SERVER,AD_SERVER,Techops
+app228,69932,AS-08886,$210.00,AD_SERVER,AD_SERVER,Techops
+app227,69929,AS-08882,$210.00,AD_SERVER,AD_SERVER,Techops
+app226,69926,AS-08881,$210.00,AD_SERVER,AD_SERVER,Techops
+app225,69923,AS-08880,$210.00,AD_SERVER,AD_SERVER,Techops
+app224,69920,AS-08900,$210.00,AD_SERVER,AD_SERVER,Techops
+app223,69917,AS-08899,$210.00,AD_SERVER,AD_SERVER,Techops
+app222,69914,AS-08898,$210.00,AD_SERVER,AD_SERVER,Techops
+app221,69911,AS-08894,$210.00,AD_SERVER,AD_SERVER,Techops
+app220,69908,AS-08892,$210.00,AD_SERVER,AD_SERVER,Techops
+app219,69905,AS-08889,$210.00,Tools,NTS,NTS
+app218,69901,AS-08885,$210.00,Jira,OPS,Techops
+app217,69898,AS-08884,$210.00,Nagios,OPS,Techops
+app216,69893,AS-08883,$210.00,Tableau,Tableau,Tableau
+app215,69887,AS-08922,$210.00,Tableau,Tableau,Tableau
+app214,67175,AS-05716,$125.00,GlamAdapt UI Server,ADE,ADE
+app213,67173,AS-05754,$125.00,GlamAdapt UI Server,ADE,ADE
+app212,67171,AS-05764,$125.00,GlamAdapt UI Server,ADE,ADE
+app211,67169,AS-05628,$125.00,Log Download,GlamAdapt,GlamAdapt
+app210,67167,AS-05485,$125.00,Log Download,GlamAdapt,GlamAdapt
+app209,67165,AS-05793,$125.00,adportal,adportal,Techops
+app208,67163,AS-05131,$125.00,adportal,adportal,Techops
+app207,67161,AS-05186,$125.00,adportal,adportal,Techops
+app206,67159,AS-05484,$125.00,adportal,adportal,Techops
+app205,67157,AS-05482,$125.00,adportal,adportal,Techops
+app204,66995,AS-07973,$210.00,SqlStream Server,Database,Techops
+app203,66992,AS-07979,$210.00,AD_SERVER,AD_SERVER,Techops
+app202,66989,AS-07981,$210.00,AD_SERVER,AD_SERVER,Techops
+app201,66986,AS-07978,$210.00,Sortdb,ADServer,Techops
+app200,66983,AS-07976,$210.00,AD_SERVER,AD_SERVER,Techops
+app199,66980,AS-07980,$210.00,AP Processor,NTS,NTS
+app198,66977,AS-07983,$210.00,Sync Queen,ADServer,Techops
+app197,66974,AS-07982,$210.00,AD_SERVER,AD_SERVER,Techops
+app196,66971,AS-07974,$210.00,AD_SERVER,AD_SERVER,Techops
+app195,66968,AS-07988,$210.00,AD_SERVER,AD_SERVER,Techops
+app194,66965,AS-07985,$210.00,AD_SERVER,AD_SERVER,Techops
+app193,66962,AS-07975,$210.00,Hadoop-Dev Box,Hadoop,Hadoop
+app192,66959,AS-10157,$210.00,Studio,Studio,
+app191,66956,AS-07986,$210.00,Hydra,Hydra,Hydra
+app190,66953,AS-07987,$210.00,AtakoServer,Ops,Techops
+app189,64235,AS-08170,$210.00,Dev,Ops,Techops
+app188,64232,AS-08161,$210.00,YUM server,OPS,Techops
+app187,64229,AS-08159,$210.00,Studio,Studio,studio
+app186,64226,AS-08168,$210.00,AIP1 MEMCACHED,AIP,AIP
+app185,64223,AS-08082,$210.00,TPA MEMCACHED,AD_SERVER,Techops
+app184,64220,AS-08162,$210.00,AIP MEMCACHED,AIP,Techops
+app183,64217,AS-08160,$210.00,SyncQueen,AD_SERVER,Techops
+app182,64214,AS-08176,$210.00,AD_SERVER,AD_SERVER,Techops
+app181,64211,AS-08165,$210.00,AD_SERVER,AD_SERVER,Techops
+app180,64208,AS-08172,$210.00,AD_SERVER,AD_SERVER,Techops
+app179,64205,AS-08164,$210.00,URL MEMCACHED,AD_SERVER,Techops
+app178,64202,AS-08163,$210.00,AD_SERVER,AD_SERVER,Techops
+app177,64199,AS-08173,$210.00,AD_SERVER,AD_SERVER,Techops
+app176,64196,AS-08179,$210.00,AD_SERVER,AD_SERVER,Techops
+app175,64193,AS-08178,$210.00,AD_SERVER,AD_SERVER,Techops
+app174,64190,AS-08180,$210.00,AD_SERVER,AD_SERVER,Techops
+app173,64187,AS-08177,$210.00,AD_SERVER,AD_SERVER,Techops
+app172,64184,AS-08175,$210.00,AD_SERVER,AD_SERVER,Techops
+app171,64181,AS-08169,$210.00,AD_SERVER,AD_SERVER,Techops
+app170,64178,AS-08183,$210.00,AD_SERVER,AD_SERVER,Techops
+app169,64175,AS-08182,$210.00,SES MEMCACHED,AD_SERVER,Techops
+app168,64172,AS-08181,$210.00,AD_SERVER,AD_SERVER,Techops
+app167,64169,AS-08174,$210.00,AD_SERVER,AD_SERVER,Techops
+app166,64166,AS-08171,$210.00,AD_SERVER,AD_SERVER,Techops
+app165,64163,AS-08167,$210.00,AD_SERVER,AD_SERVER,Techops
+app164,64160,AS-08155,$210.00,AD_SERVER,AD_SERVER,Techops
+app163,64157,AS-08153,$210.00,Sync Queen,AD_SERVER,Techops
+app162,64154,AS-08158,$210.00,AD_SERVER,AD_SERVER,Techops
+app161,64151,AS-08156,$210.00,AD_SERVER_Test,AD_SERVER,Techops
+app160,64148,AS-08154,$210.00,AD_SERVER,AD_SERVER,Techops
+app159,64145,AS-08157,$210.00,AD_SERVER,AD_SERVER,Techops
+app158,64142,AS-08149,$210.00,AD_SERVER,AD_SERVER,Techops
+app157,64139,AS-08150,$210.00,AD_SERVER,AD_SERVER,Techops
+app156,64136,AS-08151,$210.00,AD_SERVER,AD_SERVER,Techops
+app155,64133,AS-08152,$210.00,AD_SERVER,AD_SERVER,Techops
+app154,59428,AS-06139,$235.00,Hydra,Hydra,Hydra
+app153,59425,AS-05870,$235.00,Elastic Search,Consumer,Consumer
+app152,59422,AS-05802,$235.00,Hydra,Hydra,Hydra
+app151,59419,AS-05180,$235.00,Hydra,Hydra,Hydra
+app150,59416,AS-05483,$235.00,Consumer_Products,Studio,studio
+app149,59413,AS-05481,$235.00,AD_SERVER,AD_SERVER,Techops
+app148,59410,AS-05184,$235.00,Studio,Studio,studio
+app147,59407,AS-05346,$235.00,Studio-DB,Studio,studio
+app146,59404,AS-05177,$235.00,Studio-DB,Studio,studio
+app145,59401,AS-05145,$235.00,SyncQueen,ADServer,Techops
+app144,59398,AS-05338,$235.00,SyncQueen,ADServer,Techops
+app143,59395,AS-05144,$235.00,ADQ-Backup,ADQ,ADQ
+app142,59392,AS-05122,$235.00,Scheduler,ADQ,ADQ
+app141,59389,AS-05114,$235.00,AIP backup,AIP,AIP
+app140,59386,AS-05124,$235.00,AIPMaster,AIP,AIP
+app139,45270,AS-05665,$185.00,Sortdb Sync Server,ADServer,Techops
+app138,45255,AS-05366,$185.00,Rich_Media,Rich_Media,Rich_Media
+app137,45216,AS-04419,$185.00,Cache Generator,Studio,studio
+app136,45249,AS-05405,$185.00,Aggregator,Rich_Media,Rich_Media
+app135,45219,AS-04370,$185.00,File Server,Ops,Techops
+app134,45243,AS-03536,$185.00,AIPDEV,AIP,AIP
+app133,45225,AS-03677,$185.00,Hydra,Hydra,Hydra
+app132,45240,AS-05404,$185.00,Hydra,Hydra,Hydra
+app131,45246,AS-05477,$185.00,Glam Mobile,Glam Mobile,Glam Mobile
+app130,45231,AS-03788,$185.00,Glam Mobile,Glam Mobile,Glam Mobile
+app129,45267,AS-05272,$185.00,Elastic Search,Consumer,Consumer
+app128,45234,AS-04295,$185.00,Dev,Adapt,Adapt
+app127,45228,AS-04022,$185.00,Elastic Search,Consumer,Consumer
+app126,45222,AS-08079,$185.00,Hydra,Hydra,Hydra
+app125,45237,AS-04381,$185.00,Hydra,Hydra,Hydra
+app124,45213,AS-05168,$185.00,NTS,NTS,NTS
+app123,45189,AS-03753,$185.00,Glamadapt,Glamadapt,Glamadapt
+app122,45258,AS-05118,$185.00,Ad Server-Dev,Adserver,Techops
+app121,45273,AS-05875,$185.00,Hydra,Hydra,Hydra
+app120,45204,AS-05280,$185.00,Testrail,Studio,studio
+app119,45192,AS-04559,$185.00,GlamAdapt FTP,GlamAdapt,GlamAdapt
+app118,45207,AS-04477,$185.00,AtakoServer,Atako,Techops
+app117,45177,AS-03358,$185.00,Log Download,GlamAdapt,GlamAdapt
+app116,45186,AS-05824,$185.00,GlamAdapt,GlamAdapt,GlamAdapt
+app115,45201,AS-07161,$185.00,Hadoop-Dev Box,Hadoop,Hadoop
+app114,45261,AS-04368,$185.00,Rich_Media,Rich_Media,Rich_Media
+app113,45252,AS-05322,$185.00,File Server,OPS,Techops
+app112,45210,AS-03663,$185.00,AtakoServer,Atako,Techops
+app111,45195,AS-03631,$185.00,OMS,ADE,OMS
+app110,45264,AS-3503,$185.00,GlamAdapt UI,ADE,ADE
+app109,45198,AS-05248,$185.00,id,NTS,NTS
+app108,45171,AS-05902,$185.00,cece,NTS,NTS
+app107,45183,AS-05908,$185.00,cece,NTS,NTS
+app106,45180,AS-05247,$185.00,cece,NTS,NTS
+app105,45174,AS-04488,$185.00,cece,NTS,NTS
+app104,45156,AS-03989,$185.00,AdSolutions,ADServer,Techops
+app103,45165,AS-03746,$185.00,Studio,Studio,studio
+app102,45144,AS-03676,$185.00,Blogs Admin,NTS,NTS
+app101,45168,AS-03669,$185.00,Blogs Admin,NTS,NTS
+app100,45141,AS-3550,$185.00,Blogs Admin,NTS,NTS

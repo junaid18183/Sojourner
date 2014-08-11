@@ -36,8 +36,8 @@ except ImportError:
 
 SOUJOURNER_HOME='/home/junedm/Sojourner/'
 db_name = "sojourner"
-db_host = "ggvaapp07"
-db_user = "junedm"
+db_host = "localhost"
+db_user = "root"
 db_password = "junedm"
 
 conn=MySQLdb.connect(db_host,db_user,db_password,db_name)
@@ -128,16 +128,25 @@ def hostinfo(conn,name):
 def show (args) :
         machine=args.machine
         role=args.role
+        product=args.product
+	owner=args.owner
 
 	#query='SELECT * FROM inventory'
-	query='SELECT i.Hostname,i.Crid,i.Asset_ID,i.Price,i.Role,i.Product,i.Owner,f.Last_Update,f.Arch,f.Distribution,f.Version,f.System,f.Eth0_ip FROM inventory AS i LEFT JOIN facts AS f ON i.Hostname = f.Hostname'
+	query='SELECT i.Hostname,i.DC,i.Crid,i.Asset_ID,i.Price,i.Role,i.Product,i.Owner,f.Last_Update,f.Arch,f.Distribution,f.Version,f.System,f.Eth0_ip FROM inventory AS i LEFT JOIN facts AS f ON i.Hostname = f.Hostname'
 	
 	if machine:
 		#query1 = query + (" WHERE  Hostname=%s" %machine)
 		query1 = query + " where i.Hostname='" + machine + "'"
 
 	elif role:
-		query1 = query + " where Role like '%" + role + "%'"
+		query1 = query + " where i.Role like '%" + role + "%'"
+
+	elif product:
+		query1 = query + " where i.Product like '%" + product + "%'"
+
+	elif owner:
+		query1 = query + " where i.Owner like '%" + owner + "%'"
+
 	else :
 		query1 = query
 	data=execute_sql(query1)[0]
@@ -207,7 +216,9 @@ def menu ():
 
         parser_show = subparsers.add_parser('show',help="show's all the host")
         parser_show.add_argument("-m", "--machine", help="host name to search for")
-        parser_show.add_argument("-r", "--role", help="Role of the machine to search for.This will be regex.")
+        parser_show.add_argument("-r", "--role", help="Role of the machine to search for.")
+        parser_show.add_argument("-p", "--product", help="product of the machine to search for.")
+        parser_show.add_argument("-o", "--owner", help="owner of the machine to search for.")
         parser_show.set_defaults(func=show)
 
         #parser_reap  = subparsers.add_parser('reap', help="Delete the host from Inventory")
