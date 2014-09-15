@@ -3259,3 +3259,197 @@ mas'fcsd'gd'gdf
 2014-05-29 23:12:28,270 p=13590 u=root |  ok: [ggvaapp07vm1.glam.colo]
 2014-05-29 23:12:28,410 p=13590 u=root |  PLAY RECAP ******************************************************************** 
 2014-05-29 23:12:28,410 p=13590 u=root |  ggvaapp07vm1.glam.colo     : ok=5    changed=2    unreachable=0    failed=0   
+2014-09-15 10:14:19,499 p=2464 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 10:14:19,676 p=2464 u=root |   
+2014-09-15 10:14:19,677 p=2464 u=root |  /usr/bin/ansible-playbook -i /tmp/tiber.yml /home/junedm/Sojourner//plays/DevOps/ConfigManager.yml
+2014-09-15 10:14:19,677 p=2464 u=root |   
+2014-09-15 10:14:19,874 p=2464 u=root |  PLAY [Test] ******************************************************************* 
+2014-09-15 10:14:19,874 p=2464 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 10:15:07,808 p=2464 u=root |  fatal: [tiber] => {'msg': 'FAILED: Authentication failed.', 'failed': True}
+2014-09-15 10:15:07,810 p=2464 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 10:15:07,840 p=2464 u=root |  FATAL: no hosts matched or all hosts have already failed -- aborting
+
+2014-09-15 10:15:07,841 p=2464 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 10:15:07,843 p=2464 u=root |             to retry, use: --limit @/root/ConfigManager.retry
+
+2014-09-15 10:15:07,844 p=2464 u=root |  tiber                      : ok=0    changed=0    unreachable=1    failed=0   
+2014-09-15 11:04:25,707 p=2823 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 11:04:25,834 p=2823 u=root |   
+2014-09-15 11:04:25,834 p=2823 u=root |  /usr/bin/ansible-playbook -i /tmp/tiber.yml /home/junedm/Sojourner//plays/DevOps/ConfigManager.yml
+2014-09-15 11:04:25,834 p=2823 u=root |   
+2014-09-15 11:04:25,990 p=2823 u=root |  PLAY [Test] ******************************************************************* 
+2014-09-15 11:04:25,990 p=2823 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:04:27,115 p=2823 u=root |  ok: [tiber]
+2014-09-15 11:04:27,125 p=2823 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 11:04:27,420 p=2823 u=root |  ok: [tiber] => {
+    "msg": "My Role is  ConfigManager and Owner is DevOps"
+}
+2014-09-15 11:04:27,422 p=2823 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 11:04:28,269 p=2823 u=root |  changed: [tiber]
+2014-09-15 11:04:28,270 p=2823 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 11:04:29,202 p=2823 u=root |  failed: [tiber] => {"failed": true}
+2014-09-15 11:04:29,202 p=2823 u=root |  msg: Aborting, target uses selinux but python bindings (libselinux-python) aren't installed!
+2014-09-15 11:04:29,203 p=2823 u=root |  FATAL: all hosts have already failed -- aborting
+2014-09-15 11:04:29,203 p=2823 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 11:04:29,204 p=2823 u=root |             to retry, use: --limit @/root/ConfigManager.retry
+
+2014-09-15 11:04:29,205 p=2823 u=root |  tiber                      : ok=3    changed=1    unreachable=0    failed=1   
+2014-09-15 11:06:31,017 p=2923 u=root |  
+2014-09-15 11:06:31,019 p=2923 u=root |  /usr/bin/ansible -i hosts all -m ping
+2014-09-15 11:06:31,019 p=2923 u=root |  
+2014-09-15 11:06:31,252 p=2923 u=root |  ERROR: The file hosts is marked as executable, but failed to execute correctly. If this is not supposed to be an executable script, correct this with `chmod -x hosts`.
+2014-09-15 11:07:07,640 p=2925 u=root |  
+2014-09-15 11:07:07,641 p=2925 u=root |  /usr/bin/ansible
+2014-09-15 11:07:07,641 p=2925 u=root |  
+2014-09-15 11:07:21,740 p=2942 u=root |  
+2014-09-15 11:07:21,741 p=2942 u=root |  /usr/bin/ansible -i hosts
+2014-09-15 11:07:21,741 p=2942 u=root |  
+2014-09-15 11:07:37,525 p=2943 u=root |  
+2014-09-15 11:07:37,525 p=2943 u=root |  /usr/bin/ansible -i hosts all -m ping
+2014-09-15 11:07:37,526 p=2943 u=root |  
+2014-09-15 11:07:37,535 p=2943 u=root |  ERROR: The file hosts is marked as executable, but failed to execute correctly. If this is not supposed to be an executable script, correct this with `chmod -x hosts`.
+2014-09-15 11:08:08,340 p=2949 u=root |  
+2014-09-15 11:08:08,341 p=2949 u=root |  /usr/bin/ansible -i hosts all -m ping
+2014-09-15 11:08:08,341 p=2949 u=root |  
+2014-09-15 11:08:08,351 p=2949 u=root |  ERROR: The file hosts is marked as executable, but failed to execute correctly. If this is not supposed to be an executable script, correct this with `chmod -x hosts`.
+2014-09-15 11:21:46,067 p=2087 u=root |  
+2014-09-15 11:21:46,067 p=2087 u=root |  /usr/bin/ansible -i hosts all -m ping
+2014-09-15 11:21:46,067 p=2087 u=root |  
+2014-09-15 11:21:46,988 p=2087 u=root |  tiber | success >> {
+    "changed": false, 
+    "ping": "pong"
+}
+
+2014-09-15 11:29:35,639 p=2209 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 11:29:35,805 p=2209 u=root |   
+2014-09-15 11:29:35,805 p=2209 u=root |  /usr/bin/ansible-playbook -i /tmp/tiber.yml /home/junedm/Sojourner//plays/DevOps/ConfigManager.yml
+2014-09-15 11:29:35,806 p=2209 u=root |   
+2014-09-15 11:29:35,972 p=2209 u=root |  PLAY [Test] ******************************************************************* 
+2014-09-15 11:29:35,972 p=2209 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:29:37,095 p=2209 u=root |  ok: [tiber]
+2014-09-15 11:29:37,103 p=2209 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 11:29:37,409 p=2209 u=root |  ok: [tiber] => {
+    "msg": "My Role is  ConfigManager and Owner is DevOps"
+}
+2014-09-15 11:29:37,415 p=2209 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 11:29:38,340 p=2209 u=root |  ok: [tiber]
+2014-09-15 11:29:38,341 p=2209 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 11:29:39,234 p=2209 u=root |  failed: [tiber] => {"failed": true}
+2014-09-15 11:29:39,235 p=2209 u=root |  msg: Aborting, target uses selinux but python bindings (libselinux-python) aren't installed!
+2014-09-15 11:29:39,235 p=2209 u=root |  FATAL: all hosts have already failed -- aborting
+2014-09-15 11:29:39,236 p=2209 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 11:29:39,238 p=2209 u=root |             to retry, use: --limit @/root/ConfigManager.retry
+
+2014-09-15 11:29:39,239 p=2209 u=root |  tiber                      : ok=3    changed=0    unreachable=0    failed=1   
+2014-09-15 11:30:29,353 p=2310 u=root |  
+2014-09-15 11:30:29,354 p=2310 u=root |  /usr/bin/ansible -i /var/tmp/hosts -m ping
+2014-09-15 11:30:29,354 p=2310 u=root |  
+2014-09-15 11:30:34,782 p=2311 u=root |  
+2014-09-15 11:30:34,783 p=2311 u=root |  /usr/bin/ansible -i /var/tmp/hosts all -m ping
+2014-09-15 11:30:34,783 p=2311 u=root |  
+2014-09-15 11:30:35,579 p=2311 u=root |  tiber | success >> {
+    "changed": false, 
+    "ping": "pong"
+}
+
+2014-09-15 11:30:58,333 p=2331 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 11:30:58,479 p=2331 u=root |   
+2014-09-15 11:30:58,479 p=2331 u=root |  /usr/bin/ansible-playbook -i /var/tmp/hosts plays/DevOps/ConfigManager.yml
+2014-09-15 11:30:58,480 p=2331 u=root |   
+2014-09-15 11:30:58,624 p=2331 u=root |  PLAY [Test] ******************************************************************* 
+2014-09-15 11:30:58,625 p=2331 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:30:59,713 p=2331 u=root |  ok: [tiber]
+2014-09-15 11:30:59,722 p=2331 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 11:31:00,047 p=2331 u=root |  ok: [tiber] => {
+    "msg": "My Role is  ConfigManager and Owner is DevOps"
+}
+2014-09-15 11:31:00,049 p=2331 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 11:31:00,998 p=2331 u=root |  ok: [tiber]
+2014-09-15 11:31:01,000 p=2331 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 11:31:01,901 p=2331 u=root |  failed: [tiber] => {"failed": true}
+2014-09-15 11:31:01,902 p=2331 u=root |  msg: Aborting, target uses selinux but python bindings (libselinux-python) aren't installed!
+2014-09-15 11:31:01,903 p=2331 u=root |  FATAL: all hosts have already failed -- aborting
+2014-09-15 11:31:01,906 p=2331 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 11:31:01,908 p=2331 u=root |             to retry, use: --limit @/root/ConfigManager.retry
+
+2014-09-15 11:31:01,908 p=2331 u=root |  tiber                      : ok=3    changed=0    unreachable=0    failed=1   
+2014-09-15 11:33:56,107 p=2435 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 11:33:56,245 p=2435 u=root |   
+2014-09-15 11:33:56,245 p=2435 u=root |  /usr/bin/ansible-playbook -i /var/tmp/hosts plays/DevOps/ConfigManager.yml
+2014-09-15 11:33:56,245 p=2435 u=root |   
+2014-09-15 11:33:56,393 p=2435 u=root |  PLAY [Test] ******************************************************************* 
+2014-09-15 11:33:56,393 p=2435 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:33:57,407 p=2435 u=root |  ok: [tiber]
+2014-09-15 11:33:57,422 p=2435 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 11:33:57,730 p=2435 u=root |  ok: [tiber] => {
+    "msg": "My Role is  ConfigManager and Owner is DevOps"
+}
+2014-09-15 11:33:57,735 p=2435 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 11:33:58,718 p=2435 u=root |  ok: [tiber]
+2014-09-15 11:33:58,723 p=2435 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 11:33:59,677 p=2435 u=root |  failed: [tiber] => {"failed": true}
+2014-09-15 11:33:59,678 p=2435 u=root |  msg: Aborting, target uses selinux but python bindings (libselinux-python) aren't installed!
+2014-09-15 11:33:59,679 p=2435 u=root |  FATAL: all hosts have already failed -- aborting
+2014-09-15 11:33:59,680 p=2435 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 11:33:59,682 p=2435 u=root |             to retry, use: --limit @/root/ConfigManager.retry
+
+2014-09-15 11:33:59,683 p=2435 u=root |  tiber                      : ok=3    changed=0    unreachable=0    failed=1   
+2014-09-15 11:35:35,905 p=2067 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 11:35:36,064 p=2067 u=root |   
+2014-09-15 11:35:36,065 p=2067 u=root |  /usr/bin/ansible-playbook -i /var/tmp/hosts plays/DevOps/ConfigManager.yml
+2014-09-15 11:35:36,065 p=2067 u=root |   
+2014-09-15 11:35:36,235 p=2067 u=root |  PLAY [Test] ******************************************************************* 
+2014-09-15 11:35:36,235 p=2067 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:35:36,918 p=2067 u=root |  ok: [tiber]
+2014-09-15 11:35:36,923 p=2067 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 11:35:37,220 p=2067 u=root |  ok: [tiber] => {
+    "msg": "My Role is  ConfigManager and Owner is DevOps"
+}
+2014-09-15 11:35:37,225 p=2067 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 11:35:37,696 p=2067 u=root |  ok: [tiber]
+2014-09-15 11:35:37,699 p=2067 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 11:35:38,298 p=2067 u=root |  changed: [tiber]
+2014-09-15 11:35:38,305 p=2067 u=root |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-09-15 11:35:38,907 p=2067 u=root |  ok: [tiber]
+2014-09-15 11:35:38,918 p=2067 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 11:35:38,918 p=2067 u=root |  tiber                      : ok=5    changed=1    unreachable=0    failed=0   
+2014-09-15 11:35:46,322 p=2197 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 11:35:46,437 p=2197 u=root |   
+2014-09-15 11:35:46,438 p=2197 u=root |  /usr/bin/ansible-playbook -i /tmp/tiber.yml /home/junedm/Sojourner//plays/DevOps/ConfigManager.yml
+2014-09-15 11:35:46,438 p=2197 u=root |   
+2014-09-15 11:35:46,577 p=2197 u=root |  PLAY [Test] ******************************************************************* 
+2014-09-15 11:35:46,577 p=2197 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:35:47,224 p=2197 u=root |  ok: [tiber]
+2014-09-15 11:35:47,236 p=2197 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 11:35:47,509 p=2197 u=root |  ok: [tiber] => {
+    "msg": "My Role is  ConfigManager and Owner is DevOps"
+}
+2014-09-15 11:35:47,514 p=2197 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 11:35:48,012 p=2197 u=root |  changed: [tiber]
+2014-09-15 11:35:48,012 p=2197 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 11:35:48,523 p=2197 u=root |  changed: [tiber]
+2014-09-15 11:35:48,524 p=2197 u=root |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-09-15 11:35:49,076 p=2197 u=root |  ok: [tiber]
+2014-09-15 11:35:49,082 p=2197 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 11:35:49,083 p=2197 u=root |  tiber                      : ok=5    changed=2    unreachable=0    failed=0   
