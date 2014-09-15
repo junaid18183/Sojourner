@@ -1,0 +1,13 @@
+---
+#This is just the TEST
+
+- name: Add Local Facts
+  hosts: all
+  user: root
+
+  roles:
+    -  inventory
+
+#  vars_prompt:
+#    Role: "what is the Role of this server?"
+#    Owner: "Who is the Owner of this Server?"

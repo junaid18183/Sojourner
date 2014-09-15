@@ -3453,3 +3453,658 @@ it (ie. yum update gmp).
 2014-09-15 11:35:49,076 p=2197 u=root |  ok: [tiber]
 2014-09-15 11:35:49,082 p=2197 u=root |  PLAY RECAP ******************************************************************** 
 2014-09-15 11:35:49,083 p=2197 u=root |  tiber                      : ok=5    changed=2    unreachable=0    failed=0   
+2014-09-15 11:41:05,116 p=2344 u=root |  
+2014-09-15 11:41:05,117 p=2344 u=root |  /usr/bin/ansible -i hosts all -m ping
+2014-09-15 11:41:05,117 p=2344 u=root |  
+2014-09-15 11:41:05,128 p=2344 u=root |  ERROR: The file hosts is marked as executable, but failed to execute correctly. If this is not supposed to be an executable script, correct this with `chmod -x hosts`.
+2014-09-15 11:42:05,066 p=2347 u=root |  
+2014-09-15 11:42:05,067 p=2347 u=root |  /usr/bin/ansible all -m ping
+2014-09-15 11:42:05,067 p=2347 u=root |  
+2014-09-15 11:42:05,896 p=2347 u=root |  tiber | success >> {
+    "changed": false, 
+    "ping": "pong"
+}
+
+2014-09-15 11:48:58,562 p=2404 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 11:48:58,689 p=2404 u=root |   
+2014-09-15 11:48:58,689 p=2404 u=root |  /usr/bin/ansible-playbook plays/DevOps/ConfigManager.yml
+2014-09-15 11:48:58,690 p=2404 u=root |   
+2014-09-15 11:48:59,226 p=2404 u=root |  PLAY [Test] ******************************************************************* 
+2014-09-15 11:48:59,226 p=2404 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:49:00,042 p=2404 u=root |  ok: [tiber]
+2014-09-15 11:49:00,051 p=2404 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 11:49:00,053 p=2404 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:49:00,658 p=2404 u=root |  ok: [tiber]
+2014-09-15 11:49:00,673 p=2404 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 11:49:00,882 p=2404 u=root |  fatal: [tiber] => One or more undefined variables: 'Role' is undefined
+2014-09-15 11:49:00,884 p=2404 u=root |  FATAL: all hosts have already failed -- aborting
+2014-09-15 11:49:00,884 p=2404 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 11:49:00,887 p=2404 u=root |             to retry, use: --limit @/root/ConfigManager.retry
+
+2014-09-15 11:49:00,887 p=2404 u=root |  tiber                      : ok=2    changed=0    unreachable=1    failed=0   
+2014-09-15 11:50:08,175 p=2487 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 11:50:08,282 p=2487 u=root |   
+2014-09-15 11:50:08,283 p=2487 u=root |  /usr/bin/ansible-playbook plays/DevOps/ConfigManager.yml
+2014-09-15 11:50:08,283 p=2487 u=root |   
+2014-09-15 11:50:08,786 p=2487 u=root |  PLAY [Devops] ***************************************************************** 
+2014-09-15 11:50:08,787 p=2487 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:50:09,629 p=2487 u=root |  ok: [tiber]
+2014-09-15 11:50:09,661 p=2487 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 11:50:09,662 p=2487 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:50:10,267 p=2487 u=root |  ok: [tiber]
+2014-09-15 11:50:10,277 p=2487 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 11:50:10,481 p=2487 u=root |  fatal: [tiber] => One or more undefined variables: 'Role' is undefined
+2014-09-15 11:50:10,481 p=2487 u=root |  FATAL: all hosts have already failed -- aborting
+2014-09-15 11:50:10,483 p=2487 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 11:50:10,486 p=2487 u=root |             to retry, use: --limit @/root/ConfigManager.retry
+
+2014-09-15 11:50:10,486 p=2487 u=root |  tiber                      : ok=2    changed=0    unreachable=1    failed=0   
+2014-09-15 11:51:34,897 p=2574 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 11:51:35,000 p=2574 u=root |   
+2014-09-15 11:51:35,000 p=2574 u=root |  /usr/bin/ansible-playbook -i /tmp/tiber.yml /home/junedm/Sojourner//plays/DevOps/ConfigManager.yml
+2014-09-15 11:51:35,000 p=2574 u=root |   
+2014-09-15 11:51:35,155 p=2574 u=root |  PLAY [Devops] ***************************************************************** 
+2014-09-15 11:51:35,155 p=2574 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:51:35,794 p=2574 u=root |  ok: [tiber]
+2014-09-15 11:51:35,803 p=2574 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 11:51:35,803 p=2574 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:51:36,390 p=2574 u=root |  ok: [tiber]
+2014-09-15 11:51:36,404 p=2574 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 11:51:36,690 p=2574 u=root |  ok: [tiber] => {
+    "msg": "My Role is  ConfigManager and Owner is DevOps"
+}
+2014-09-15 11:51:36,691 p=2574 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 11:51:37,181 p=2574 u=root |  changed: [tiber]
+2014-09-15 11:51:37,182 p=2574 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 11:51:37,780 p=2574 u=root |  changed: [tiber]
+2014-09-15 11:51:37,781 p=2574 u=root |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-09-15 11:51:38,382 p=2574 u=root |  ok: [tiber]
+2014-09-15 11:51:38,391 p=2574 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 11:51:38,392 p=2574 u=root |  tiber                      : ok=6    changed=2    unreachable=0    failed=0   
+2014-09-15 11:52:14,456 p=2727 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 11:52:14,560 p=2727 u=root |   
+2014-09-15 11:52:14,561 p=2727 u=root |  /usr/bin/ansible-playbook -i /tmp/tiber.yml /home/junedm/Sojourner//plays/DevOps/ConfigManager.yml
+2014-09-15 11:52:14,562 p=2727 u=root |   
+2014-09-15 11:52:14,728 p=2727 u=root |  PLAY [Devops] ***************************************************************** 
+2014-09-15 11:52:14,729 p=2727 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:52:15,381 p=2727 u=root |  ok: [tiber]
+2014-09-15 11:52:15,390 p=2727 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 11:52:15,390 p=2727 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:52:15,983 p=2727 u=root |  ok: [tiber]
+2014-09-15 11:52:15,997 p=2727 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 11:52:16,270 p=2727 u=root |  ok: [tiber] => {
+    "msg": "My Role is  ConfigManager and Owner is DevOps"
+}
+2014-09-15 11:52:16,274 p=2727 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 11:52:16,758 p=2727 u=root |  changed: [tiber]
+2014-09-15 11:52:16,758 p=2727 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 11:52:17,276 p=2727 u=root |  changed: [tiber]
+2014-09-15 11:52:17,277 p=2727 u=root |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-09-15 11:52:17,890 p=2727 u=root |  ok: [tiber]
+2014-09-15 11:52:17,899 p=2727 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 11:52:17,900 p=2727 u=root |  tiber                      : ok=6    changed=2    unreachable=0    failed=0   
+2014-09-15 11:52:22,614 p=2879 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 11:52:22,717 p=2879 u=root |   
+2014-09-15 11:52:22,718 p=2879 u=root |  /usr/bin/ansible-playbook -i /tmp/tiber.yml /home/junedm/Sojourner//plays/DevOps/ConfigManager.yml
+2014-09-15 11:52:22,718 p=2879 u=root |   
+2014-09-15 11:52:22,868 p=2879 u=root |  PLAY [Devops] ***************************************************************** 
+2014-09-15 11:52:22,869 p=2879 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:52:23,516 p=2879 u=root |  ok: [tiber]
+2014-09-15 11:52:23,523 p=2879 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 11:52:23,524 p=2879 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:52:24,116 p=2879 u=root |  ok: [tiber]
+2014-09-15 11:52:24,126 p=2879 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 11:52:24,413 p=2879 u=root |  ok: [tiber] => {
+    "msg": "My Role is  ConfigManager and Owner is DevOps"
+}
+2014-09-15 11:52:24,415 p=2879 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 11:52:24,861 p=2879 u=root |  changed: [tiber]
+2014-09-15 11:52:24,865 p=2879 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 11:52:25,451 p=2879 u=root |  changed: [tiber]
+2014-09-15 11:52:25,454 p=2879 u=root |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-09-15 11:52:26,043 p=2879 u=root |  ok: [tiber]
+2014-09-15 11:52:26,052 p=2879 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 11:52:26,052 p=2879 u=root |  tiber                      : ok=6    changed=2    unreachable=0    failed=0   
+2014-09-15 11:52:38,195 p=3029 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 11:52:38,294 p=3029 u=root |   
+2014-09-15 11:52:38,294 p=3029 u=root |  /usr/bin/ansible-playbook plays/DevOps/ConfigManager.yml
+2014-09-15 11:52:38,295 p=3029 u=root |   
+2014-09-15 11:52:38,784 p=3029 u=root |  PLAY [Devops] ***************************************************************** 
+2014-09-15 11:52:38,784 p=3029 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:52:39,630 p=3029 u=root |  ok: [tiber]
+2014-09-15 11:52:39,639 p=3029 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 11:52:39,641 p=3029 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:52:40,231 p=3029 u=root |  ok: [tiber]
+2014-09-15 11:52:40,242 p=3029 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 11:52:40,451 p=3029 u=root |  fatal: [tiber] => One or more undefined variables: 'Role' is undefined
+2014-09-15 11:52:40,452 p=3029 u=root |  FATAL: all hosts have already failed -- aborting
+2014-09-15 11:52:40,454 p=3029 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 11:52:40,456 p=3029 u=root |             to retry, use: --limit @/root/ConfigManager.retry
+
+2014-09-15 11:52:40,456 p=3029 u=root |  tiber                      : ok=2    changed=0    unreachable=1    failed=0   
+2014-09-15 11:54:36,894 p=3116 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 11:54:37,003 p=3116 u=root |   
+2014-09-15 11:54:37,004 p=3116 u=root |  /usr/bin/ansible-playbook plays/DevOps/ConfigManager.yml
+2014-09-15 11:54:37,004 p=3116 u=root |   
+2014-09-15 11:54:37,547 p=3116 u=root |  PLAY [Devops] ***************************************************************** 
+2014-09-15 11:54:37,547 p=3116 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:54:38,357 p=3116 u=root |  ok: [tiber]
+2014-09-15 11:54:38,366 p=3116 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 11:54:38,368 p=3116 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:54:38,951 p=3116 u=root |  ok: [tiber]
+2014-09-15 11:54:38,961 p=3116 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 11:54:39,258 p=3116 u=root |  ok: [tiber] => {
+    "msg": "My Role is  ConfigManager and Owner is DevOps"
+}
+2014-09-15 11:54:39,260 p=3116 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 11:54:39,768 p=3116 u=root |  changed: [tiber]
+2014-09-15 11:54:39,773 p=3116 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 11:54:40,361 p=3116 u=root |  changed: [tiber]
+2014-09-15 11:54:40,369 p=3116 u=root |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-09-15 11:54:40,978 p=3116 u=root |  ok: [tiber]
+2014-09-15 11:54:40,984 p=3116 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 11:54:40,986 p=3116 u=root |  tiber                      : ok=6    changed=2    unreachable=0    failed=0   
+2014-09-15 11:59:31,493 p=3294 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 11:59:31,604 p=3294 u=root |   
+2014-09-15 11:59:31,604 p=3294 u=root |  /usr/bin/ansible-playbook plays/DevOps/ConfigManager.yml
+2014-09-15 11:59:31,605 p=3294 u=root |   
+2014-09-15 11:59:32,102 p=3294 u=root |  PLAY [Devops] ***************************************************************** 
+2014-09-15 11:59:32,102 p=3294 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:59:32,920 p=3294 u=root |  ok: [tiber]
+2014-09-15 11:59:32,921 p=3294 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 11:59:32,923 p=3294 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 11:59:33,518 p=3294 u=root |  ok: [tiber]
+2014-09-15 11:59:33,523 p=3294 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 11:59:33,820 p=3294 u=root |  ok: [tiber] => {
+    "msg": "My Role is  ConfigManager and Owner is DevOps"
+}
+2014-09-15 11:59:33,823 p=3294 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 11:59:34,266 p=3294 u=root |  changed: [tiber]
+2014-09-15 11:59:34,275 p=3294 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 11:59:34,866 p=3294 u=root |  changed: [tiber]
+2014-09-15 11:59:34,868 p=3294 u=root |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-09-15 11:59:35,475 p=3294 u=root |  ok: [tiber]
+2014-09-15 11:59:35,487 p=3294 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 11:59:35,487 p=3294 u=root |  tiber                      : ok=6    changed=2    unreachable=0    failed=0   
+2014-09-15 12:00:48,529 p=3463 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 12:00:48,630 p=3463 u=root |   
+2014-09-15 12:00:48,631 p=3463 u=root |  /usr/bin/ansible-playbook plays/DevOps/ConfigManager.yml
+2014-09-15 12:00:48,631 p=3463 u=root |   
+2014-09-15 12:00:49,140 p=3463 u=root |  PLAY [Devops] ***************************************************************** 
+2014-09-15 12:00:49,141 p=3463 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 12:00:49,998 p=3463 u=root |  ok: [tiber]
+2014-09-15 12:00:49,999 p=3463 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 12:00:50,001 p=3463 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 12:00:50,588 p=3463 u=root |  ok: [tiber]
+2014-09-15 12:00:50,594 p=3463 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 12:00:50,806 p=3463 u=root |  fatal: [tiber] => One or more undefined variables: 'Role' is undefined
+2014-09-15 12:00:50,808 p=3463 u=root |  FATAL: all hosts have already failed -- aborting
+2014-09-15 12:00:50,810 p=3463 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 12:00:50,812 p=3463 u=root |             to retry, use: --limit @/root/ConfigManager.retry
+
+2014-09-15 12:00:50,813 p=3463 u=root |  tiber                      : ok=2    changed=0    unreachable=1    failed=0   
+2014-09-15 12:03:09,147 p=3575 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 12:03:09,251 p=3575 u=root |   
+2014-09-15 12:03:09,252 p=3575 u=root |  /usr/bin/ansible-playbook -i /tmp/tiber.yml /home/junedm/Sojourner//plays/DevOps/ConfigManager.yml
+2014-09-15 12:03:09,252 p=3575 u=root |   
+2014-09-15 12:03:09,413 p=3575 u=root |  PLAY [Devops] ***************************************************************** 
+2014-09-15 12:03:09,414 p=3575 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 12:03:10,081 p=3575 u=root |  ok: [tiber]
+2014-09-15 12:03:10,082 p=3575 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 12:03:10,082 p=3575 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 12:03:10,664 p=3575 u=root |  ok: [tiber]
+2014-09-15 12:03:10,669 p=3575 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 12:03:10,948 p=3575 u=root |  ok: [tiber] => {
+    "msg": "My Role is  ConfigManager and Owner is DevOps"
+}
+2014-09-15 12:03:10,950 p=3575 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 12:03:11,446 p=3575 u=root |  changed: [tiber]
+2014-09-15 12:03:11,447 p=3575 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 12:03:12,116 p=3575 u=root |  changed: [tiber]
+2014-09-15 12:03:12,117 p=3575 u=root |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-09-15 12:03:12,740 p=3575 u=root |  ok: [tiber]
+2014-09-15 12:03:12,749 p=3575 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 12:03:12,749 p=3575 u=root |  tiber                      : ok=6    changed=2    unreachable=0    failed=0   
+2014-09-15 12:03:36,396 p=3740 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 12:03:36,500 p=3740 u=root |   
+2014-09-15 12:03:36,500 p=3740 u=root |  /usr/bin/ansible-playbook -i /tmp/docker.yml /home/junedm/Sojourner//plays/Sojourner.yml
+2014-09-15 12:03:36,501 p=3740 u=root |   
+2014-09-15 12:03:36,628 p=3740 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 12:03:36,629 p=3740 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 12:03:56,703 p=3740 u=root |  fatal: [docker] => {'msg': 'FAILED: Authentication failed.', 'failed': True}
+2014-09-15 12:03:56,707 p=3740 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 12:03:56,719 p=3740 u=root |  FATAL: no hosts matched or all hosts have already failed -- aborting
+
+2014-09-15 12:03:56,720 p=3740 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 12:03:56,722 p=3740 u=root |             to retry, use: --limit @/root/Sojourner.retry
+
+2014-09-15 12:03:56,722 p=3740 u=root |  docker                     : ok=0    changed=0    unreachable=1    failed=0   
+2014-09-15 12:05:07,184 p=3766 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 12:05:07,284 p=3766 u=root |   
+2014-09-15 12:05:07,285 p=3766 u=root |  /usr/bin/ansible-playbook -i /tmp/docker.yml /home/junedm/Sojourner//plays/Sojourner.yml
+2014-09-15 12:05:07,285 p=3766 u=root |   
+2014-09-15 12:05:07,434 p=3766 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 12:05:07,435 p=3766 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 12:05:09,791 p=3766 u=root |  ok: [docker]
+2014-09-15 12:05:09,796 p=3766 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 12:05:10,117 p=3766 u=root |  ok: [docker] => {
+    "msg": "My Role is  Docker and Owner is DevOps"
+}
+2014-09-15 12:05:10,117 p=3766 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 12:05:11,063 p=3766 u=root |  changed: [docker]
+2014-09-15 12:05:11,064 p=3766 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 12:05:12,125 p=3766 u=root |  failed: [docker] => {"failed": true}
+2014-09-15 12:05:12,126 p=3766 u=root |  msg: Aborting, target uses selinux but python bindings (libselinux-python) aren't installed!
+2014-09-15 12:05:12,126 p=3766 u=root |  FATAL: all hosts have already failed -- aborting
+2014-09-15 12:05:12,127 p=3766 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 12:05:12,130 p=3766 u=root |             to retry, use: --limit @/root/Sojourner.retry
+
+2014-09-15 12:05:12,130 p=3766 u=root |  docker                     : ok=3    changed=1    unreachable=0    failed=1   
+2014-09-15 12:08:56,163 p=3785 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 12:08:56,266 p=3785 u=root |   
+2014-09-15 12:08:56,266 p=3785 u=root |  /usr/bin/ansible-playbook -i /tmp/docker.yml /home/junedm/Sojourner//plays/Sojourner.yml
+2014-09-15 12:08:56,267 p=3785 u=root |   
+2014-09-15 12:08:56,415 p=3785 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 12:08:56,416 p=3785 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 12:08:57,438 p=3785 u=root |  ok: [docker]
+2014-09-15 12:08:57,442 p=3785 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 12:08:57,759 p=3785 u=root |  ok: [docker] => {
+    "msg": "My Role is  Docker and Owner is DevOps"
+}
+2014-09-15 12:08:57,760 p=3785 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 12:08:58,621 p=3785 u=root |  ok: [docker]
+2014-09-15 12:08:58,622 p=3785 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 12:08:59,505 p=3785 u=root |  failed: [docker] => {"failed": true}
+2014-09-15 12:08:59,505 p=3785 u=root |  msg: Aborting, target uses selinux but python bindings (libselinux-python) aren't installed!
+2014-09-15 12:08:59,505 p=3785 u=root |  FATAL: all hosts have already failed -- aborting
+2014-09-15 12:08:59,506 p=3785 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 12:08:59,507 p=3785 u=root |             to retry, use: --limit @/root/Sojourner.retry
+
+2014-09-15 12:08:59,508 p=3785 u=root |  docker                     : ok=3    changed=0    unreachable=0    failed=1   
+2014-09-15 12:12:21,536 p=3806 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 12:12:21,633 p=3806 u=root |   
+2014-09-15 12:12:21,634 p=3806 u=root |  /usr/bin/ansible-playbook -i /tmp/docker.yml /home/junedm/Sojourner//plays/Sojourner.yml
+2014-09-15 12:12:21,634 p=3806 u=root |   
+2014-09-15 12:12:42,486 p=3814 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 12:12:42,586 p=3814 u=root |   
+2014-09-15 12:12:42,586 p=3814 u=root |  /usr/bin/ansible-playbook -i /tmp/docker.yml /home/junedm/Sojourner//plays/Sojourner.yml
+2014-09-15 12:12:42,587 p=3814 u=root |   
+2014-09-15 12:12:42,725 p=3814 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 12:12:42,725 p=3814 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 12:12:43,526 p=3814 u=root |  ok: [docker]
+2014-09-15 12:12:43,532 p=3814 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 12:12:43,827 p=3814 u=root |  ok: [docker] => {
+    "msg": "My Role is  Docker and Owner is DevOps"
+}
+2014-09-15 12:12:43,827 p=3814 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 12:12:44,312 p=3814 u=root |  ok: [docker]
+2014-09-15 12:12:44,313 p=3814 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 12:12:44,909 p=3814 u=root |  changed: [docker]
+2014-09-15 12:12:44,910 p=3814 u=root |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-09-15 12:12:45,534 p=3814 u=root |  ok: [docker]
+2014-09-15 12:12:45,542 p=3814 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 12:12:45,542 p=3814 u=root |  docker                     : ok=5    changed=1    unreachable=0    failed=0   
+2014-09-15 12:12:58,502 p=3848 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 12:12:58,609 p=3848 u=root |   
+2014-09-15 12:12:58,609 p=3848 u=root |  /usr/bin/ansible-playbook plays/DevOps/ConfigManager.yml
+2014-09-15 12:12:58,610 p=3848 u=root |   
+2014-09-15 12:12:59,124 p=3848 u=root |  PLAY [Devops] ***************************************************************** 
+2014-09-15 12:12:59,125 p=3848 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 12:13:00,039 p=3848 u=root |  ok: [docker]
+2014-09-15 12:13:00,049 p=3848 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 12:13:00,050 p=3848 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 12:13:00,740 p=3848 u=root |  ok: [docker]
+2014-09-15 12:13:00,751 p=3848 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 12:13:01,047 p=3848 u=root |  ok: [docker] => {
+    "msg": "My Role is  ConfigManager and Owner is DevOps"
+}
+2014-09-15 12:13:01,049 p=3848 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 12:13:01,558 p=3848 u=root |  changed: [docker]
+2014-09-15 12:13:01,560 p=3848 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 12:13:02,180 p=3848 u=root |  changed: [docker]
+2014-09-15 12:13:02,183 p=3848 u=root |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-09-15 12:13:02,837 p=3848 u=root |  ok: [docker]
+2014-09-15 12:13:02,844 p=3848 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 12:13:02,844 p=3848 u=root |  docker                     : ok=6    changed=2    unreachable=0    failed=0   
+2014-09-15 12:20:10,132 p=3874 u=root |  
+2014-09-15 12:20:10,133 p=3874 u=root |  /usr/bin/ansible all -m ping
+2014-09-15 12:20:10,133 p=3874 u=root |  
+2014-09-15 12:20:11,044 p=3874 u=root |  docker | success >> {
+    "changed": false, 
+    "ping": "pong"
+}
+
+2014-09-15 12:20:20,935 p=3882 u=root |  
+2014-09-15 12:20:20,936 p=3882 u=root |  /usr/bin/ansible all -m setup
+2014-09-15 12:20:20,936 p=3882 u=root |  
+2014-09-15 12:20:22,025 p=3882 u=root |  docker | success >> {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "10.0.2.15", 
+            "172.28.128.3", 
+            "172.17.42.1"
+        ], 
+        "ansible_all_ipv6_addresses": [
+            "fe80::a00:27ff:fece:83d", 
+            "fe80::a00:27ff:fe22:6be5", 
+            "fe80::c007:45ff:fec7:a786"
+        ], 
+        "ansible_architecture": "x86_64", 
+        "ansible_bios_date": "12/01/2006", 
+        "ansible_bios_version": "VirtualBox", 
+        "ansible_cmdline": {
+            "KEYBOARDTYPE": "pc", 
+            "KEYTABLE": "us", 
+            "LANG": "en_US.UTF-8", 
+            "SYSFONT": "latarcyrheb-sun16", 
+            "quiet": true, 
+            "rd_LVM_LV": "VolGroup/lv_root", 
+            "rd_NO_DM": true, 
+            "rd_NO_LUKS": true, 
+            "rd_NO_MD": true, 
+            "rhgb": true, 
+            "ro": true, 
+            "root": "/dev/mapper/VolGroup-lv_root"
+        }, 
+        "ansible_date_time": {
+            "date": "2014-09-15", 
+            "day": "15", 
+            "epoch": "1410783621", 
+            "hour": "12", 
+            "iso8601": "2014-09-15T12:20:21Z", 
+            "iso8601_micro": "2014-09-15T12:20:21.515972Z", 
+            "minute": "20", 
+            "month": "09", 
+            "second": "21", 
+            "time": "12:20:21", 
+            "tz": "UTC", 
+            "tz_offset": "+0000", 
+            "weekday": "Monday", 
+            "year": "2014"
+        }, 
+        "ansible_default_ipv4": {
+            "address": "10.0.2.15", 
+            "alias": "eth0", 
+            "gateway": "10.0.2.2", 
+            "interface": "eth0", 
+            "macaddress": "08:00:27:ce:08:3d", 
+            "mtu": 1500, 
+            "netmask": "255.255.255.0", 
+            "network": "10.0.2.0", 
+            "type": "ether"
+        }, 
+        "ansible_default_ipv6": {}, 
+        "ansible_devices": {
+            "sda": {
+                "holders": [], 
+                "host": "", 
+                "model": "VBOX HARDDISK", 
+                "partitions": {
+                    "sda1": {
+                        "sectors": "1024000", 
+                        "sectorsize": 512, 
+                        "size": "500.00 MB", 
+                        "start": "2048"
+                    }, 
+                    "sda2": {
+                        "sectors": "82860032", 
+                        "sectorsize": 512, 
+                        "size": "39.51 GB", 
+                        "start": "1026048"
+                    }
+                }, 
+                "removable": "0", 
+                "rotational": "1", 
+                "scheduler_mode": "cfq", 
+                "sectors": "83886080", 
+                "sectorsize": "512", 
+                "size": "40.00 GB", 
+                "support_discard": "0", 
+                "vendor": "ATA"
+            }
+        }, 
+        "ansible_distribution": "CentOS", 
+        "ansible_distribution_major_version": "6", 
+        "ansible_distribution_release": "Final", 
+        "ansible_distribution_version": "6.5", 
+        "ansible_docker0": {
+            "active": true, 
+            "device": "docker0", 
+            "id": "8000.000000000000", 
+            "interfaces": [], 
+            "ipv4": {
+                "address": "172.17.42.1", 
+                "netmask": "255.255.0.0", 
+                "network": "172.17.0.0"
+            }, 
+            "ipv6": [
+                {
+                    "address": "fe80::c007:45ff:fec7:a786", 
+                    "prefix": "64", 
+                    "scope": "link"
+                }
+            ], 
+            "macaddress": "c2:07:45:c7:a7:86", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "stp": false, 
+            "type": "bridge"
+        }, 
+        "ansible_domain": "localdomain", 
+        "ansible_env": {
+            "G_BROKEN_FILENAMES": "1", 
+            "HOME": "/root", 
+            "LANG": "en_US.UTF-8", 
+            "LC_CTYPE": "en_US.UTF-8", 
+            "LESSOPEN": "|/usr/bin/lesspipe.sh %s", 
+            "LOGNAME": "root", 
+            "MAIL": "/var/mail/root", 
+            "PATH": "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin", 
+            "PWD": "/root", 
+            "SHELL": "/bin/bash", 
+            "SHLVL": "2", 
+            "SSH_CLIENT": "172.28.128.4 60596 22", 
+            "SSH_CONNECTION": "172.28.128.4 60596 172.28.128.3 22", 
+            "USER": "root", 
+            "_": "/usr/bin/python"
+        }, 
+        "ansible_eth0": {
+            "active": true, 
+            "device": "eth0", 
+            "ipv4": {
+                "address": "10.0.2.15", 
+                "netmask": "255.255.255.0", 
+                "network": "10.0.2.0"
+            }, 
+            "ipv6": [
+                {
+                    "address": "fe80::a00:27ff:fece:83d", 
+                    "prefix": "64", 
+                    "scope": "link"
+                }
+            ], 
+            "macaddress": "08:00:27:ce:08:3d", 
+            "module": "e1000", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_eth1": {
+            "active": true, 
+            "device": "eth1", 
+            "ipv4": {
+                "address": "172.28.128.3", 
+                "netmask": "255.255.255.0", 
+                "network": "172.28.128.0"
+            }, 
+            "ipv6": [
+                {
+                    "address": "fe80::a00:27ff:fe22:6be5", 
+                    "prefix": "64", 
+                    "scope": "link"
+                }
+            ], 
+            "macaddress": "08:00:27:22:6b:e5", 
+            "module": "e1000", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_form_factor": "Other", 
+        "ansible_fqdn": "localhost.localdomain", 
+        "ansible_hostname": "docker", 
+        "ansible_interfaces": [
+            "lo", 
+            "docker0", 
+            "eth1", 
+            "eth0"
+        ], 
+        "ansible_kernel": "2.6.32-431.el6.x86_64", 
+        "ansible_lo": {
+            "active": true, 
+            "device": "lo", 
+            "ipv4": {
+                "address": "127.0.0.1", 
+                "netmask": "255.0.0.0", 
+                "network": "127.0.0.0"
+            }, 
+            "ipv6": [
+                {
+                    "address": "::1", 
+                    "prefix": "128", 
+                    "scope": "host"
+                }
+            ], 
+            "mtu": 16436, 
+            "promisc": false, 
+            "type": "loopback"
+        }, 
+        "ansible_local": {
+            "sojourner": {
+                "Product": "DevOps", 
+                "Role": "ConfigManager"
+            }
+        }, 
+        "ansible_machine": "x86_64", 
+        "ansible_memfree_mb": 312, 
+        "ansible_memtotal_mb": 458, 
+        "ansible_mounts": [
+            {
+                "device": "/dev/mapper/VolGroup-lv_root", 
+                "fstype": "ext4", 
+                "mount": "/", 
+                "options": "rw", 
+                "size_available": 35731152896, 
+                "size_total": 40797364224
+            }, 
+            {
+                "device": "/dev/sda1", 
+                "fstype": "ext4", 
+                "mount": "/boot", 
+                "options": "rw", 
+                "size_available": 448877568, 
+                "size_total": 507744256
+            }
+        ], 
+        "ansible_nodename": "docker", 
+        "ansible_os_family": "RedHat", 
+        "ansible_pkg_mgr": "yum", 
+        "ansible_processor": [
+            "Intel(R) Core(TM) i3 CPU       M 370  @ 2.40GHz"
+        ], 
+        "ansible_processor_cores": 1, 
+        "ansible_processor_count": 1, 
+        "ansible_processor_threads_per_core": 1, 
+        "ansible_processor_vcpus": 1, 
+        "ansible_product_name": "VirtualBox", 
+        "ansible_product_serial": "0", 
+        "ansible_product_uuid": "E0751CD2-1526-4420-BDCF-C13E18410A89", 
+        "ansible_product_version": "1.2", 
+        "ansible_python_version": "2.6.6", 
+        "ansible_selinux": false, 
+        "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAJhQyKxS0S7eBPSQAQFflxc/+PS9qHLlqF/uXOzLYQVqiPFc+T69/qDkGXSs1QCmzkE1uZn+n1b7cgWrO60SXGWOvfcCksj1RNh11UgI9gYdhyQ5nsISyIgjQIsMy8yFbQ/c8Cfm3PxqsxB1BN+8xZHoK7TVtfKo2k4Oazry5GIpAAAAFQDcs+i68mliSOy92y1mVcn6uhPNvwAAAIEAlxgquxWMUWiKALhLRM41y1ODpSIw83EE87BzUerXlF87SIYQRM6TRHpAVzzoNNBIXsJyifffDD0cf9RX0ygv03+o1O/4+oi9LvdwDA2t/yUGAGnXNIK8Xcof09/r3dVy2o+pxAIBgztHCezNSdsAEHb0k/v9l3CjqpkW4/x3tesAAACABjVw5Z0thBBCRODEjnYh+g8TDb0QIgCz+kwn6/ZmlyHYYcTlmnB6IqJxJqszQuDUKbprLXH0MWrEfMh3NYkOWwPo0WZfwaIccYRRQV2Y0ZhqIi/tpLne95FB+9oIo2i7iX5935yA1zqAvWhfcGdxjFcLJtZjij1f9yYasL9J0yw=", 
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAABIwAAAQEAv+VDpocINo7EnBb6PWeSCVvzxi3kNxo8uLpM04ZZUEKXYv8OkbRc+MLiBKuOHscXSdiwP016gMVCyVQmyrggUEQ1KvDSZFHDLcSSheuEiCTyxGdc0nFSG2E6AS+fth3zjL1mIj+G0U7FNHv4EVScNCFSpBQUsJwPpX9GRHtvpEZmtPgysnz5WCCv/7lCnKQubQRVffE2V24Kg2x4anUF23xaOJU75ZAi3uIZBrOOdQJKUqTLpUIcqE6BU3U0kqx+9hkPQYj/FhWyqn2GB9N+h8u6uvbEcsVtNPxWJEdE2/4rDjQBMHy6kXC6n2MG/q4gMVyLVy7IuP4vBccEOracew==", 
+        "ansible_swapfree_mb": 927, 
+        "ansible_swaptotal_mb": 927, 
+        "ansible_system": "Linux", 
+        "ansible_system_vendor": "innotek GmbH", 
+        "ansible_user_id": "root", 
+        "ansible_userspace_architecture": "x86_64", 
+        "ansible_userspace_bits": "64", 
+        "ansible_virtualization_role": "guest", 
+        "ansible_virtualization_type": "virtualbox", 
+        "module_setup": true
+    }, 
+    "changed": false
+}
+
+2014-09-15 12:54:16,576 p=3957 u=root |   [WARNING]: The version of gmp you have installed has a known issue regarding
+timing vulnerabilities when used with pycrypto. If possible, you should update
+it (ie. yum update gmp).
+
+2014-09-15 12:54:16,690 p=3957 u=root |   
+2014-09-15 12:54:16,691 p=3957 u=root |  /usr/bin/ansible-playbook -i /tmp/docker.yml /home/junedm/Sojourner//plays/Sojourner.yml
+2014-09-15 12:54:16,691 p=3957 u=root |   
+2014-09-15 12:54:16,860 p=3957 u=root |  PLAY [Add Local Facts] ******************************************************** 
+2014-09-15 12:54:16,861 p=3957 u=root |  GATHERING FACTS *************************************************************** 
+2014-09-15 12:54:17,561 p=3957 u=root |  ok: [docker]
+2014-09-15 12:54:17,573 p=3957 u=root |  TASK: [inventory | Just a Test] *********************************************** 
+2014-09-15 12:54:17,873 p=3957 u=root |  ok: [docker] => {
+    "msg": "My Role is  Docker and Owner is DevOps"
+}
+2014-09-15 12:54:17,875 p=3957 u=root |  TASK: [inventory | -> Creating ansible facts dir] ***************************** 
+2014-09-15 12:54:18,380 p=3957 u=root |  changed: [docker]
+2014-09-15 12:54:18,381 p=3957 u=root |  TASK: [inventory | -> Copy the soujerner.facts template] ********************** 
+2014-09-15 12:54:18,990 p=3957 u=root |  changed: [docker]
+2014-09-15 12:54:18,992 p=3957 u=root |  TASK: [inventory | re-read facts after adding custom fact] ******************** 
+2014-09-15 12:54:19,626 p=3957 u=root |  ok: [docker]
+2014-09-15 12:54:19,633 p=3957 u=root |  PLAY RECAP ******************************************************************** 
+2014-09-15 12:54:19,634 p=3957 u=root |  docker                     : ok=5    changed=2    unreachable=0    failed=0   

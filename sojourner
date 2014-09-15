@@ -174,9 +174,10 @@ def assign(args):
 	## What will be path for play 
 	path=SOUJOURNER_HOME+"/plays/"+ product + "/" + role +".yml"
 	if not os.path.exists(path):
+		path=SOUJOURNER_HOME+"/plays/Sojourner.yml"
         	# this means the Playbook does not exist for this Product/Role
-            	raise Exception("Sorry.. It seems the Playbook for the Product does not exist.Make sure its available at %s." %path)
-	     	return 1
+            	#raise Exception("Sorry.. It seems the Playbook for the Product does not exist.Make sure its available at %s." %path)
+	     	#return 1
 
 	cmd="ansible-playbook -i "+ file + " " + path
 	status,output = commands.getstatusoutput(cmd)

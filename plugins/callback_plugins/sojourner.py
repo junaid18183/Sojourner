@@ -1,11 +1,11 @@
-import os
-import time
-import sqlite3
+import os,time,sqlite3
+# +----------------------------------------------------------------------+
+#Variables
 
-
-MYHOME='/home/junedm/Sojourner/'
-dbname = MYHOME+'inventory.db'
+SOUJOURNER_HOME='/home/junedm/Sojourner/'
+dbname = SOUJOURNER_HOME+'inventory.db'
 TIME_FORMAT='%Y-%m-%d %H:%M:%S'
+# +----------------------------------------------------------------------+
 
 try:
     con = sqlite3.connect(dbname)
@@ -42,7 +42,7 @@ def log(host, data):
         con.commit()
     except:
         #pass
- 	print "My name is Khan"
+ 	print "Not able to run sojourner plugin"
 
 class CallbackModule(object):
     def runner_on_ok(self, host, res):

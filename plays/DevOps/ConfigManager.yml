@@ -1,14 +1,9 @@
 ---
 #This is just the TEST
 
-- name: Test
+- name: Devops
   hosts: all
 
-  user: root
-
-  roles:
-    -  inventory
-
-#  vars_prompt:
-#    Role: "what is the Role of this server?"
-#    Owner: "Who is the Owner of this Server?"
+#- include : ../Sojourner.yml
+# include the ../Sojourner.yml or include role inventory at the top of your custom build playbook
+- include : ../Sojourner.yml Product=DevOps  Role=ConfigManager

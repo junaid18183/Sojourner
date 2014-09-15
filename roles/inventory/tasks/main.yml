@@ -12,4 +12,3 @@
 
   - name: re-read facts after adding custom fact
     setup: 
-
