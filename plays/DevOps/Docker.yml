@@ -1,0 +1,9 @@
+---
+#Play for Docker installation
+
+- name: Devops/Docker
+  hosts: docker
+
+  roles:
+    -  inventory
+    -  ansible-docker
