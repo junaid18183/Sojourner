@@ -5,5 +5,5 @@
   hosts: docker
 
   roles:
-    -  inventory
+    -  ansible-sojourner
     -  ansible-docker

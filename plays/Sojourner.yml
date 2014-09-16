@@ -6,7 +6,7 @@
   user: root
 
   roles:
-    -  inventory
+    -  ansible-sojourner
 
 #  vars_prompt:
 #    Role: "what is the Role of this server?"
