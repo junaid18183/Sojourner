@@ -1,4 +1,6 @@
 ---
 # tasks file for ansible-docker
   - name: install the docker
-    yum: name=docker-io.x86_64 state=present
+    yum: name="{{item}}" state=present
+    with_items:
+    - docker-io.x86_64
