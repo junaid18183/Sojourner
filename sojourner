@@ -20,12 +20,12 @@
 # |                                                                      
 # +----------------------------------------------------------------------+
 import re,argparse,commands,os,sys,sqlite3
-
-#yum install MySQL-python.x86_64
 import MySQLdb
 
 from prettytable import PrettyTable #https://code.google.com/p/prettytable/wiki/Tutorial
 from prettytable import from_db_cursor
+
+from ConfigParser import SafeConfigParser
 
 try:
     import json
@@ -34,11 +34,14 @@ except ImportError:
 # +----------------------------------------------------------------------+
 #Variables
 
-SOUJOURNER_HOME='/home/junedm/Sojourner/'
-db_name = "sojourner"
-db_host = "localhost"
-db_user = "root"
-db_password = "junedm"
+parser = SafeConfigParser()
+parser.read('conf/sojourner.conf')
+
+SOUJOURNER_HOME=parser.get('sojourner', 'SOUJOURNER_HOME')
+db_name=parser.get('sojourner', 'db_name')
+db_host=parser.get('sojourner', 'db_host')
+db_user=parser.get('sojourner', 'db_user')
+db_password=parser.get('sojourner', 'db_password')
 
 conn=MySQLdb.connect(db_host,db_user,db_password,db_name)
 # +----------------------------------------------------------------------+

@@ -1,6 +1,0 @@
----
-# vars file for inventory
-OS_VERSION: '{{ ansible_distribution_version }}'
-
-#Role : "Free"
-#Product : "GlamBase"

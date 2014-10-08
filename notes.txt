@@ -2,3 +2,5 @@ pip install argparse
 pip install prettytable
 sqlite> .schema ans_facts
 CREATE TABLE ans_facts (Last_Update DATE,Hostname TEXT PRIMARY KEY,Arch TEXT , Distribution TEXT , Version TEXT , System TEXT, Kernel TEXT, Eth0_ip TEXT,Role TEXT,Owner TEXT);
+
+#yum install MySQL-python.x86_64
