@@ -32,11 +32,15 @@ def log(host, data):
     IPV4 = facts.get('ansible_default_ipv4', None).get('address', None)
     #IPV4 = facts.get('ansible_eth0', None).get('ipv4', None).get('address', None)
 
+    print now,Hostname,Arch,Distribution,Version,System,Kernel,IPV4
+
     try:
         # `host` is a unique index
         query="""REPLACE INTO facts (Last_Update,Hostname,Arch,Distribution,Version,System,Kernel,Eth0_ip) VALUES('%s','%s','%s','%s','%s','%s','%s','%s');""" %(
  	now,Hostname,Arch,Distribution,Version,System,Kernel,IPV4)
 	
+	cur.execute(query)
+	query="""REPLACE INTO inventory (Hostname) VALUES('%s');""" %(Hostname)
 	cur.execute(query)
         con.commit()
 	print "%s done" %(host)
@@ -54,7 +58,7 @@ for file in hostlist:
 		json_data = open(path+file)
 		data = json.load(json_data)
 		log(file, data)
-		os.rename(path+file,path+"done/"+file)
+		#os.rename(path+file,path+"done/"+file)
 
 #--single host
 

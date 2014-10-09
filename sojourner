@@ -19,7 +19,7 @@
 # |           
 # |                                                                      
 # +----------------------------------------------------------------------+
-import re,argparse,commands,os,sys,sqlite3
+import re,argparse,commands,os,sys
 
 from prettytable import PrettyTable #https://code.google.com/p/prettytable/wiki/Tutorial
 from prettytable import from_db_cursor
@@ -52,28 +52,24 @@ class DatabaseConnection( object ):
         	self.passwd = parser.get("sojourner","passwd")
         	self.db     = parser.get("sojourner","dbname")
         	self.conn   = MySQLdb.Connect(self.host,self.user,self.passwd,self.db)
-		self.cursor = self.conn.cursor ( MySQLdb.cursors.DictCursor )
-		self.commit = self.conn.commit()
+		#self.cursor = self.conn.cursor ( MySQLdb.cursors.DictCursor ) # with this mysql columns were also visible
+                self.cursor = self.conn.cursor()
 
-	elif db_engine == 'sqlite':
+	else :	
+		db_engine = 'sqlite' # By default we use sqlite
                 import sqlite3
                 self.db=parser.get('sojourner', 'dbname')
                 self.db = SOUJOURNER_HOME+'data_base/'+self.db+'.db'
                 self.conn = sqlite3.connect(self.db)
                 self.conn.row_factory=sqlite3.Row
 		self.cursor = self.conn.cursor()
-		self.commit = self.conn.commit()
-        else :
-                print "The db_engine should be mysql or sqlite only, you entered %s" %db_engine
-                exit(1)
-
 
     def __del__( self ):
         if self.cursor is not None:
             self.cursor.close()
         if self.conn is not None:
+	    self.conn.commit()
             self.conn.close()
-# +----------------------------------------------------------------------+
 # +----------------------------------------------------------------------+
 #http://code.activestate.com/recipes/578801-pretty-print-table-in-tabular-format/
 # Pretty Print table in tabular format
@@ -109,7 +105,7 @@ def grouplist():
     	# set ansible_python_interpreter in host_vars/127.0.0.1
     	#inventory['local'] = [ '127.0.0.1' ]
 
-    	query="SELECT Hostname,Role from inventory ORDER BY 1, 2"
+    	query="SELECT Hostname,Role from inventory ORDER BY 1, 2;"
 	data=execute_sql(query,raw=True)[0]
 
 	for row in data:
@@ -127,15 +123,15 @@ def grouplist():
 	print json.dumps(inventory, indent=4)
 	sys.exit(0)
 # +----------------------------------------------------------------------+
-def hostinfo(conn,name):
+def hostinfo(name):
 
     vars = {}
 
-    cur = conn.cursor()
-    cur.execute("""SELECT COUNT(*) FROM inventory WHERE Hostname='%s'""" %(name))
+    query="""SELECT COUNT(*) FROM inventory WHERE Hostname='%s'""" %(name)
+    data=execute_sql(query,raw=True)[0]
 
-    row = cur.fetchone()
-    if row[0] == 0:
+    #row = cur.fetchone()
+    if data[0] == 0:
         print json.dumps({})
         sys.exit(0)
 
@@ -203,8 +199,7 @@ def execute_sql(sql,raw=False) :
 	if not raw:
         	pt = from_db_cursor(cursor,print_empty=True)
 	else:
-		pt= cursor.fetchall()
-	conn.commit
+		pt = cursor.fetchall()
         return pt,affected_records
 # +----------------------------------------------------------------------+
 def assign(args):
@@ -221,7 +216,6 @@ def assign(args):
         	pt = from_db_cursor(cursor,print_empty=True)
 	else:
 		pt= cursor.fetchall()
-	#conn.commit()
         return pt,affected_records
 # +----------------------------------------------------------------------+
 def assign(args):
@@ -292,7 +286,7 @@ def main():
 	if len(sys.argv) == 2 and (sys.argv[1] == '--list'):
         	grouplist()
 	elif len(sys.argv) == 3 and (sys.argv[1] == '--host'):
-        	hostinfo(conn,sys.argv[2])
+        	hostinfo(sys.argv[2])
 	else :
         	menu()
 
