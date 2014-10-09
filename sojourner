@@ -20,7 +20,6 @@
 # |                                                                      
 # +----------------------------------------------------------------------+
 import re,argparse,commands,os,sys,sqlite3
-import MySQLdb
 
 from prettytable import PrettyTable #https://code.google.com/p/prettytable/wiki/Tutorial
 from prettytable import from_db_cursor
@@ -38,12 +37,43 @@ parser = SafeConfigParser()
 parser.read('conf/sojourner.conf')
 
 SOUJOURNER_HOME=parser.get('sojourner', 'SOUJOURNER_HOME')
-db_name=parser.get('sojourner', 'db_name')
-db_host=parser.get('sojourner', 'db_host')
-db_user=parser.get('sojourner', 'db_user')
-db_password=parser.get('sojourner', 'db_password')
+# +----------------------------------------------------------------------+
+class DatabaseConnection( object ):
+    def __init__( self ):
+	db_engine=parser.get('sojourner', 'db_engine')
+	if db_engine == 'mysql':
+        	import MySQLdb
 
-conn=MySQLdb.connect(db_host,db_user,db_password,db_name)
+        	self.conn   = None
+        	self.cursor = None
+
+        	self.host   = parser.get("sojourner","host")
+        	self.user   = parser.get("sojourner","user")
+        	self.passwd = parser.get("sojourner","passwd")
+        	self.db     = parser.get("sojourner","dbname")
+        	self.conn   = MySQLdb.Connect(self.host,self.user,self.passwd,self.db)
+		self.cursor = self.conn.cursor ( MySQLdb.cursors.DictCursor )
+		self.commit = self.conn.commit()
+
+	elif db_engine == 'sqlite':
+                import sqlite3
+                self.db=parser.get('sojourner', 'dbname')
+                self.db = SOUJOURNER_HOME+'data_base/'+self.db+'.db'
+                self.conn = sqlite3.connect(self.db)
+                self.conn.row_factory=sqlite3.Row
+		self.cursor = self.conn.cursor()
+		self.commit = self.conn.commit()
+        else :
+                print "The db_engine should be mysql or sqlite only, you entered %s" %db_engine
+                exit(1)
+
+
+    def __del__( self ):
+        if self.cursor is not None:
+            self.cursor.close()
+        if self.conn is not None:
+            self.conn.close()
+# +----------------------------------------------------------------------+
 # +----------------------------------------------------------------------+
 #http://code.activestate.com/recipes/578801-pretty-print-table-in-tabular-format/
 # Pretty Print table in tabular format
@@ -72,17 +102,17 @@ def PrettyPrint(table, justify = "R", columnWidth = 0):
     return outputStr
 # +----------------------------------------------------------------------+
 # This is for ansible inventory
-def grouplist(conn):
+def grouplist():
 
 	inventory ={}
    	# Add group for [local] (e.g. local_action). If needed,
     	# set ansible_python_interpreter in host_vars/127.0.0.1
     	#inventory['local'] = [ '127.0.0.1' ]
 
-	cur = conn.cursor()
-    	cur.execute("SELECT Hostname,Role from inventory ORDER BY 1, 2")
+    	query="SELECT Hostname,Role from inventory ORDER BY 1, 2"
+	data=execute_sql(query,raw=True)[0]
 
-	for row in cur.fetchall():
+	for row in data:
         	group = row[1]
         	if group is None:
             		group = 'ungrouped'
@@ -94,7 +124,6 @@ def grouplist(conn):
             			}
         		inventory[group]['hosts'].append(row[0])
 
-	cur.close()
 	print json.dumps(inventory, indent=4)
 	sys.exit(0)
 # +----------------------------------------------------------------------+
@@ -165,15 +194,34 @@ def reap (args) :
 		print ("Successfully Removed %s from Inventory" %(machine))
         return 0
 # +----------------------------------------------------------------------+
-def execute_sql(sql) :
-        #conn = sqlite3.connect(dbname)
-        #conn.row_factory=sqlite3.Row
-        cur = conn.cursor()
-        cur.execute(sql)
-	affected_records=cur.rowcount
-        pt = from_db_cursor(cur,print_empty=True)
-	conn.commit()
-        conn.close()
+def execute_sql(sql,raw=False) :
+	conn = DatabaseConnection()
+        cursor = conn.cursor
+        cursor.execute(sql)
+	affected_records=cursor.rowcount
+
+	if not raw:
+        	pt = from_db_cursor(cursor,print_empty=True)
+	else:
+		pt= cursor.fetchall()
+	conn.commit
+        return pt,affected_records
+# +----------------------------------------------------------------------+
+def assign(args):
+	machine=args.machine
+	product=args.product
+	role=args.role
+	
+	# Creat a Temp inventory file for this server
+	content="[all]\n"
+	tab="\t"
+	content=content+machine+ "\tProduct=" + product + "\tRole=" + role + "\n"
+	file="/tmp/"+machine+".yml"
+	if not raw:
+        	pt = from_db_cursor(cursor,print_empty=True)
+	else:
+		pt= cursor.fetchall()
+	#conn.commit()
         return pt,affected_records
 # +----------------------------------------------------------------------+
 def assign(args):
@@ -224,15 +272,15 @@ def menu ():
         parser_show.add_argument("-o", "--owner", help="owner of the machine to search for.")
         parser_show.set_defaults(func=show)
 
-        #parser_reap  = subparsers.add_parser('reap', help="Delete the host from Inventory")
-        #parser_reap.add_argument("-m", "--machine", help="host name to reap",required=True)
-        #parser_reap.set_defaults(func=reap)
+        parser_reap  = subparsers.add_parser('reap', help="Delete the host from Inventory")
+        parser_reap.add_argument("-m", "--machine", help="host name to reap",required=True)
+        parser_reap.set_defaults(func=reap)
 
-        #parser_reap  = subparsers.add_parser('assign', help="Assigns the host and runs the playbook for the assigned project")
-        #parser_reap.add_argument("-m", "--machine", help="host name to reap",required=True)
-        #parser_reap.add_argument("-p", "--product", help="Product",required=True)
-        #parser_reap.add_argument("-r", "--role", help="Role",required=True)
-        #parser_reap.set_defaults(func=assign)
+        parser_reap  = subparsers.add_parser('assign', help="Assigns the host and runs the playbook for the assigned project")
+        parser_reap.add_argument("-m", "--machine", help="host name to reap",required=True)
+        parser_reap.add_argument("-p", "--product", help="Product",required=True)
+        parser_reap.add_argument("-r", "--role", help="Role",required=True)
+        parser_reap.set_defaults(func=assign)
 
         args = parser.parse_args()
 
@@ -240,21 +288,14 @@ def menu ():
         return 0
 # +----------------------------------------------------------------------+
 def main():
-
-	#conn = sqlite3.connect(dbname)
-	#conn.row_factory=sqlite3.Row
-	conn=MySQLdb.connect(db_host,db_user,db_password,db_name)
-	
-
 	if len(sys.argv) == 2 and (sys.argv[1] == '--list'):
-        	grouplist(conn)
+        	grouplist()
 	elif len(sys.argv) == 3 and (sys.argv[1] == '--host'):
         	hostinfo(conn,sys.argv[2])
 	else :
         	menu()
 
-	conn.close()
-# +----------------------------------------------------------------------+
 # +----------------------------------------------------------------------+
 if __name__ == "__main__":
-         sys.exit(main())
+        sys.exit(main())
+# +----------------------------------------------------------------------+
