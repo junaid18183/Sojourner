@@ -34,7 +34,7 @@ except ImportError:
 #Variables
 
 parser = SafeConfigParser()
-parser.read('conf/sojourner.conf')
+parser.read('/etc/sojourner/conf/sojourner.conf')
 
 SOUJOURNER_HOME=parser.get('sojourner', 'SOUJOURNER_HOME')
 # +----------------------------------------------------------------------+
@@ -206,57 +206,62 @@ def assign(args):
 	machine=args.machine
 	product=args.product
 	role=args.role
+	debug=args.debug
 	
 	# Creat a Temp inventory file for this server
 	content="[all]\n"
 	tab="\t"
 	content=content+machine+ "\tProduct=" + product + "\tRole=" + role + "\n"
-	file="/tmp/"+machine+".yml"
-	if not raw:
-        	pt = from_db_cursor(cursor,print_empty=True)
-	else:
-		pt= cursor.fetchall()
-        return pt,affected_records
-# +----------------------------------------------------------------------+
-def assign(args):
-	machine=args.machine
-	product=args.product
-	role=args.role
-	
-	# Creat a Temp inventory file for this server
-	content="[all]\n"
-	tab="\t"
-	content=content+machine+ "\tProduct=" + product + "\tRole=" + role + "\n"
-	file="/tmp/"+machine+".yml"
-	fo = open(file, "wb")
+	hostfile="/tmp/"+machine+".yml"
+	fo = open(hostfile, "wb")
 	fo.write(content);
 	fo.close()
-	## What will be path for play 
-	path=SOUJOURNER_HOME+"/plays/"+ product + "/" + role +".yml"
-	if not os.path.exists(path):
-		path=SOUJOURNER_HOME+"/plays/Sojourner.yml"
-        	# this means the Playbook does not exist for this Product/Role
-            	#raise Exception("Sorry.. It seems the Playbook for the Product does not exist.Make sure its available at %s." %path)
-	     	#return 1
 
-	cmd="ansible-playbook -i "+ file + " " + path
+	playbook="/tmp/playbook/"
+	if not os.path.exists(playbook):
+    		os.makedirs(playbook)
+	playbook=playbook+role+".yml"
+
+	content="""---
+- name: Deploy %s
+  hosts: all
+  user: root
+
+  roles:
+    -  sojourner
+    -  %s
+""" %(role,role)
+	
+	fo = open(playbook, "wb")
+        fo.write(content);
+        fo.close()
+
+	cmd="ansible-playbook -i "+ hostfile + " " + playbook
 	status,output = commands.getstatusoutput(cmd)
 	if status == 0:
 		#Cool playbook run successfull"
+		if debug:
+			print output
 		print ("Successfully Deployed  %s/%s on %s " %(product,role,machine))
-		
 		
 	else :
 		#Maa ki tang, kuch gadbad ho gayi
-		print "Error"
 		print output
 
-	#os.remove(file)
+	#os.remove(hostfile)
+	#os.remove(playbook)
 	return 0
+# +----------------------------------------------------------------------+
+def listroles(args):
+	cmd="ansible-galaxy list"
+	status,output = commands.getstatusoutput(cmd)
+	print output
+	exit(status)
 # +----------------------------------------------------------------------+
 def menu ():
 
         parser = argparse.ArgumentParser(description="Sojourner")
+        parser.add_argument("-d", "--debug", help="debug on",action='store_true')
 
         subparsers = parser.add_subparsers()
 
@@ -271,11 +276,15 @@ def menu ():
         parser_reap.add_argument("-m", "--machine", help="host name to reap",required=True)
         parser_reap.set_defaults(func=reap)
 
-        parser_reap  = subparsers.add_parser('assign', help="Assigns the host and runs the playbook for the assigned project")
-        parser_reap.add_argument("-m", "--machine", help="host name to reap",required=True)
-        parser_reap.add_argument("-p", "--product", help="Product",required=True)
-        parser_reap.add_argument("-r", "--role", help="Role",required=True)
-        parser_reap.set_defaults(func=assign)
+        parser_add  = subparsers.add_parser('assign', help="Assigns the host and runs the playbook for the assigned project")
+        parser_add.add_argument("-d", "--debug", help="debug on",action='store_true')
+        parser_add.add_argument("-m", "--machine", help="host name to reap",required=True)
+        parser_add.add_argument("-p", "--product", help="Product",required=True)
+        parser_add.add_argument("-r", "--role", help="Role",required=True)
+        parser_add.set_defaults(func=assign)
+
+        parser_listroles  = subparsers.add_parser('list-roles', help="list-roles available in Sojourner/Ansible")
+	parser_listroles.set_defaults(func=listroles)
 
         args = parser.parse_args()
 

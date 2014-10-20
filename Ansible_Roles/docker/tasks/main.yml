@@ -1,5 +1,5 @@
 ---
-# tasks file for ansible-docker
+# tasks file for docker
   - name: install the docker
     yum: name="{{item}}" state=present
     with_items:

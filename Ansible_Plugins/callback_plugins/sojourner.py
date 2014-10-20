@@ -68,6 +68,7 @@ def log(host, data):
 	System = facts.get('ansible_system', None)
 	Kernel = facts.get('ansible_kernel', None)
 	IPV4 = facts.get('ansible_default_ipv4', None).get('address', None)
+	#IPV4 = facts.get('ansible_default_ipv4', None).get('address', None), Since I am working on Vagrant eth0 is always 10.0.2.15
 	Crid = 786 # temp fix
 
 	try:
