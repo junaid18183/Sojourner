@@ -19,7 +19,9 @@
 # |           
 # |                                                                      
 # +----------------------------------------------------------------------+
-import re,argparse,commands,os,sys
+import re,argparse,os,sys
+#import commands
+from subprocess import Popen, PIPE
 
 from prettytable import PrettyTable #https://code.google.com/p/prettytable/wiki/Tutorial
 from prettytable import from_db_cursor
@@ -237,16 +239,22 @@ def assign(args):
         fo.close()
 
 	cmd="ansible-playbook -i "+ hostfile + " " + playbook
-	status,output = commands.getstatusoutput(cmd)
+	if debug:
+		OUT=None
+	else:
+		OUT=PIPE
+	#status,output = commands.getstatusoutput(cmd)
+	#status=subprocess.call(cmd,,stdout=OUT,stderr=OUT,shell=True)
+	p=Popen(cmd.split(),stdout=OUT,stderr=OUT)
+	output=p.communicate()
+	status=p.returncode
 	if status == 0:
 		#Cool playbook run successfull"
-		if debug:
-			print output
 		print ("Successfully Deployed  %s/%s on %s " %(product,role,machine))
-		
-	else :
-		#Maa ki tang, kuch gadbad ho gayi
+	else: 
+		print "Error:" 
 		print output
+		
 
 	#os.remove(hostfile)
 	#os.remove(playbook)
@@ -254,8 +262,10 @@ def assign(args):
 # +----------------------------------------------------------------------+
 def listroles(args):
 	cmd="ansible-galaxy list"
-	status,output = commands.getstatusoutput(cmd)
-	print output
+	#status,output = commands.getstatusoutput(cmd)
+	status=subprocess.call(cmd.split())
+	#status=subprocess.call(cmd,shell=True)
+	#print output
 	exit(status)
 # +----------------------------------------------------------------------+
 def menu ():
