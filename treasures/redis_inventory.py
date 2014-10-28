@@ -2,7 +2,8 @@ import json,redis,os
 
 TIME_FORMAT='%Y-%m-%d %H:%M:%S'
 ########################################################################################
-FACT_EXPIRATION = 86400
+#FACT_EXPIRATION = -1
+#FACT_EXPIRATION = 86400
 
 redis = redis.Redis()
 
@@ -15,7 +16,7 @@ def log(host, data):
         # Only store the basic types (strings) of facts
         #if isinstance(facts[fact], basestring):
         redis_pipe.hset(host, fact, facts[fact])
-    redis_pipe.expire(host, FACT_EXPIRATION)
+    #redis_pipe.expire(host, FACT_EXPIRATION)
     redis_pipe.execute()
 ######################################################################################
 
