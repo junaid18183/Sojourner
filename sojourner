@@ -261,11 +261,11 @@ def assign(args):
 	return 0
 # +----------------------------------------------------------------------+
 def listroles(args):
+	OUT=None
 	cmd="ansible-galaxy list"
-	#status,output = commands.getstatusoutput(cmd)
-	status=subprocess.call(cmd.split())
-	#status=subprocess.call(cmd,shell=True)
-	#print output
+	p=Popen(cmd.split(),stdout=OUT,stderr=OUT)
+        output=p.communicate()
+        status=p.returncode
 	exit(status)
 # +----------------------------------------------------------------------+
 def menu ():

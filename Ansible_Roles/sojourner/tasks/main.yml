@@ -11,5 +11,5 @@
   - name: -> Copy the soujerner.facts template 
     template: src=sojourner.fact.j2 dest=/etc/ansible/facts.d/sojourner.fact owner=root group=root mode=0644
 
-#  - name: re-read facts after adding custom fact
-#    setup: 
+  - name: re-read facts after adding custom fact
+    setup: 
