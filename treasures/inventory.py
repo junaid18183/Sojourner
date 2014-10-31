@@ -51,17 +51,17 @@ def log(host, data):
  	print "My name is %s" %(host)
 
 #--For all
-path = "/tmp/facts/"
-hostlist=os.listdir( path )
-for file in hostlist:
-	if os.path.isfile(path+file):
-		json_data = open(path+file)
-		data = json.load(json_data)
-		log(file, data)
-		#os.rename(path+file,path+"done/"+file)
+#path = "/tmp/facts/"
+#hostlist=os.listdir( path )
+#for file in hostlist:
+#	if os.path.isfile(path+file):
+#		json_data = open(path+file)
+#		data = json.load(json_data)
+#		log(file, data)
+#		#os.rename(path+file,path+"done/"+file)
 
 #--single host
 
-#json_data = open('/tmp/facts/ggvaapp07')
-#data = json.load(json_data)
-#log(file, data)
+json_data = open('/tmp/facts/client')
+data = json.load(json_data)
+log(file, data)

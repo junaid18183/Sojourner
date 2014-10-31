@@ -70,8 +70,13 @@ def log(host, data):
 	IPV4 = facts.get('ansible_default_ipv4', None).get('address', None)
 	#IPV4 = facts.get('ansible_default_ipv4', None).get('address', None), Since I am working on Vagrant eth0 is always 10.0.2.15
 	Crid = 786 # temp fix
-	Product = facts.get('ansible_local').get('sojourner').get('Product')
-	Role = facts.get('ansible_local').get('sojourner').get('Role')
+	ansible_local=facts.get('ansible_local',None)
+	if ansible_local:
+		Product = facts.get('ansible_local',None).get('sojourner',None).get('Product',None)
+		Role = facts.get('ansible_local',None).get('sojourner',None).get('Role',None)
+	else:
+		Product = None
+		Role = None
 
 	try:
 		query="""REPLACE INTO facts (Last_Update,Hostname,Arch,Distribution,Version,System,Kernel,Eth0_ip) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s');""" %(now,Hostname,Arch,Distribution,Version,System,Kernel,IPV4)
