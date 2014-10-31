@@ -1,9 +1,0 @@
----
-#This is just the TEST
-
-- name: Devops
-  hosts: all
-
-#- include : ../Sojourner.yml
-# include the ../Sojourner.yml or include role inventory at the top of your custom build playbook
-- include : ../Sojourner.yml Product=DevOps  Role=ConfigManager
