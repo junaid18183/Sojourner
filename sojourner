@@ -39,6 +39,10 @@ parser = SafeConfigParser()
 parser.read('/etc/sojourner/conf/sojourner.conf')
 
 SOUJOURNER_HOME=parser.get('sojourner', 'SOUJOURNER_HOME')
+if parser.has_option(SOUJOURNER_HOME, 'provisioner'):
+	provisioner=parser.get('sojourner', 'provisioner')
+else:
+	provisioner='ansible'
 # +----------------------------------------------------------------------+
 class DatabaseConnection( object ):
     def __init__( self ):
@@ -209,6 +213,14 @@ def assign(args):
 	product=args.product
 	role=args.role
 	debug=args.debug
+	if provisioner == 'chef':
+		path="/home/junedm/chef_repo/cookbooks/"
+	if provisioner == 'ansible':	
+		path="/home/junedm/Ansible_Roles"
+
+	if not os.path.exists(path+"/"+role):
+		print "Role path %s does not exist " %(path+"/"+role)
+		exit(1)
 	
 	# Creat a Temp inventory file for this server
 	content="[all]\n"
@@ -229,10 +241,21 @@ def assign(args):
   hosts: all
   user: root
 
+"""%(role)
+	if provisioner == 'chef':
+		content=content+"""
   roles:
+    -  { role: chef_zero,cookbook: %s }
     -  sojourner
+""" %(role)
+	elif provisioner == 'ansible':
+		content=content+"""
+  roles:
     -  %s
-""" %(role,role)
+    -  sojourner
+""" %(role)
+
+
 	
 	fo = open(playbook, "wb")
         fo.write(content);
