@@ -1,5 +1,3 @@
 *.pyc
 *.db
 data_base/sojourner.db
-Ansible_Roles/*
-chef_repo/*
