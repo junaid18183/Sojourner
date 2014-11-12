@@ -14,7 +14,7 @@
      file: path="/var/tmp/sojourner/cookbooks/" state=directory recurse=yes mode=0755
 
    - name: recursively copy cookbook from management server to target
-     local_action: command rsync -vrplogDtH  /home/junedm/chef_repo/cookbooks/{{ cookbook }}  {{ inventory_hostname }}:/var/tmp/sojourner/cookbooks/
+     local_action: command rsync -vrplogDtH  {{ Chef_Cookbooks }}/{{ cookbook }}  {{ inventory_hostname }}:/var/tmp/sojourner/cookbooks/
 
    - name: -> Creating /root/.chef  directory
      file: path="/root/.chef" state=directory recurse=yes mode=0755
