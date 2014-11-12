@@ -1,5 +1,5 @@
 *.pyc
 *.db
 data_base/sojourner.db
-Chef_Cookbooks/*
-Ansible_Roles/*
+Chef_Cookbooks/*.*
+Ansible_Roles/*.*
