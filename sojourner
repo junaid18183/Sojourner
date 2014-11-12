@@ -39,7 +39,7 @@ parser = SafeConfigParser()
 parser.read('/etc/sojourner/conf/sojourner.conf')
 
 SOUJOURNER_HOME=parser.get('sojourner', 'SOUJOURNER_HOME')
-if parser.has_option(SOUJOURNER_HOME, 'provisioner'):
+if parser.has_option('sojourner', 'provisioner'):
 	provisioner=parser.get('sojourner', 'provisioner')
 else:
 	provisioner='ansible'
