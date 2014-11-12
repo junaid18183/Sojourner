@@ -39,6 +39,8 @@ parser = SafeConfigParser()
 parser.read('/etc/sojourner/conf/sojourner.conf')
 
 SOUJOURNER_HOME=parser.get('sojourner', 'SOUJOURNER_HOME')
+Ansible_Roles=parser.get('sojourner', 'Ansible_Roles')
+Chef_Cookbooks=parser.get('sojourner', 'Chef_Cookbooks')
 if parser.has_option('sojourner', 'provisioner'):
 	provisioner=parser.get('sojourner', 'provisioner')
 else:
@@ -214,10 +216,9 @@ def assign(args):
 	role=args.role
 	debug=args.debug
 	if provisioner == 'chef':
-		path="/home/junedm/chef_repo/cookbooks/"
+		path=Chef_Cookbooks
 	if provisioner == 'ansible':	
-		path="/home/junedm/Ansible_Roles"
-
+		path=Ansible_Roles
 	if not os.path.exists(path+"/"+role):
 		print "Role path %s does not exist " %(path+"/"+role)
 		exit(1)
