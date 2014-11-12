@@ -3,3 +3,4 @@
 data_base/sojourner.db
 Chef_Cookbooks/*.*
 Ansible_Roles/*.*
+Chef_Cookbooks/dummy/templates/*
