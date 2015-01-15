@@ -1,0 +1,26 @@
+---
+# tasks file for chef_zero
+
+   - name: -> Install the Chef using omnibus
+     shell: chef-client -v
+     ignore_errors: True
+     register: chef_client_installed
+
+   - name: -> Install the Chef using omnibus
+     shell: curl -L https://www.opscode.com/chef/install.sh | bash
+     when: chef_client_installed|failed
+
+   - name: -> Creating /var/tmp/sojourner/cookbooks/ directory
+     file: path="/var/tmp/sojourner/cookbooks/" state=directory recurse=yes mode=0755
+
+   - name: recursively copy cookbook from management server to target
+     local_action: command rsync -vrplogDtH  {{ Chef_Cookbooks }}/{{ cookbook }}  {{ inventory_hostname }}:/var/tmp/sojourner/cookbooks/
+
+   - name: -> Creating /root/.chef  directory
+     file: path="/root/.chef" state=directory recurse=yes mode=0755
+
+   - name: Copy the knife.rb file
+     copy: src=knife.rb  dest=/root/.chef/knife.rb owner=root group=root mode=0644
+
+   - name: Run the chef Zero
+     shell: chef-client -z -o {{ cookbook }}

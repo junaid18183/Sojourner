@@ -110,18 +110,24 @@ def reap (args) :
         return 0
 # +----------------------------------------------------------------------+
 def assign(args):
+	#Before anything starts we need sojourner to create the roles/cookbook directory in the sojorner home
+	init ()	
         machine=args.machine
         product=args.product
         role=args.role
         debug=args.debug
+	provisioner = C.SOJOURNER_PROVISIONER
         if provisioner == 'chef':
-                path=Chef_Cookbooks
+                path=C.SOJOURNER_CHEF_COOKBOOKS
         if provisioner == 'ansible':
-                path=Ansible_Roles
+                path=C.SOJOURNER_ANSIBLE_ROLES
         if not os.path.exists(path+"/"+role):
                 print ("Role path %s does not exist " %(path+"/"+role))
                 exit(1)
-
+	
+	#Now we have confirmed that the role/cookbook path exists, lets set the environment
+	os.environ['ANSIBLE_ROLES_PATH'] = str(path)
+	
         # Creat a Temp inventory file for this server
         content="[all]\n"
         tab="\t"
@@ -190,4 +196,15 @@ def listroles(args):
         output=p.communicate()
         status=p.returncode
         exit(status)
+# +----------------------------------------------------------------------+
+def init ():
+	# Create the sojourner_home if not exist
+	sojourner_home = C.DEFAULT_SOJOURNER_HOME
+	ansible_roles  = C.SOJOURNER_ANSIBLE_ROLES
+	chef_cookbooks = C.SOJOURNER_CHEF_COOKBOOKS
+	for dir in sojourner_home,ansible_roles,chef_cookbooks:
+		if os.path.isdir(dir):
+			pass
+		else :
+			os.mkdir(dir)
 # +----------------------------------------------------------------------+

@@ -26,20 +26,17 @@ def menu ():
 
         parser_reap  = subparsers.add_parser('reap', help="Delete the host from Inventory")
         parser_reap.add_argument("-m", "--machine", help="host name to reap",required=True)
-        parser_reap.set_defaults(func=show)
-        #parser_reap.set_defaults(func=reap)
+        parser_reap.set_defaults(func=reap)
 
         parser_add  = subparsers.add_parser('assign', help="Assigns the host and runs the playbook for the assigned project")
         parser_add.add_argument("-d", "--debug", help="debug on",action='store_true')
         parser_add.add_argument("-m", "--machine", help="host name to reap",required=True)
         parser_add.add_argument("-p", "--product", help="Product",required=True)
         parser_add.add_argument("-r", "--role", help="Role",required=True)
-        parser_add.set_defaults(func=show)
-        #parser_add.set_defaults(func=assign)
+        parser_add.set_defaults(func=assign)
 
         parser_listroles  = subparsers.add_parser('list-roles', help="list-roles available in Sojourner/Ansible")
-	parser_listroles.set_defaults(func=show)
-	#parser_listroles.set_defaults(func=listroles)
+	parser_listroles.set_defaults(func=listroles)
 
         args = parser.parse_args()
 

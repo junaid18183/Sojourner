@@ -84,7 +84,7 @@ DEFAULTS='defaults'
 
 # configurable things
 # 			def get_config(p, section, key, env_var, default, boolean=False, integer=False, floating=False, islist=False):
-DEFAULT_SOJOURNER_HOME    = shell_expand_path(get_config(p, DEFAULTS, 'sojourner_home','DEFAULT_SOJOURNER_HOME',False))
+DEFAULT_SOJOURNER_HOME    = shell_expand_path(get_config(p, DEFAULTS, 'sojourner_home','DEFAULT_SOJOURNER_HOME',os.environ['HOME']+'/Sojourner'))
 DEFAULT_DB_ENGINE         = get_config(p, DEFAULTS, 'db_engine', 'SOJOURNER_DB_ENGINE', 'sqlite')
 DEFAULT_DB_HOST         = get_config(p, DEFAULTS, 'db_host', 'SOJOURNER_DB_HOST', 'localhost')
 DEFAULT_DB_PORT         = get_config(p, DEFAULTS, 'db_port', 'SOJOURNER_DB_PORT', '3306')
