@@ -1,0 +1,339 @@
+#!/usr/bin/env python
+# +----------------------------------------------------------------------+
+# |                                                                      |
+# |       _                      _   __  __                              |
+# |      | |                    | | |  \/  |                             |
+# |      | |_   _ _ __   ___  __| | | \  / | ___ _ __ ___   ___  _ __    |
+# |  _   | | | | | '_ \ / _ \/ _` | | |\/| |/ _ \ '_ ` _ \ / _ \| '_ \   |
+# | | |__| | |_| | | | |  __/ (_| | | |  | |  __/ | | | | | (_) | | | |  |
+# |  \____/ \__,_|_| |_|\___|\__,_| |_|  |_|\___|_| |_| |_|\___/|_| |_|  |
+# |                                                                      |
+# | Author : Juned Memon            Email : junedm@tipsntraps.com        |
+# +----------------------------------------------------------------------+
+
+
+# +----------------------------------------------------------------------+
+# | Version :                                             
+# | Script  : 
+# | Notes   : 
+# |           
+# |                                                                      
+# +----------------------------------------------------------------------+
+import re,argparse,os,sys
+#import commands
+from subprocess import Popen, PIPE
+
+from prettytable import PrettyTable #https://code.google.com/p/prettytable/wiki/Tutorial
+from prettytable import from_db_cursor
+
+from ConfigParser import SafeConfigParser
+
+try:
+    import json
+except ImportError:
+    import simplejson as json
+# +----------------------------------------------------------------------+
+#Variables
+
+parser = SafeConfigParser()
+parser.read('/etc/sojourner/conf/sojourner.conf')
+
+sojourner_home = parser.get('defaults', 'sojourner_home')
+Ansible_Roles=parser.get('sojourner', 'Ansible_Roles')
+Chef_Cookbooks=parser.get('sojourner', 'Chef_Cookbooks')
+if parser.has_option('sojourner', 'provisioner'):
+	provisioner=parser.get('sojourner', 'provisioner')
+else:
+	provisioner='ansible'
+# +----------------------------------------------------------------------+
+class DatabaseConnection( object ):
+    def __init__( self ):
+	db_engine=parser.get('sojourner', 'db_engine')
+	if db_engine == 'mysql':
+        	import MySQLdb
+
+        	self.conn   = None
+        	self.cursor = None
+
+        	self.host   = parser.get("sojourner","host")
+        	self.user   = parser.get("sojourner","user")
+        	self.passwd = parser.get("sojourner","passwd")
+        	self.db     = parser.get("sojourner","dbname")
+        	self.conn   = MySQLdb.Connect(self.host,self.user,self.passwd,self.db)
+		#self.cursor = self.conn.cursor ( MySQLdb.cursors.DictCursor ) # with this mysql columns were also visible
+                self.cursor = self.conn.cursor()
+
+	else :	
+		db_engine = 'sqlite' # By default we use sqlite
+                import sqlite3
+                self.db=parser.get('sojourner', 'dbname')
+                self.db = SOUJOURNER_HOME+'data_base/'+self.db+'.db'
+                self.conn = sqlite3.connect(self.db)
+                self.conn.row_factory=sqlite3.Row
+		self.cursor = self.conn.cursor()
+
+    def __del__( self ):
+        if self.cursor is not None:
+            self.cursor.close()
+        if self.conn is not None:
+	    self.conn.commit()
+            self.conn.close()
+# +----------------------------------------------------------------------+
+#http://code.activestate.com/recipes/578801-pretty-print-table-in-tabular-format/
+# Pretty Print table in tabular format
+def PrettyPrint(table, justify = "R", columnWidth = 0):
+    # Not enforced but
+    # if provided columnWidth must be greater than max column width in table!
+    if columnWidth == 0:
+        # find max column width
+        for row in table:
+            for col in row:
+                width = len(str(col))
+                if width > columnWidth:
+                    columnWidth = width
+
+    outputStr = ""
+    for row in table:
+        rowList = []
+        for col in row:
+            if justify == "R": # justify right
+                rowList.append(str(col).rjust(columnWidth))
+            elif justify == "L": # justify left
+                rowList.append(str(col).ljust(columnWidth))
+            elif justify == "C": # justify center
+                rowList.append(str(col).center(columnWidth))
+        outputStr += ' '.join(rowList) + "\n"
+    return outputStr
+# +----------------------------------------------------------------------+
+# This is for ansible inventory
+def grouplist():
+
+	inventory ={}
+   	# Add group for [local] (e.g. local_action). If needed,
+    	# set ansible_python_interpreter in host_vars/127.0.0.1
+    	#inventory['local'] = [ '127.0.0.1' ]
+
+    	query="SELECT Hostname,Role from inventory ORDER BY 1, 2;"
+	data=execute_sql(query,raw=True)[0]
+
+	for row in data:
+        	group = row[1]
+        	if group is None:
+            		group = 'ungrouped'
+
+        	# Add group with empty host list to inventory{} if necessary
+        	if not group in inventory:
+        		inventory[group] = {
+                		'hosts' : []
+            			}
+        		inventory[group]['hosts'].append(row[0])
+
+	print json.dumps(inventory, indent=4)
+	sys.exit(0)
+# +----------------------------------------------------------------------+
+def hostinfo(name):
+
+    vars = {}
+
+    query="""SELECT COUNT(*) FROM inventory WHERE Hostname='%s'""" %(name)
+    data=execute_sql(query,raw=True)[0]
+
+    #row = cur.fetchone()
+    if data[0] == 0:
+        print json.dumps({})
+        sys.exit(0)
+
+    # Inject some variables for all hosts
+    vars = {
+        'admin'         : 'Juned Memon',
+        'datacenter'    : 'colo'
+    }
+
+    # Assuming you *know* that certain hosts need special vars
+    # and you can't or don't want to use host_vars/ group_vars,
+    # you could specify them here. For example, I *know* that
+    # hosts with the word 'ldap' in them need a base DN
+
+    if 'ldap' in name.lower():
+        vars['baseDN'] = 'dc=mens,dc=de'
+
+
+    print json.dumps(vars, indent=4)
+
+# +----------------------------------------------------------------------+
+def show (args) :
+        machine=args.machine
+        role=args.role
+        product=args.product
+	owner=args.owner
+
+	#query='SELECT * FROM inventory'
+	query='SELECT i.Hostname,i.DC,i.Crid,i.Asset_ID,i.Price,i.Role,i.Product,i.Owner,f.Last_Update,f.Arch,f.Distribution,f.Version,f.System,f.Eth0_ip FROM inventory AS i LEFT JOIN facts AS f ON i.Hostname = f.Hostname'
+	
+	if machine:
+		#query1 = query + (" WHERE  Hostname=%s" %machine)
+		query1 = query + " where i.Hostname='" + machine + "'"
+
+	elif role:
+		query1 = query + " where i.Role like '%" + role + "%'"
+
+	elif product:
+		query1 = query + " where i.Product like '%" + product + "%'"
+
+	elif owner:
+		query1 = query + " where i.Owner like '%" + owner + "%'"
+
+	else :
+		query1 = query
+	data=execute_sql(query1)[0]
+	print data
+        return 0
+# +----------------------------------------------------------------------+
+def reap (args) :
+        machine=args.machine
+        query='DELETE FROM inventory'
+        query1 = query + " where Hostname='" + machine + "'"
+	data=execute_sql(query1)[1]
+        if (data==1):
+		print ("Successfully Removed %s from Inventory" %(machine))
+        return 0
+# +----------------------------------------------------------------------+
+def execute_sql(sql,raw=False) :
+	conn = DatabaseConnection()
+        cursor = conn.cursor
+        cursor.execute(sql)
+	affected_records=cursor.rowcount
+
+	if not raw:
+        	pt = from_db_cursor(cursor,print_empty=True)
+	else:
+		pt = cursor.fetchall()
+        return pt,affected_records
+# +----------------------------------------------------------------------+
+def assign(args):
+	machine=args.machine
+	product=args.product
+	role=args.role
+	debug=args.debug
+	if provisioner == 'chef':
+		path=Chef_Cookbooks
+	if provisioner == 'ansible':	
+		path=Ansible_Roles
+	if not os.path.exists(path+"/"+role):
+		print "Role path %s does not exist " %(path+"/"+role)
+		exit(1)
+	
+	# Creat a Temp inventory file for this server
+	content="[all]\n"
+	tab="\t"
+	content=content+machine+ "\tProduct=" + product + "\tRole=" + role + "\n"
+	hostfile="/tmp/"+machine+".yml"
+	fo = open(hostfile, "wb")
+	fo.write(content);
+	fo.close()
+
+	playbook="/tmp/playbook/"
+	if not os.path.exists(playbook):
+    		os.makedirs(playbook)
+	playbook=playbook+role+".yml"
+
+	content="""---
+- name: Deploy %s
+  hosts: all
+  user: root
+
+"""%(role)
+	if provisioner == 'chef':
+		content=content+"""
+  roles:
+    -  { role: chef_zero,cookbook: %s }
+    -  sojourner
+""" %(role)
+	elif provisioner == 'ansible':
+		content=content+"""
+  roles:
+    -  %s
+    -  sojourner
+""" %(role)
+
+
+	
+	fo = open(playbook, "wb")
+        fo.write(content);
+        fo.close()
+
+	cmd="ansible-playbook -i "+ hostfile + " " + playbook
+	if debug:
+		OUT=None
+	else:
+		OUT=PIPE
+	#status,output = commands.getstatusoutput(cmd)
+	#status=subprocess.call(cmd,,stdout=OUT,stderr=OUT,shell=True)
+	p=Popen(cmd.split(),stdout=OUT,stderr=OUT)
+	output=p.communicate()
+	status=p.returncode
+	if status == 0:
+		#Cool playbook run successfull"
+		print ("Successfully Deployed  %s/%s on %s " %(product,role,machine))
+	else: 
+		print "Error:" 
+		print output
+		
+
+	#os.remove(hostfile)
+	#os.remove(playbook)
+	return 0
+# +----------------------------------------------------------------------+
+def listroles(args):
+	OUT=None
+	cmd="ansible-galaxy list"
+	p=Popen(cmd.split(),stdout=OUT,stderr=OUT)
+        output=p.communicate()
+        status=p.returncode
+	exit(status)
+# +----------------------------------------------------------------------+
+def menu ():
+
+        parser = argparse.ArgumentParser(description="Sojourner")
+        parser.add_argument("-d", "--debug", help="debug on",action='store_true')
+
+        subparsers = parser.add_subparsers()
+
+        parser_show = subparsers.add_parser('show',help="show's all the host")
+        parser_show.add_argument("-m", "--machine", help="host name to search for")
+        parser_show.add_argument("-r", "--role", help="Role of the machine to search for.")
+        parser_show.add_argument("-p", "--product", help="product of the machine to search for.")
+        parser_show.add_argument("-o", "--owner", help="owner of the machine to search for.")
+        parser_show.set_defaults(func=show)
+
+        parser_reap  = subparsers.add_parser('reap', help="Delete the host from Inventory")
+        parser_reap.add_argument("-m", "--machine", help="host name to reap",required=True)
+        parser_reap.set_defaults(func=reap)
+
+        parser_add  = subparsers.add_parser('assign', help="Assigns the host and runs the playbook for the assigned project")
+        parser_add.add_argument("-d", "--debug", help="debug on",action='store_true')
+        parser_add.add_argument("-m", "--machine", help="host name to reap",required=True)
+        parser_add.add_argument("-p", "--product", help="Product",required=True)
+        parser_add.add_argument("-r", "--role", help="Role",required=True)
+        parser_add.set_defaults(func=assign)
+
+        parser_listroles  = subparsers.add_parser('list-roles', help="list-roles available in Sojourner/Ansible")
+	parser_listroles.set_defaults(func=listroles)
+
+        args = parser.parse_args()
+
+        args.func(args)
+        return 0
+# +----------------------------------------------------------------------+
+def main():
+	if len(sys.argv) == 2 and (sys.argv[1] == '--list'):
+        	grouplist()
+	elif len(sys.argv) == 3 and (sys.argv[1] == '--host'):
+        	hostinfo(sys.argv[2])
+	else :
+        	menu()
+
+# +----------------------------------------------------------------------+
+if __name__ == "__main__":
+        sys.exit(main())
+# +----------------------------------------------------------------------+
