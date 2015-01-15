@@ -23,7 +23,8 @@ class DatabaseConnection( object ):
                 self.user   = C.DEFAULT_DB_USER
                 self.passwd = C.DEFAULT_DB_PASSWD
                 self.db     = C.DEFAULT_DB_DBNAME  
-                self.conn   = MySQLdb.Connect(self.host,self.user,self.passwd,self.db)
+	  	self.port   = int(C.DEFAULT_DB_PORT)
+                self.conn   = MySQLdb.Connect(self.host,self.user,self.passwd,self.db,self.port)
                 #self.cursor = self.conn.cursor ( MySQLdb.cursors.DictCursor ) # with this mysql columns were also visible
                 self.cursor = self.conn.cursor()
 
