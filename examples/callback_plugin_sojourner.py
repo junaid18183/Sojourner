@@ -1,6 +1,7 @@
 import os,time
 import sys
-import  sojourner.utils.dbcon
+
+from sojourner.utils.dbcon import execute_sql
 
 # +----------------------------------------------------------------------+
 #Variables
@@ -34,9 +35,9 @@ def log(host, data):
 
 	try:
 		query="""REPLACE INTO facts (Last_Update,Hostname,Arch,Distribution,Version,System,Kernel,Eth0_ip) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s');""" %(now,Hostname,Arch,Distribution,Version,System,Kernel,IPV4)
-		print (query)		
+		#print (query)		
 		data=execute_sql(query)[0]
-		print (data)
+		#print (data)
 
 		query="""REPLACE INTO inventory (Hostname,Crid,Product,Role) VALUES('%s',%s,'%s','%s');""" %(Hostname,Crid,Product,Role)
         	
