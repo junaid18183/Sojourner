@@ -115,18 +115,18 @@ def assign(args):
         machine=args.machine
         product=args.product
         role=args.role
+	print (role)
         debug=args.debug
-	provisioner = C.SOJOURNER_PROVISIONER
-        if provisioner == 'chef':
+        if C.SOJOURNER_PROVISIONER == 'chef':
                 path=C.SOJOURNER_CHEF_COOKBOOKS
-        if provisioner == 'ansible':
+        if C.SOJOURNER_PROVISIONER == 'ansible':
                 path=C.SOJOURNER_ANSIBLE_ROLES
         if not os.path.exists(path+"/"+role):
                 print ("Role path %s does not exist " %(path+"/"+role))
                 exit(1)
 	
 	#Now we have confirmed that the role/cookbook path exists, lets set the environment
-	os.environ['ANSIBLE_ROLES_PATH'] = str(path)
+	os.environ['ANSIBLE_ROLES_PATH'] = str(C.SOJOURNER_ANSIBLE_ROLES)
 	
         # Creat a Temp inventory file for this server
         content="[all]\n"
@@ -148,13 +148,13 @@ def assign(args):
   user: root
 
 """%(role)
-        if provisioner == 'chef':
+        if C.SOJOURNER_PROVISIONER == 'chef':
                 content=content+"""
   roles:
     -  { role: chef_zero,cookbook: %s }
     -  sojourner
 """ %(role)
-        elif provisioner == 'ansible':
+        elif C.SOJOURNER_PROVISIONER == 'ansible':
                 content=content+"""
   roles:
     -  %s
@@ -190,19 +190,28 @@ def assign(args):
         return 0
 # +----------------------------------------------------------------------+
 def listroles(args):
-        OUT=None
-        cmd="ansible-galaxy list"
-        p=Popen(cmd.split(),stdout=OUT,stderr=OUT)
-        output=p.communicate()
-        status=p.returncode
-        exit(status)
+	print ("Provisioner is %s" %(C.SOJOURNER_PROVISIONER))
+	if C.SOJOURNER_PROVISIONER == 'ansible':
+        	OUT=None
+        	cmd="ansible-galaxy list -p " + C.SOJOURNER_ANSIBLE_ROLES
+        	p=Popen(cmd.split(),stdout=OUT,stderr=OUT)
+        	output=p.communicate()
+        	status=p.returncode
+        	exit(status)
+	if C.SOJOURNER_PROVISIONER == 'chef':
+		OUT=None
+		cmd="knife cookbook list --config " + C.DEFAULT_SOJOURNER_HOME + "/examples/knife.rb"
+	        p=Popen(cmd.split(),stdout=OUT,stderr=OUT)
+                output=p.communicate()
+                status=p.returncode
+                exit(status)
 # +----------------------------------------------------------------------+
 def init ():
 	# Create the sojourner_home if not exist
 	sojourner_home = C.DEFAULT_SOJOURNER_HOME
 	ansible_roles  = C.SOJOURNER_ANSIBLE_ROLES
 	chef_cookbooks = C.SOJOURNER_CHEF_COOKBOOKS
-	for dir in sojourner_home,ansible_roles,chef_cookbooks:
+	for dir in C.DEFAULT_SOJOURNER_HOME,C.SOJOURNER_ANSIBLE_ROLES,C.SOJOURNER_CHEF_COOKBOOKS : 
 		if os.path.isdir(dir):
 			pass
 		else :

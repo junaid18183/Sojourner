@@ -96,7 +96,7 @@ DEFAULT_DB_DBNAME         = get_config(p, DEFAULTS, 'db_dbname', 'SOJOURNER_DB_D
 SOJOURNER_PROVISIONER            = get_config(p, 'sojourner', 'provisioner', 'SOJOURNER_PROVISIONER', 'ansible')
 
 # ANSIBLE RELATED
-SOJOURNER_ANSIBLE_ROLES               = get_config(p, 'ansible', 'ansible_roles', 'SOJOURNER_ANSIBLE_ROLES','/root/Sojourner/ansible_roles')
+SOJOURNER_ANSIBLE_ROLES               = get_config(p, 'ansible', 'ansible_roles', 'SOJOURNER_ANSIBLE_ROLES','/root/Sojourner/Ansible_Roles')
 
 # CHEF RELATED
-SOJOURNER_CHEF_COOKBOOKS = get_config(p, 'chef', 'chef_cookbooks', 'SOJOURNER_CHEF_COOKBOOKS','/root/Sojourner/chef_cookbooks')
+SOJOURNER_CHEF_COOKBOOKS = get_config(p, 'chef', 'chef_cookbooks', 'SOJOURNER_CHEF_COOKBOOKS','/root/Sojourner/Chef_Cookbooks')
