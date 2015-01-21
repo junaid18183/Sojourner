@@ -37,3 +37,7 @@ mysql> desc inventory;
 8 rows in set (0.00 sec)
 
 # need to copy the callback_plugins/sojourner.py to /usr/share/ansible_plugins/callback_plugins/ as a part of installation procedure
+
+install 
+
+python setup.py install

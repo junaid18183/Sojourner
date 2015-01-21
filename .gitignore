@@ -3,3 +3,5 @@
 Ansible_Roles/*
 Chef_Cookbooks/*
 sojourner.egg-info/*
+build/*
+dist/*
