@@ -190,6 +190,7 @@ def assign(args):
         return 0
 # +----------------------------------------------------------------------+
 def listroles(args):
+	init()
 	print ("Provisioner is %s" %(C.SOJOURNER_PROVISIONER))
 	if C.SOJOURNER_PROVISIONER == 'ansible':
         	OUT=None
@@ -200,7 +201,7 @@ def listroles(args):
         	exit(status)
 	if C.SOJOURNER_PROVISIONER == 'chef':
 		OUT=None
-		cmd="knife cookbook list --config " + C.DEFAULT_SOJOURNER_HOME + "/examples/knife.rb"
+		cmd="knife cookbook list --config " + C.DEFAULT_SOJOURNER_HOME + "knife.rb"
 	        p=Popen(cmd.split(),stdout=OUT,stderr=OUT)
                 output=p.communicate()
                 status=p.returncode
@@ -216,4 +217,18 @@ def init ():
 			pass
 		else :
 			os.mkdir(dir)
+	knife_file = C.DEFAULT_SOJOURNER_HOME + 'knife.rb'
+	if os.path.isfile(knife_file):
+		pass
+	else:
+	#Now copy the knife.rb file from /etc/sojourner to SOJOURNER_HOME
+		content = '''log_level                :error
+log_location             STDOUT
+local_mode   true
+cookbook_path ['%s' ]
+''' %(C.SOJOURNER_CHEF_COOKBOOKS)
+
+		fo = open(knife_file, "wb")
+        	fo.write(content);
+        	fo.close()
 # +----------------------------------------------------------------------+

@@ -98,5 +98,3 @@ def execute_sql(sql,raw=False) :
                 pt = cursor.fetchall()
         return pt,affected_records
 # +----------------------------------------------------------------------+
-
-
