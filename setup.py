@@ -29,6 +29,7 @@ setup(name='sojourner',
       ],
       data_files=[
                 ('/etc/sojourner', ['examples/sojourner.cfg']),
+		( '/usr/share/ansible_plugins/callback_plugins/', ['examples/callback_plugin_sojourner.py']),
                ],
 
 )

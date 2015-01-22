@@ -44,6 +44,7 @@ def menu ():
         return 0
 # +----------------------------------------------------------------------+
 def main():
+	init ()
 	if len(sys.argv) == 2 and (sys.argv[1] == '--list'):
         	grouplist()
 	elif len(sys.argv) == 3 and (sys.argv[1] == '--host'):
