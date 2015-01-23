@@ -115,7 +115,6 @@ def assign(args):
         machine=args.machine
         product=args.product
         role=args.role
-	print (role)
         debug=args.debug
         if C.SOJOURNER_PROVISIONER == 'chef':
                 path=C.SOJOURNER_CHEF_COOKBOOKS
@@ -141,13 +140,21 @@ def assign(args):
         if not os.path.exists(playbook):
                 os.makedirs(playbook)
         playbook=playbook+role+".yml"
-
+	
+	fact_line = '{\n"Product":"{{Product}}",\n"Role":"{{Role}}"\n}'
+	dest = "/etc/ansible/facts.d/sojourner.fact"
+	options = "owner=root group=root mode=0644 state=present create=yes"
+	
         content="""---
 - name: Deploy %s
   hosts: all
   user: root
 
-"""%(role)
+  pre_tasks:
+  - name : Deploy Local Facts
+    lineinfile : dest=%s line=%s %s
+
+"""%(role,dest,(repr(fact_line)),options)
         if C.SOJOURNER_PROVISIONER == 'chef':
                 content=content+"""
   roles:
@@ -158,10 +165,13 @@ def assign(args):
                 content=content+"""
   roles:
     -  %s
-    -  sojourner
 """ %(role)
 
-
+	content=content+"""
+  post_tasks:
+  - name: re-read facts after adding custom fact
+    setup:
+"""
 
         fo = open(playbook, "wb")
         fo.write(content);
