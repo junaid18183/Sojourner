@@ -141,25 +141,20 @@ def assign(args):
                 os.makedirs(playbook)
         playbook=playbook+role+".yml"
 	
-	fact_line = '{\n"Product":"{{Product}}",\n"Role":"{{Role}}"\n}'
 	dest = "/etc/ansible/facts.d/sojourner.fact"
-	options = "owner=root group=root mode=0644 state=present create=yes"
-	
         content="""---
 - name: Deploy %s
   hosts: all
   user: root
 
-  pre_tasks:
-  - name : Deploy Local Facts
-    lineinfile : dest=%s line=%s %s
+  vars :
+   - Dest : %s
+"""%(role,dest)
 
-"""%(role,dest,(repr(fact_line)),options)
         if C.SOJOURNER_PROVISIONER == 'chef':
                 content=content+"""
   roles:
     -  { role: chef_zero,cookbook: %s }
-    -  sojourner
 """ %(role)
         elif C.SOJOURNER_PROVISIONER == 'ansible':
                 content=content+"""
@@ -167,11 +162,36 @@ def assign(args):
     -  %s
 """ %(role)
 
+#Now the role section is added, lets add post_task
+	
+	product_regex=r"'Product=((?!{{Product}})[\w\s]+)\n'"
+	product_replace=r"'Product={{Product}} \1\n'" ## I have added r infront of string to make it raw, otherwise \1 was getting converted to hex
+        role_regex=r"'Role=((?!{{Role}})[\w\s]+)\n'"
+	role_replace=r"'Role={{Role}} \1\n'"
+	line_regex=r"'\[setup\][\n]Product=[\w\s]*[\n]Role=[\w\s]+'"
+	line_line=r"'[setup]\nProduct={{Product}}\nRole={{Role}}'"
+
 	content=content+"""
   post_tasks:
-  - name: re-read facts after adding custom fact
-    setup:
-"""
+
+  - name : Check if {{Dest}} exist's
+    stat: path={{ Dest }}
+    register: st
+
+  - replace : dest={{ Dest }}  regexp=%s  replace=%s
+    when:  st.stat.exists is defined and st.stat.exists==True
+  - replace : dest={{ Dest }}  regexp=%s  replace=%s
+    when:  st.stat.exists is defined and st.stat.exists==True
+
+  - lineinfile : dest={{ Dest }}  regexp=%s  line=%s create=yes mode=644
+    when:  st.stat.exists is defined and st.stat.exists==False
+
+  - setup:
+
+""" %( product_regex,product_replace,role_regex,role_replace,line_regex,line_line)
+
+# repr is used to escape the \n, otherwise it will literally add the newline
+# Complete playbook is written
 
         fo = open(playbook, "wb")
         fo.write(content);

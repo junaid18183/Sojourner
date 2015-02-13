@@ -27,8 +27,11 @@ def log(host, data):
 	Crid = 786 # temp fix
 	ansible_local=facts.get('ansible_local',None)
 	if ansible_local:
-		Product = facts.get('ansible_local',None).get('sojourner',None).get('Product',None)
-		Role = facts.get('ansible_local',None).get('sojourner',None).get('Role',None)
+		try:
+			Product = ansible_local.get('sojourner',None).get('setup',None).get('product',None)
+			Role = ansible_local.get('sojourner',None).get('setup',None).get('role',None)
+		except:
+			pass
 	else:
 		Product = None
 		Role = None
