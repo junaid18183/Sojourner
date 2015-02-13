@@ -2,13 +2,20 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
+# +----------------------------------------------------------------------+
+#import commands #Not using commands
 
-import os
-import sojourner.utils.constants as C
+import re,argparse,os,sys
+from subprocess import Popen, PIPE
+try:
+    import json
+except ImportError:
+    import simplejson as json
 
 from prettytable import PrettyTable #https://code.google.com/p/prettytable/wiki/Tutorial
 from prettytable import from_db_cursor
 
+import sojourner.utils.constants as C
 # +----------------------------------------------------------------------+
 class DatabaseConnection( object ):
     def __init__( self ):
