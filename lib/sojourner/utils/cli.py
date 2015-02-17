@@ -125,18 +125,18 @@ def assign(args):
                 path=C.SOJOURNER_CHEF_COOKBOOKS
         if C.SOJOURNER_PROVISIONER == 'ansible':
                 path=C.SOJOURNER_ANSIBLE_ROLES
-        if not os.path.exists(path+"/"+role):
-                print ("Role path %s does not exist " %(path+"/"+role))
+	path=path+"/"+product+"/"+role
+        if not os.path.exists(path):
+                print ("Role path %s does not exist " %(path))
                 exit(1)
 	
 	#Now we have confirmed that the role/cookbook path exists, lets set the environment
-	os.environ['ANSIBLE_ROLES_PATH'] = str(C.SOJOURNER_ANSIBLE_ROLES)
-	
+	os.environ['ANSIBLE_ROLES_PATH'] = str(C.SOJOURNER_ANSIBLE_ROLES+"/"+product)
 	# Creat a Temp inventory file for this server
 	hostfile=create_temp_inventory_file(machine,product,role)	
 
 	fact_dest = "/etc/ansible/facts.d/sojourner.fact"
-	playbook=deploy_local_fact (role,fact_dest)
+	playbook=deploy_local_fact (product,role,fact_dest)
 	
 	status=run_playbook (hostfile,playbook,debug)
 	
@@ -144,10 +144,16 @@ def assign(args):
 # +----------------------------------------------------------------------+
 def listroles(args):
 	init()
+	product=args.product
 	print ("Provisioner is %s" %(C.SOJOURNER_PROVISIONER))
 	if C.SOJOURNER_PROVISIONER == 'ansible':
+		path=C.SOJOURNER_ANSIBLE_ROLES
+		path=path+"/"+product
+		if not os.path.exists(path):
+			print ("Role path %s does not exist " %(path))
+			exit(1)
         	OUT=None
-        	cmd="ansible-galaxy list -p " + C.SOJOURNER_ANSIBLE_ROLES
+        	cmd="ansible-galaxy list -p " + C.SOJOURNER_ANSIBLE_ROLES+"/"+product
         	p=Popen(cmd.split(),stdout=OUT,stderr=OUT)
         	output=p.communicate()
         	status=p.returncode

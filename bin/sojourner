@@ -36,6 +36,7 @@ def menu ():
         parser_add.set_defaults(func=assign)
 
         parser_listroles  = subparsers.add_parser('list-roles', help="list-roles available in Sojourner/Ansible")
+        parser_listroles.add_argument("-p", "--product", help="Product",required=True)
 	parser_listroles.set_defaults(func=listroles)
 
         args = parser.parse_args()

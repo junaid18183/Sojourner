@@ -9,7 +9,7 @@ __metaclass__ = type
 from sojourner.utils.dbcon import *
 
 # +----------------------------------------------------------------------+
-def deploy_local_fact(role,fact_dest):
+def deploy_local_fact(product,role,fact_dest):
 	playbook="/tmp/playbook/"
         if not os.path.exists(playbook):
                 os.makedirs(playbook)
