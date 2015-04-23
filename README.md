@@ -1,7 +1,9 @@
 Sojourner
 =========
 
-Home of my Ansible/Check_Mk based Inventory toolkit
+Home of my ConfigManagement + Inventory Tool kit. 
+
+
 
 
 Work-In-Progress
