@@ -42,3 +42,12 @@ install
 python setup.py install
 
 set the hostfile path in your ansible.cfg to /usr/bin/sojourner
+
+python setup.py develop
+
+#---------------------------------------------------------------
+Copy the examples/python.py to /usr/lib/python2.6/site-packages/ansible/modules/extras/monitoring/
+ln -s /plugins_scripts/Git_repos/Sojourner/examples/ansible_module_puppet.py /usr/lib/python2.6/site-packages/ansible/modules/extras/monitoring/puppet.py
+
+Need to find a way to add the custom module to library of ansible
+
