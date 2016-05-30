@@ -11,7 +11,7 @@ import time,os,json
 import couchdb
 import hashlib
  
-couch_server = '172.28.128.6'
+couch_server = '10.143.0.29'
  
 TIME_FORMAT='%Y-%m-%d %H:%M:%S'
 couch = couchdb.Server('http://' + couch_server + ':5984/')

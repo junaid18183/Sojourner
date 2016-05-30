@@ -28,8 +28,8 @@ def log(host, data):
 	ansible_local=facts.get('ansible_local',None)
 	if ansible_local:
 		try:
-			Product = ansible_local.get('sojourner',None).get('setup',None).get('product',None)
-			Role = ansible_local.get('sojourner',None).get('setup',None).get('role',None)
+			Product = ansible_local.get('sojourner',None).get('Product',None)
+			Role = ansible_local.get('sojourner',None).get('Role',None)
 		except:
 			pass
 	else:
