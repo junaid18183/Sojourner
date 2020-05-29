@@ -1,0 +1,45 @@
+.container {
+   margin: 0 auto;
+   padding: 0;
+   width:80%;
+}
+.filter {
+  float: left;
+  width: 40%;
+  margin: 5px;
+}
+.filter select {
+	margin: 10px;
+	padding: 5px;
+	width: 40%;
+}
+.stats {
+	float: right;
+	margin: 5px;
+}
+
+.search-panel {
+	text-align: center;
+	margin-top: 10px;
+	clear: both;
+}
+
+.search-panel input {
+	height: 25px;
+}
+
+table  {
+	 table-layout:fixed;
+   }
+th	   { padding: 4px 4px; background: #395870;
+	 color: #fff;
+   }
+td     { border: 1px solid #cecfd5;
+	 padding: 4px 4px;
+   }
+tbody tr:nth-child(even) { 
+	 background: #f0f0f2;
+   }
+h3     {
+	 color: ##202020;
+}

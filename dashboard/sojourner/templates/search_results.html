@@ -1,0 +1,403 @@
+{% load patternsearch_tags %}
+<style type="text/css">
+
+div.absolute {
+    position: absolute;
+    bottom: 545px;
+    width: 200px;
+    height: 100px;
+    border: none;
+}
+
+#col_toggles {
+      margin-top: 20px;
+	  margin-left: 25px;
+}
+#col-invisible{
+      background-color: #B0B0B0;
+      line-height: 25px;
+	  width:75px;
+      font-size:small; 
+      color: #fff;
+}
+	
+#col_toggles input {
+    background-color: #395870;
+	padding: 2px 4px 2px 4px ;
+    line-height: 25px;
+    width:75px;
+    font-size: small; 
+    color: #fff;
+}
+   
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 75px;
+    background-color: #f1f1f1;
+}
+
+li a {
+    display: block;
+    color: #202020;
+    padding: 9px 15px 9px 15px;
+	font-size: 17px;
+    text-decoration: none;
+}
+li a:hover:not(.active) {
+    background-color: #395870;
+    color: white;
+}
+
+li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0;
+    width:100%;
+}
+
+table  { 
+	border-collapse: collapse;
+}
+
+th { 
+	padding: 5px 5px; background: #395870;
+	color: #fff;
+	font-size: 85%;
+}
+
+td { 
+	border: 1px solid #cecfd5;
+	padding: 2px 2px;
+	font-size: 85%;
+}
+
+tbody tr:nth-child(even) { 
+	background: #f0f0f2;
+}
+
+#p01 {
+	display: inline-block;
+    border: 1px;
+	padding: 8px;
+	background-color: #f0f0f2;
+	color: black;
+}
+
+</style>
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script>
+
+$(window).load(function() {
+    $('th:nth-child(20)').hide(); 
+    $('td:nth-child(20)').hide(); 
+	$('th:nth-child(19)').hide(); 
+    $('td:nth-child(19)').hide(); 
+	$('th:nth-child(18)').hide(); 
+    $('td:nth-child(18)').hide(); 
+	$('th:nth-child(17)').hide(); 
+    $('td:nth-child(17)').hide(); 
+	$('th:nth-child(15)').hide(); 
+    $('td:nth-child(15)').hide(); 
+	$('th:nth-child(14)').hide(); 
+    $('td:nth-child(14)').hide(); 
+	$('th:nth-child(13)').hide(); 
+    $('td:nth-child(13)').hide(); 
+	$('#macaddr').css({"background-color": "gray"});
+	$('#disk').css({"background-color": "gray"});
+	$('#virt').css({"background-color": "gray"});
+	$('#model').css({"background-color": "gray"});
+	$('#cost').css({"background-color": "gray"});
+	$('#comDate').css({"background-color": "gray"});
+	$('#termDate').css({"background-color": "gray"});
+});
+
+$(document).ready(function(){
+    $('#hostname').toggle(
+        function(){$('#hostname').css({"background-color": "gray"});},
+        function(){$('#hostname').css({"background-color": "#395870"});
+    });
+	$('#assetid').toggle(
+        function(){$('#assetid').css({"background-color": "gray"});},
+        function(){$('#assetid').css({"background-color": "#395870"});
+    });
+	$('#crid').toggle(
+        function(){$('#crid').css({"background-color": "gray"});},
+        function(){$('#crid').css({"background-color": "#395870"});
+    });
+	$('#state').toggle(
+        function(){$('#state').css({"background-color": "gray"});},
+        function(){$('#state').css({"background-color": "#395870"});
+    });
+	$('#dc').toggle(
+        function(){$('#dc').css({"background-color": "gray"});},
+        function(){$('#dc').css({"background-color": "#395870"});
+    });
+	$('#env').toggle(
+        function(){$('#env').css({"background-color": "gray"});},
+        function(){$('#env').css({"background-color": "#395870"});
+    });
+	$('#product').toggle(
+        function(){$('#product').css({"background-color": "gray"});},
+        function(){$('#product').css({"background-color": "#395870"});
+    });
+
+	$('#role').toggle(
+        function(){$('#role').css({"background-color": "gray"});},
+        function(){$('#role').css({"background-color": "#395870"});
+    });
+	$('#ncpu').toggle(
+        function(){$('#ncpu').css({"background-color": "gray"});},
+        function(){$('#ncpu').css({"background-color": "#395870"});
+    });
+	$('#mem').toggle(
+        function(){$('#mem').css({"background-color": "gray"});},
+        function(){$('#mem').css({"background-color": "#395870"});
+    });
+	
+	$('#os').toggle(
+        function(){$('#os').css({"background-color": "gray"});},
+        function(){$('#os').css({"background-color": "#395870"});
+    });
+	
+	$('#ver').toggle(
+        function(){$('#ver').css({"background-color": "gray"});},
+        function(){$('#ver').css({"background-color": "#395870"});
+    });
+	
+	$('#model').toggle(
+        function(){$('#model').css({"background-color": "#395870"});},
+        function(){$('#model').css({"background-color": "gray"});
+    });
+	$('#virt').toggle(
+        function(){$('#virt').css({"background-color": "#395870"});},
+        function(){$('#virt').css({"background-color": "gray"});
+    });
+	$('#disk').toggle(
+        function(){$('#disk').css({"background-color": "#395870"});},
+        function(){$('#disk').css({"background-color": "gray"});
+    });
+	$('#ipaddr').toggle(
+        function(){$('#ipaddr').css({"background-color": "gray"});},
+        function(){$('#ipaddr').css({"background-color": "#395870"});
+    });
+	$('#macaddr').toggle(
+        function(){$('#macaddr').css({"background-color": "#395870"});},
+        function(){$('#macaddr').css({"background-color": "gray"})
+		;
+    });
+	$('#cost').toggle(
+        function(){$('#cost').css({"background-color": "#395870"});},
+        function(){$('#cost').css({"background-color": "gray"})
+		;
+    });
+	$('#comDate').toggle(
+        function(){$('#comDate').css({"background-color": "#395870"});},
+        function(){$('#comDate').css({"background-color": "gray"})
+		;
+    });
+	$('#termDate').toggle(
+        function(){$('#termDate').css({"background-color": "#395870"});},
+        function(){$('#termDate').css({"background-color": "gray"})
+		;
+    });
+	
+});
+
+    $(function() {
+       
+	   $('#hostname').click(function() {
+                $('th:nth-child(1)').toggle(); 
+					$('td:nth-child(1)').toggle(); 
+		 });
+		 
+	   $('#assetid').click(function() {
+                $('th:nth-child(2)').toggle(); 
+					$('td:nth-child(2)').toggle(); 
+       });
+	   $('#crid').click(function() {
+                $('th:nth-child(3)').toggle(); 
+					$('td:nth-child(3)').toggle(); 
+       });
+	   $('#state').click(function() {
+                $('th:nth-child(4)').toggle(); 
+					$('td:nth-child(4)').toggle(); 
+       });
+	   $('#dc').click(function() {
+                $('th:nth-child(5)').toggle(); 
+					$('td:nth-child(5)').toggle(); 
+       });
+	   $('#env').click(function() {
+                $('th:nth-child(6)').toggle(); 
+					$('td:nth-child(6)').toggle(); 
+       });
+	   $('#product').click(function() {
+                $('th:nth-child(7)').toggle(); 
+					$('td:nth-child(7)').toggle(); 
+       });
+	   $('#role').click(function() {
+                $('th:nth-child(8)').toggle(); 
+					$('td:nth-child(8)').toggle(); 
+       });
+	   $('#ncpu').click(function() {
+                $('th:nth-child(9)').toggle(); 
+					$('td:nth-child(9)').toggle(); 
+       });
+	   $('#mem').click(function() {
+                $('th:nth-child(10)').toggle(); 
+					$('td:nth-child(10)').toggle(); 
+       });
+	   
+	   $('#os').click(function() {
+                $('th:nth-child(11)').toggle(); 
+					$('td:nth-child(11)').toggle(); 
+       });
+	   $('#ver').click(function() {
+                $('th:nth-child(12)').toggle(); 
+					$('td:nth-child(12)').toggle(); 
+       });
+	   $('#model').click(function() {
+                $('th:nth-child(13)').toggle(); 
+					$('td:nth-child(13)').toggle(); 
+       });
+	   $('#virt').click(function() {
+                $('th:nth-child(14)').toggle(); 
+					$('td:nth-child(14)').toggle(); 
+       });
+	   $('#disk').click(function() {
+                $('th:nth-child(15)').toggle(); 
+					$('td:nth-child(15)').toggle(); 
+       });
+	   $('#ipaddr').click(function() {
+                $('th:nth-child(16)').toggle(); 
+					$('td:nth-child(16)').toggle(); 
+       });
+	   $('#macaddr').click(function() {
+                $('th:nth-child(17)').toggle(); 
+					$('td:nth-child(17)').toggle(); 
+       });
+	   $('#cost').click(function() {
+                $('th:nth-child(18)').toggle(); 
+					$('td:nth-child(18)').toggle(); 
+       });
+	   $('#comDate').click(function() {
+                $('th:nth-child(19)').toggle(); 
+					$('td:nth-child(19)').toggle(); 
+       });
+	   $('#termDate').click(function() {
+                $('th:nth-child(20)').toggle(); 
+					$('td:nth-child(20)').toggle(); 
+       });
+	   
+	   
+    });
+</script>
+
+<ul>
+	<h4>
+		<li><a href="/">Home</a></li>
+	</h4>
+</ul>
+<body>
+
+<p>You searched for: <strong>{{ query }}</strong></p>
+
+<table border width=100%>
+{% if hosts %}
+<div id="col_toggles">
+<div id="col_toggle_buttons">
+<input id="hostname"  type="button" value="Hostname"/>
+<input id="assetid" type="button" value="Asset Id"/>
+<input id="crid"  type="button" value="Crid"/>
+<input id="state"  type="button" value="State"/>
+<input id="dc"  type="button" value="DC"/>
+<input id="env" type="button" value="Env"/>
+<input id="product" type="button" value="Product"/>
+<input id="role" type="button" value="Role"/>
+<input id="ncpu" type="button" value="Core"/>
+<input id="mem" type="button" value="Memory"/>
+<input id="os" type="button" value="OS"/>
+<input id="ver" type="button" value="Ver"/>
+<input id="ipaddr" type="button" value="IP Addr"/>
+<input id="model" type="button" value="Model"/>
+<input id="virt" type="button" value="Virt"/>
+<input id="disk" type="button" value="Disk"/>
+<input id="macaddr" type="button" value="MAC Addr" />
+<input id="cost" type="button" value="Cost" />
+<input id="comDate" type="button" value="Comm.Date" />
+<input id="termDate" type="button" value="Term.Date" />
+</div>
+</div>
+
+<br>
+	<ul>
+		<tr><th>Hostname</th><th>Asset Id</th><th>Crid</th><th>State</th><th>DC</th><th>Env</th><th>Product</th><th>Role</th><th>Core</th><th>Mem</th><th>OS</th><th>Ver</th><th>Model</th><th>Virt</th><th>Disk</th><th>IP Address</th><th>MAC Address</th><th>Cost</th><th>Commission</th><th>Termination</th></tr>
+		{% for host in hosts %}
+			<tr>
+				<td>{{ host.host_name }}</td>
+				<td>{{ host.asset_id }}</td>
+				<td>{{ host.crid }}</td>
+				<td>{{ host.state }}</td>
+				<td>{{ host.dc }}</td>
+				<td>{{ host.environment }}</td>
+				<td>{{ host.product }}</td>
+				<td>
+				{% for myrole in host.role %}
+					{% if host.role|length > 1 %}
+						{{ myrole }}<br>
+					{% else %}
+						{{ myrole }}
+					{% endif %}
+				{% endfor %}
+				</td>
+				<td>{{ host.ncpu }}</td>
+				<td>{{ host.mem }}</td>
+                <td>{{ host.os }}</td>
+                <td>{{ host.os_ver }}</td>
+				<td>{{ host.model }}</td>
+				<td>{{ host.virt }}</td>
+				<td>	
+				{% for key, values in host.disk.items %}
+					{{ key }} : {{ values }}<br>
+				{% endfor %}
+				</td>
+				<td>
+				{% for key, values in host.network.items %}
+					{% for subkey, subvalues in values.items %}
+						{% if subkey == 'ipv4' %}
+							{{ key|cut:"\u002E" }} : {{ subvalues }}<br>
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+				</td>
+				<td>
+				{% for key, values in host.network.items %}
+					{% for subkey, subvalues in values.items %}
+						{% if subkey == 'mac' %}
+							{{ key|cut:"\u002E" }} : {{ subvalues }}<br>
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+				</td>
+				<td>{{ host.cost }}</td>
+				<td>{{ host.commission_date}}</td>
+				<td>{{ host.termination_date }}</td>
+			</tr>
+			{% endfor %}
+	</ul>
+</table>
+{% if displaycontact %}
+	<br>
+	{% for host in hosts %}
+		<li id="p01">Contact : {{ host.contact_groups }}</li>
+	{% endfor %}
+{% endif %}
+{% else %}
+    <p>No host matched your search criteria.</p>
+{% endif %}
+</body>

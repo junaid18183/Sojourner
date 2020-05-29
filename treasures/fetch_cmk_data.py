@@ -9,7 +9,7 @@ from mk_livestatus import Socket
 import json,subprocess,re,time,collections,sys,pymongo
 #import mysql.connector as connector
 
-mongoserver = "localhost"
+mongoserver = "tiber"
 mongoport = 27017
 cmkdist = collections.defaultdict(dict)
 
@@ -58,7 +58,7 @@ def get_data():
       		contacts = JSONDict['contacts']
       		contact_groups = JSONDict['contact_groups'] 
 		print tags
-      		#cmkdist = parse_data(tags,host_name,contacts,contact_groups)
+      		cmkdist = parse_data(tags,host_name,contacts,contact_groups)
 
 def parse_data(tags,host_name,contacts,contact_groups):
         only_role = re.sub(r'^.*,',"",tags)
@@ -118,8 +118,8 @@ def dumpDB_Mongo(cmkdist):
 
 	db = conn.inventory
 	cmk = db.cmk
-	
 	for host in cmkdist:
+		print host
 		try:
 			cmk.insert(cmkdist[host],check_keys=False)	
 			print "Document added successfully in Mongo DB"

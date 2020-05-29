@@ -39,6 +39,9 @@ def menu ():
         parser_listroles.add_argument("-p", "--product", help="Product",required=True)
 	parser_listroles.set_defaults(func=listroles)
 
+        parser_listproducts  = subparsers.add_parser('list-products', help="list-products available in Sojourner Deployer")
+	parser_listproducts.set_defaults(func=listproducts)
+
         args = parser.parse_args()
 
         args.func(args)

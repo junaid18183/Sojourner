@@ -145,7 +145,7 @@ def assign(args):
 def listroles(args):
 	init()
 	product=args.product
-	print ("Provisioner is %s" %(C.SOJOURNER_PROVISIONER))
+	print ("Provisioner is %s ; below roles are defined for product %s " %(C.SOJOURNER_PROVISIONER,product))
 	if C.SOJOURNER_PROVISIONER == 'ansible':
 		path=C.SOJOURNER_ANSIBLE_ROLES
 		path=path+"/"+product
@@ -165,6 +165,24 @@ def listroles(args):
                 output=p.communicate()
                 status=p.returncode
                 exit(status)
+# +----------------------------------------------------------------------+
+def listproducts(args):
+        init()
+        
+        print ("Provisioner is %s ; below products are defined " %(C.SOJOURNER_PROVISIONER))
+        if C.SOJOURNER_PROVISIONER == 'ansible':
+                path=C.SOJOURNER_ANSIBLE_ROLES
+        if C.SOJOURNER_PROVISIONER == 'chef':
+                path= C.DEFAULT_SOJOURNER_HOME
+
+        if not os.path.exists(path):
+        	print ("Prodct path %s does not exist " %(path))
+                exit(1)
+	output = os.walk(C.SOJOURNER_ANSIBLE_ROLES).next()[1]  #1 for direcoty and 2 for files 
+	if not output:
+		print ("No Products Defined")
+	for p in output:
+		print ( p )
 # +----------------------------------------------------------------------+
 def init ():
 	# Create the sojourner_home if not exist
