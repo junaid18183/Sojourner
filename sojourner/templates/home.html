@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<!-- <link type="text/css" rel="stylesheet" href="style.css" /> -->
+<style type="text/css">
+
+body {
+        background-color: white;
+}
+
+div.absolute {
+        position: absolute;
+        bottom: 550px;
+        width: 200px;
+        height: 105px;
+        border: none;
+}
+
+ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 75px;
+        background-color: #f1f1f1;
+}
+
+li a {
+        display: block;
+        color: #202020;
+        padding: 9px 15px 9px 15px;
+		font-size: 17px;
+        text-decoration: none;
+}
+
+li a:hover:not(.active) {
+        background-color: #395870;
+        color: white;
+}
+
+li a.active {
+        background-color: #4CAF50;
+        color: white;
+}
+
+.container {
+        margin: 0 auto;
+        padding: 0;
+        width:100%;
+}
+
+.filter {
+        float: left;
+        width: 20%;
+        margin: 5px;
+        clear: both;
+}
+
+.filter select {
+        margin: 5px;
+        padding: 5px;
+        width: 95%;
+        height: 30px;
+}
+
+.button {
+        margin: 10px;
+        padding: 5px;
+        width: 75%;
+}
+.stats {
+        float: right;
+        width: 25%;
+        margin: 15px;
+}
+
+.mylogo {
+		position: absolute;
+		text-align: center;
+    	margin-top: 142px;
+		height: 1px;
+		width: 95.5%;
+}
+
+.search-panel {
+		margin-top: 10px;
+        text-align: center;
+        clear: both;
+		height: 10px;
+}
+
+.search-panel input {
+        height: 30px;
+}
+
+.dashboard-base {
+        float: left;
+        width: 10%;
+        margin: 2px;
+}
+
+.tag {
+        float: right;
+        width: 19%;
+        margin: 2px;
+        height: 70px;
+}
+
+table  {
+        table-layout:fixed;
+}
+
+th {
+        padding: 4px 4px; background: #395870;
+        color: #fff;
+}
+
+td {
+        border: 1px solid #cecfd5;
+        padding: 4px 4px;
+}
+
+tbody tr:nth-child(even) {
+        background: #f0f0f2;
+}
+
+h3 {
+        color: #202020;
+}
+
+h2 {
+        color: navy;
+}
+
+</style>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
+<script type="text/javascript" charset="utf-8">
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+        <div class="absolute">
+        <ul>
+                <h3>
+                        <li><a href="/">Home</a></li>
+                </h3>
+        </ul>
+        </div>
+
+        <div class="alignright">
+                <div class="tag">
+                        <h2>Techops Dashboard</h2>
+                </div>
+        </div>
+
+<div class="filter">
+
+        <form action=/group-search/ method="post">
+        {% csrf_token %}
+
+        <div class="filter-element">
+                <label for="Selection">DC &nbsp;: </label>
+                        <select name="dc" id="dc" onChange="form.submit();">
+                        {% if array.dflag != 1 %}
+                                 <option value="Select DC"                      selected="selected">Select DC</option>
+                                        {% for option in array.dc %}
+											{% if option != "" %}
+                                           		<option >{{ option }}</option>
+											{% endif %}
+                                        {% endfor %}
+                        {% else %}
+                                        {% for option in array.dc %}
+                                                <option >{{ option }}</option>
+                                        {% endfor %}
+                        {% endif %}
+                        </select>
+        </div>
+
+        <div class="filter-element">
+                <label for="Selection"> Product &nbsp;: </label>
+                        <select name="product" id="Select Product" onChange="form.submit();">
+                        {% if array.pflag != 1 %}
+                                 <option value="Select Product"                      selected="selected">Select Product</option>
+                                {% for option in array.product %}
+									{% if option != "" %}
+                        				<option >{{ option }}</option>
+									{% endif %}
+                        		{% endfor %}
+                        {% else %}
+                                {% for option in array.product %}
+                                        <option >{{ option }}</option>
+                                {% endfor %}
+                        {% endif %}
+
+                        </select>
+        </div>
+
+        <div class="filter-element">
+                <label for="Selection"> Role &nbsp;: </label>
+                        <select name="role" id="role" onChange="form.submit();">
+                        {% if array.rflag != 1 %}
+                                <option value="Select Role"                      selected="selected">Select Role</option>
+                                        {% for option in array.role %}
+											{% if option != "" %}
+                                            	 <option >{{ option }}</option>
+											{% endif %}
+                                        {% endfor %}
+                        {% else %}
+                                {% for option in array.role %}
+                                        <option >{{ option }}</option>
+                                {% endfor %}
+                        {% endif %}
+                        </select>
+        </div>
+
+        <div class="filter-element">
+                <label for="Selection"> Env &nbsp;: </label>
+                        <select name="env" id="env" onChange="form.submit();">
+                        {% if array.eflag != 1 %}
+                                 <option value="Select Env"                      selected="selected">Select Env</option>
+                                        {% for option in array.env %}
+											{% if option != "" %}
+                                                <option >{{ option }}</option>
+											{% endif %}
+                                        {% endfor %}
+                        {% else %}
+                                {% for option in array.env %}
+                                        <option >{{ option }}</option>
+                                {% endfor %}
+                        {% endif %}
+                        </select>
+        </div>
+
+<div class="button">
+        <button name="go" type="submit" value="go"> Search</button>
+</div>
+</form>
+
+</div>
+
+<div class="mylogo">
+        {% load static %}
+        <img src="{% static "dashboard/sojourner.PNG" %}" alt="My image" />
+</div>
+
+
+<div class="stats">
+        <table class="alignright">
+                <tr><th colspan="4">Hosts</th><th rowspan="2">DC</th></tr>
+                <tr><th>Total</th><th>Physical</th><th>Virtual</th><th>Down</th></tr>
+                <tr>
+                        <td width="60">{{ array.a }}</td>
+                        <td width="60">{{ array.b }}</td>
+                        <td width="60">{{ array.c }}</td>
+                        <td width="60"> <a href="{% url 'status' 'COLO' %}" style="color: #CC0000">{{ array.d }}</a></td>
+                        <td width="60"> <a href="{% url 'listing' %}?dc=COLO">COLO</a></td>
+                </tr>
+                <tr>
+                        <td width="60">{{ array.e }}</td>
+                        <td width="60">{{ array.f }}</td>
+                        <td width="60">{{ array.g }}</td>
+                        <td width="60"> <a href="{% url 'status' 'GGVA' %}" style="color: #CC0000">{{ array.h }}</a></td>
+                        <td width="60"> <a href="{% url 'listing' %}?dc=GGVA">GGVA</a></td>
+                </tr>
+                <tr>
+                        <td width="60">{{ array.m }}</td>
+                        <td width="60">{{ array.n }}</td>
+                        <td width="60">{{ array.o }}</td>
+                        <td width="60"> <a href="{% url 'status' 'ALL' %}" style="color: #CC0000">{{ array.p }}</a></td>
+                        <td width="60"> <a href="{% url 'listing' %}?dc=ALL">All</a></td>
+                </tr>
+        </table>
+		<p align="right"> <a href="{% url 'showvip'%}" style="color: #000080">ShowVirtualIP</a></p>
+</div>
+
+
+<div class="search-panel">
+    <form action="/search/" method="get">
+        <input type="search" placeholder="Search" size="45px" name="q">
+        <button type="submit">GO</button>
+    </form>
+
+</div>
+
+<div style="position: relative">
+        <p style="position: fixed; bottom: 0; width:98%; text-align: right;color:gray"> Managed By TechOps
+        </p>
+</div>
+</div>
+</div>
+
+</body>
+
+</html>
+

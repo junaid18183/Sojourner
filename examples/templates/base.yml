@@ -1,5 +1,0 @@
----
-- name: Deploy {{ role }}
-  hosts: all
-  user: root
-
